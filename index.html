@@ -1195,32 +1195,26 @@ function showLogin() {
       <p class="intro">Introdueix les teves dades i el codi que t'ha facilitat el teu professor o professora per accedir a les activitats.</p>
       <div class="form-group"><label>Nom i cognoms</label>
         <input type="text" id="inp-nom" placeholder="Escriu el teu nom complet..." autocomplete="name" /></div>
-      <div class="form-group"><label>Correu electrònic</label>
-        <input type="email" id="inp-email" placeholder="el.teu@correu.com" autocomplete="email" /></div>
       <div class="form-group"><label>Codi d'accés</label>
         <input type="text" id="inp-codi" placeholder="Codi facilitat pel professor/a" autocomplete="off" /></div>
       <button class="btn-primary" id="btn-login" onclick="handleLogin()">Entrar →</button>
       <div class="error-box" id="login-error" style="display:none;"></div>
     </div></div>`;
-  document.getElementById('inp-nom').addEventListener('keydown', e => { if(e.key==='Enter') document.getElementById('inp-email').focus(); });
-  document.getElementById('inp-email').addEventListener('keydown', e => { if(e.key==='Enter') document.getElementById('inp-codi').focus(); });
+  document.getElementById('inp-nom').addEventListener('keydown', e => { if(e.key==='Enter') document.getElementById('inp-codi').focus(); });
   document.getElementById('inp-codi').addEventListener('keydown', e => { if(e.key==='Enter') handleLogin(); });
 }
 
 let emailAlumne = '';
 async function handleLogin() {
   const nom = document.getElementById('inp-nom').value.trim();
-  const email = document.getElementById('inp-email').value.trim();
   const codi = document.getElementById('inp-codi').value.trim();
   const btn = document.getElementById('btn-login');
   const err = document.getElementById('login-error');
-  if (!nom || !codi || !email) { err.textContent='Cal omplir tots els camps.'; err.style.display='block'; return; }
-  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { err.textContent='Introdueix un correu electrònic vàlid.'; err.style.display='block'; return; }
+  if (!nom || !codi) { err.textContent='Cal omplir els dos camps.'; err.style.display='block'; return; }
   btn.disabled=true; btn.textContent='Verificant...'; err.style.display='none';
   const res = await loginGAS(nom, codi);
   if (res.ok) {
     alumne = nom;
-    emailAlumne = email;
     if (res.completats) completats = { ...res.completats, ...completats };
     saveState(); showModuls();
   } else {
@@ -2085,22 +2079,21 @@ function loadProfData() {
       <div class="revisio-banner">Mode demostració — GAS no configurat. No hi ha dades reals.</div>`;
     return;
   }
-  const cb = 'profcb_' + Date.now();
-  const t = setTimeout(() => {
-    delete window[cb];
-    document.getElementById('prof-taula').innerHTML =
-      `<p style="color:var(--cream-dim);text-align:center;">Error de connexió. Comprova que el script està desplegat.</p>`;
-  }, 12000);
 
-  window[cb] = data => {
-    clearTimeout(t);
-    delete window[cb];
+  const url = GAS_URL + '?action=getStudents&password=' + encodeURIComponent(PROF_PASSWORD) + '&callback=__profcb__';
+
+  window.__profcb__ = function(data) {
+    delete window.__profcb__;
     renderProfTaula(data);
   };
 
   const s = document.createElement('script');
-  s.src = GAS_URL + '?action=getStudents&password=' + encodeURIComponent(PROF_PASSWORD) + '&callback=' + cb;
-  s.onerror = () => { clearTimeout(t); document.getElementById('prof-taula').innerHTML = '<p style="color:var(--cream-dim);text-align:center;">Error de xarxa.</p>'; };
+  s.src = url;
+  s.onerror = () => {
+    delete window.__profcb__;
+    document.getElementById('prof-taula').innerHTML =
+      `<p style="color:var(--cream-dim);text-align:center;">Error de xarxa.</p>`;
+  };
   document.head.appendChild(s);
 }
 
@@ -2122,7 +2115,7 @@ function renderProfTaula(data) {
     const progres = a.teProgres
       ? `${a.moduls}/4 mòduls${a.sim ? ' · 🕊️ Sim' : ''}`
       : '—';
-    const updated = a.updated || '—';
+    const updated = a.updated ? new Date(a.updated).toLocaleString('ca-ES', {day:'2-digit',month:'2-digit',year:'numeric',hour:'2-digit',minute:'2-digit'}) : '—';
     const btnReset = a.teProgres
       ? `<button onclick="confirmarReset('${a.nom.replace(/'/g,"\\'")}', this)"
            style="font-size:0.78rem;padding:6px 12px;background:rgba(180,50,50,0.15);
