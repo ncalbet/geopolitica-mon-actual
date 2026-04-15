@@ -1,0 +1,2203 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Geopolítica i Món | Itinerari d'Aprenentatge</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --navy: #0b1a2e;
+  --navy-mid: #112240;
+  --navy-card: #152a50;
+  --gold: #c9a84c;
+  --gold-light: #e8c97a;
+  --cream: #e8dcc8;
+  --cream-dim: #9e9080;
+  --white: #f5f0e8;
+  --green: #2d6a4f;
+  --red: #8b2635;
+  --shadow: 0 6px 30px rgba(0,0,0,0.5);
+  --border: 1px solid rgba(201,168,76,0.18);
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--navy);
+  color: var(--cream);
+  font-family: 'Lora', Georgia, serif;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 10% 20%, rgba(26,58,107,0.4) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 90% 80%, rgba(17,34,64,0.6) 0%, transparent 50%),
+    url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23c9a84c' fill-opacity='0.025'%3E%3Cpath d='M50 50v-8h-4v8h-8v4h8v8h4v-8h8v-4h-8zM10 10V2H6v8H-2v4h8v8h4v-8h8v-4h-8z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+#app { max-width: 860px; margin: 0 auto; padding: 20px; min-height: 100vh; }
+h1, h2, h3, h4 { font-family: 'Playfair Display', serif; line-height: 1.2; }
+
+/* ── SITE HEADER ── */
+.site-header {
+  text-align: center; padding: 48px 20px 36px;
+  border-bottom: var(--border); margin-bottom: 40px; position: relative;
+}
+.site-header::before {
+  content: ''; position: absolute; bottom: -1px; left: 50%; transform: translateX(-50%);
+  width: 80px; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.site-header .emblem { font-size: 52px; display: block; margin-bottom: 14px; filter: drop-shadow(0 4px 12px rgba(201,168,76,0.3)); }
+.site-header h1 { font-size: clamp(1.8rem, 5vw, 2.6rem); font-weight: 900; color: var(--gold); letter-spacing: -0.5px; }
+.site-header .subtitol-header { color: var(--cream-dim); font-style: italic; margin-top: 8px; font-size: 0.95rem; }
+
+.warning-banner {
+  background: rgba(139,38,53,0.15); border: 1px solid rgba(139,38,53,0.5);
+  border-radius: 8px; padding: 14px 20px; color: #e07080; font-size: 0.85rem;
+  margin-bottom: 24px; line-height: 1.6;
+}
+
+/* ── LOGIN ── */
+.login-wrap { max-width: 440px; margin: 0 auto; }
+.login-card {
+  background: var(--navy-mid); border: var(--border); border-radius: 14px;
+  padding: 44px 40px; box-shadow: var(--shadow); position: relative; overflow: hidden;
+}
+.login-card::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.login-card h2 { font-size: 1.8rem; color: var(--gold); margin-bottom: 6px; }
+.login-card .intro { color: var(--cream-dim); font-size: 0.9rem; margin-bottom: 32px; line-height: 1.5; }
+.form-group { margin-bottom: 22px; }
+.form-group label {
+  display: block; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 1.2px;
+  color: var(--gold-light); font-family: 'Playfair Display', serif; font-weight: 600; margin-bottom: 8px;
+}
+.form-group input {
+  width: 100%; padding: 13px 16px; background: var(--navy);
+  border: 1px solid rgba(201,168,76,0.25); border-radius: 7px;
+  color: var(--white); font-family: 'Lora', serif; font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.form-group input:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,168,76,0.1); }
+.error-box {
+  background: rgba(139,38,53,0.2); border: 1px solid rgba(139,38,53,0.6);
+  border-radius: 7px; padding: 13px 16px; color: #e08090; margin-top: 16px;
+  font-size: 0.9rem; line-height: 1.5;
+}
+
+/* ── BUTTONS ── */
+.btn-primary {
+  width: 100%; padding: 15px; background: var(--gold); color: var(--navy); border: none;
+  border-radius: 7px; font-family: 'Playfair Display', serif; font-size: 1.05rem;
+  font-weight: 700; cursor: pointer; letter-spacing: 0.3px;
+  transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+  box-shadow: 0 4px 16px rgba(201,168,76,0.25);
+}
+.btn-primary:hover { background: var(--gold-light); box-shadow: 0 6px 20px rgba(201,168,76,0.35); }
+.btn-primary:active { transform: scale(0.98); }
+.btn-primary:disabled { opacity: 0.55; cursor: not-allowed; box-shadow: none; }
+.btn-secondary {
+  padding: 13px 28px; background: transparent; border: 1px solid var(--gold);
+  color: var(--gold); border-radius: 7px; font-family: 'Playfair Display', serif;
+  font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.2s;
+}
+.btn-secondary:hover { background: rgba(201,168,76,0.1); }
+.btn-amber {
+  padding: 13px 28px; background: rgba(201,168,76,0.12); border: 1px solid rgba(201,168,76,0.4);
+  color: var(--gold-light); border-radius: 7px; font-family: 'Playfair Display', serif;
+  font-size: 1rem; font-weight: 600; cursor: pointer; transition: all 0.2s; width: 100%;
+}
+.btn-amber:hover { background: rgba(201,168,76,0.22); }
+
+/* ── ALUMNE BAR ── */
+.alumne-bar {
+  display: flex; justify-content: space-between; align-items: center;
+  background: var(--navy-mid); border: var(--border); border-radius: 8px;
+  padding: 12px 20px; margin-bottom: 28px;
+}
+.alumne-bar .nom { color: var(--gold); font-family: 'Playfair Display', serif; font-weight: 600; font-size: 0.95rem; }
+.alumne-bar .progres-text { color: var(--cream-dim); font-size: 0.8rem; margin-left: 10px; }
+.alumne-bar .btn-sortir {
+  background: none; border: 1px solid rgba(201,168,76,0.2); color: var(--cream-dim);
+  padding: 6px 14px; border-radius: 5px; cursor: pointer; font-size: 0.82rem;
+  font-family: 'Lora', serif; transition: all 0.2s;
+}
+.alumne-bar .btn-sortir:hover { border-color: var(--gold); color: var(--gold); }
+
+/* ── PROGRESS BAR ── */
+.progress-global { background: rgba(201,168,76,0.08); border-radius: 20px; height: 5px; margin-bottom: 36px; overflow: hidden; }
+.progress-bar { height: 100%; background: linear-gradient(90deg, var(--gold), var(--gold-light)); border-radius: 20px; transition: width 0.6s ease; }
+
+/* ══════════════════════════════════════
+   INSÍGNIES PANEL
+══════════════════════════════════════ */
+.section-label {
+  font-family: 'Playfair Display', serif; font-size: 0.78rem; text-transform: uppercase;
+  letter-spacing: 1.8px; color: var(--gold); margin-bottom: 16px;
+  display: flex; align-items: center; gap: 10px;
+}
+.section-label::after { content: ''; flex: 1; height: 1px; background: rgba(201,168,76,0.15); }
+
+.insignies-section { margin-bottom: 40px; }
+.insignies-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+
+.insignia-card {
+  background: var(--navy-mid); border: 1px solid rgba(201,168,76,0.08);
+  border-radius: 12px; padding: 16px 8px 14px; text-align: center;
+  position: relative; transition: transform 0.25s, box-shadow 0.25s;
+  overflow: hidden;
+}
+.insignia-card.earned {
+  border-color: rgba(201,168,76,0.5);
+  background: linear-gradient(160deg, #152a50 0%, #1c3568 100%);
+  box-shadow: 0 0 24px rgba(201,168,76,0.15), inset 0 1px 0 rgba(201,168,76,0.2);
+  cursor: default;
+}
+.insignia-card.earned::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.insignia-card.repesca {
+  border-color: rgba(201,168,76,0.3); cursor: pointer;
+  animation: pulse-border 2s ease-in-out infinite;
+}
+.insignia-card.repesca:hover { transform: translateY(-3px); }
+@keyframes pulse-border {
+  0%,100% { border-color: rgba(201,168,76,0.3); box-shadow: none; }
+  50% { border-color: rgba(201,168,76,0.6); box-shadow: 0 0 14px rgba(201,168,76,0.12); }
+}
+.insignia-card.failed { border-color: rgba(139,38,53,0.2); background: rgba(20,8,10,0.4); }
+.insignia-card.locked { opacity: 0.25; }
+
+.insignia-icon { font-size: 2.2rem; display: block; margin-bottom: 8px; line-height: 1; }
+.insignia-card.locked .insignia-icon,
+.insignia-card.failed .insignia-icon { filter: grayscale(1); }
+
+.insignia-nom {
+  font-family: 'Playfair Display', serif; font-size: 0.68rem; font-weight: 600;
+  color: var(--cream); line-height: 1.3; margin-bottom: 8px; display: block;
+}
+.insignia-card.locked .insignia-nom { color: var(--cream-dim); }
+
+.insignia-estat {
+  font-size: 0.6rem; padding: 3px 7px; border-radius: 20px; display: inline-block;
+  font-family: 'Playfair Display', serif; font-weight: 700;
+  text-transform: uppercase; letter-spacing: 0.6px;
+}
+.insignia-card.earned .insignia-estat { background: rgba(45,106,79,0.25); color: #7ee8a2; }
+.insignia-card.repesca .insignia-estat { background: rgba(201,168,76,0.15); color: var(--gold-light); }
+.insignia-card.failed .insignia-estat { background: rgba(139,38,53,0.2); color: #e08090; }
+.insignia-card.locked .insignia-estat { background: rgba(255,255,255,0.04); color: var(--cream-dim); }
+
+.insignia-check {
+  position: absolute; top: 7px; right: 7px; width: 16px; height: 16px;
+  background: rgba(45,106,79,0.3); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.55rem; color: #7ee8a2;
+}
+
+/* ── MODULE CARDS ── */
+.moduls-grid { display: grid; gap: 18px; }
+.modul-card {
+  background: var(--navy-mid); border: var(--border); border-radius: 12px;
+  padding: 26px 28px; cursor: pointer; transition: all 0.3s ease;
+  position: relative; overflow: hidden;
+}
+.modul-card::after {
+  content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+  width: 4px; background: var(--gold); transition: width 0.3s;
+}
+.modul-card:hover:not(.locked)::after { width: 6px; }
+.modul-card:hover:not(.locked) {
+  transform: translateY(-3px); box-shadow: var(--shadow);
+  border-color: rgba(201,168,76,0.4); background: var(--navy-card);
+}
+.modul-card.locked { opacity: 0.42; cursor: not-allowed; }
+.modul-card.locked::after { background: var(--cream-dim); }
+.modul-card.completat::after { background: var(--green); }
+.modul-card-top { display: flex; align-items: flex-start; gap: 18px; }
+.modul-num {
+  font-family: 'Playfair Display', serif; font-size: 3rem; font-weight: 900;
+  line-height: 1; color: var(--gold); opacity: 0.2; flex-shrink: 0; min-width: 50px;
+}
+.modul-card.completat .modul-num { color: var(--green); opacity: 0.3; }
+.modul-info h3 { font-size: 1.15rem; color: var(--white); margin-bottom: 3px; }
+.modul-info .sub { color: var(--cream-dim); font-size: 0.83rem; font-style: italic; }
+.modul-status { margin-left: auto; font-size: 1.3rem; flex-shrink: 0; }
+.modul-card-desc { color: var(--cream-dim); font-size: 0.88rem; line-height: 1.65; margin-top: 14px; padding-top: 14px; border-top: 1px solid rgba(201,168,76,0.08); }
+.modul-badges { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+.badge {
+  font-size: 0.72rem; padding: 3px 10px; border-radius: 20px;
+  background: rgba(201,168,76,0.08); border: 1px solid rgba(201,168,76,0.18);
+  color: var(--gold-light); font-family: 'Playfair Display', serif;
+}
+.badge.verd { background: rgba(45,106,79,0.12); border-color: rgba(45,106,79,0.3); color: #6fcf97; }
+.badge.vermell { background: rgba(139,38,53,0.12); border-color: rgba(139,38,53,0.3); color: #e08090; }
+.badge.amber { background: rgba(201,168,76,0.1); border-color: rgba(201,168,76,0.35); color: var(--gold); }
+
+/* ── MODULE DETAIL ── */
+.back-btn {
+  background: none; border: none; color: var(--gold); cursor: pointer;
+  font-family: 'Lora', serif; font-size: 0.9rem; padding: 0; margin-bottom: 28px;
+  display: inline-flex; align-items: center; gap: 8px; transition: gap 0.2s; opacity: 0.8;
+}
+.back-btn:hover { opacity: 1; gap: 12px; }
+.modul-header { margin-bottom: 30px; }
+.modul-header h2 { font-size: clamp(1.6rem, 4vw, 2.1rem); color: var(--gold); margin-bottom: 4px; }
+.modul-header .sub-header { color: var(--cream-dim); font-style: italic; }
+
+/* ── THEORY ── */
+.teoria-box {
+  background: var(--navy-mid); border: var(--border); border-radius: 12px;
+  padding: 32px; margin-bottom: 36px; line-height: 1.8;
+}
+.teoria-box h3 {
+  font-size: 1.1rem; color: var(--gold); text-transform: uppercase; letter-spacing: 1.5px;
+  margin-bottom: 24px; padding-bottom: 14px; border-bottom: var(--border);
+}
+.teoria-box h4 { font-size: 1.05rem; color: var(--gold-light); margin: 24px 0 10px; }
+.teoria-box p { margin-bottom: 14px; color: var(--cream); font-size: 0.95rem; }
+.teoria-box ul, .teoria-box ol { margin: 10px 0 16px 22px; color: var(--cream); font-size: 0.93rem; line-height: 2; }
+.teoria-box strong { color: var(--white); }
+.teoria-box em { color: var(--gold-light); font-style: italic; }
+.highlight-box {
+  background: rgba(201,168,76,0.07); border-left: 3px solid var(--gold);
+  padding: 14px 18px; border-radius: 0 8px 8px 0; margin: 18px 0;
+  color: var(--cream); font-size: 0.92rem; font-style: italic; line-height: 1.7;
+}
+.recursos-box {
+  background: rgba(11,26,46,0.7); border: 1px solid rgba(201,168,76,0.12);
+  border-radius: 9px; padding: 20px 24px; margin-top: 24px;
+}
+.recursos-box h4 {
+  font-size: 0.78rem; text-transform: uppercase; letter-spacing: 1.5px;
+  color: var(--gold); margin-bottom: 14px; font-family: 'Playfair Display', serif;
+}
+.recursos-box a {
+  display: flex; align-items: center; gap: 10px; color: var(--cream-dim);
+  text-decoration: none; padding: 8px 0; border-bottom: 1px solid rgba(201,168,76,0.07);
+  font-size: 0.88rem; transition: color 0.2s;
+}
+.recursos-box a:last-child { border-bottom: none; }
+.recursos-box a:hover { color: var(--gold-light); }
+
+/* ── EXERCISES ── */
+.exercicis-titol { font-family: 'Playfair Display', serif; font-size: 1.35rem; color: var(--white); margin-bottom: 6px; }
+.exercicis-sub { color: var(--cream-dim); font-size: 0.85rem; margin-bottom: 24px; line-height: 1.6; }
+.exercici-section-label {
+  font-size: 0.78rem; text-transform: uppercase; letter-spacing: 1.5px;
+  color: var(--gold); font-family: 'Playfair Display', serif;
+  margin: 32px 0 16px; display: flex; align-items: center; gap: 10px;
+}
+.exercici-section-label::before, .exercici-section-label::after { content: ''; flex: 1; height: 1px; background: rgba(201,168,76,0.15); }
+
+.comprensio-card { background: var(--navy-mid); border: var(--border); border-radius: 10px; padding: 24px; margin-bottom: 18px; }
+.comprensio-card .q-num { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1px; color: var(--cream-dim); margin-bottom: 10px; font-family: 'Playfair Display', serif; }
+.comprensio-card .pregunta { font-size: 0.97rem; line-height: 1.65; color: var(--white); margin-bottom: 18px; }
+.opcions-grid { display: grid; gap: 9px; }
+.opcio-btn {
+  display: flex; align-items: flex-start; gap: 12px; padding: 12px 16px;
+  background: var(--navy); border: 1px solid rgba(201,168,76,0.12); border-radius: 7px;
+  cursor: pointer; text-align: left; width: 100%;
+  color: var(--cream); font-family: 'Lora', serif; font-size: 0.9rem; line-height: 1.5;
+  transition: all 0.18s;
+}
+.opcio-btn:hover:not(:disabled) { border-color: rgba(201,168,76,0.4); background: rgba(201,168,76,0.04); }
+.opcio-btn:disabled { cursor: not-allowed; }
+.opcio-lletra {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-width: 24px; height: 24px; background: rgba(201,168,76,0.1); border-radius: 50%;
+  font-size: 0.75rem; font-family: 'Playfair Display', serif; font-weight: 700;
+  color: var(--gold); flex-shrink: 0; margin-top: 1px;
+}
+.opcio-btn.correcta { border-color: var(--green); background: rgba(45,106,79,0.12); }
+.opcio-btn.correcta .opcio-lletra { background: rgba(45,106,79,0.3); color: #6fcf97; }
+.opcio-btn.incorrecta { border-color: var(--red); background: rgba(139,38,53,0.12); }
+.opcio-btn.incorrecta .opcio-lletra { background: rgba(139,38,53,0.3); color: #e08090; }
+.feedback-msg { margin-top: 12px; padding: 10px 14px; border-radius: 6px; font-size: 0.85rem; display: none; }
+.feedback-msg.show { display: block; }
+.feedback-msg.ok { background: rgba(45,106,79,0.15); border: 1px solid rgba(45,106,79,0.4); color: #7ee8a2; }
+.feedback-msg.err { background: rgba(139,38,53,0.15); border: 1px solid rgba(139,38,53,0.4); color: #e8909a; }
+
+.reflexio-card { background: var(--navy-mid); border: 1px solid rgba(201,168,76,0.22); border-radius: 10px; padding: 24px; margin-bottom: 18px; }
+.reflexio-badge {
+  display: inline-block; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 1px;
+  color: var(--navy); background: var(--gold); padding: 3px 11px; border-radius: 20px;
+  margin-bottom: 12px; font-family: 'Playfair Display', serif; font-weight: 700;
+}
+.reflexio-card .pregunta { font-size: 0.97rem; line-height: 1.7; color: var(--white); margin-bottom: 16px; }
+.reflexio-card textarea {
+  width: 100%; min-height: 130px; background: var(--navy);
+  border: 1px solid rgba(201,168,76,0.18); border-radius: 7px; padding: 14px 16px;
+  color: var(--cream); font-family: 'Lora', serif; font-size: 0.93rem; line-height: 1.65;
+  resize: vertical; transition: border-color 0.2s, box-shadow 0.2s;
+}
+.reflexio-card textarea:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,168,76,0.08); }
+.reflexio-card textarea::placeholder { color: rgba(158,144,128,0.35); }
+.char-count { font-size: 0.75rem; color: var(--cream-dim); margin-top: 6px; text-align: right; }
+.char-count.ok { color: #6fcf97; }
+
+.submit-box { background: var(--navy-mid); border: var(--border); border-radius: 12px; padding: 30px; margin-top: 36px; text-align: center; }
+.submit-box .punts-preview { font-family: 'Playfair Display', serif; font-size: 1.05rem; color: var(--gold); margin-bottom: 12px; }
+.submit-box > p { color: var(--cream-dim); font-size: 0.88rem; margin-bottom: 22px; line-height: 1.6; }
+.submit-error { background: rgba(139,38,53,0.15); border: 1px solid rgba(139,38,53,0.4); border-radius: 6px; color: #e08090; padding: 10px 14px; font-size: 0.88rem; margin-bottom: 16px; display: none; }
+.submit-error.show { display: block; }
+
+/* ══════════════════════════════════════
+   SUCCESS & BADGE REVEAL
+══════════════════════════════════════ */
+.success-screen { text-align: center; padding: 40px 24px; animation: fadeInUp 0.5s ease; }
+.success-screen .big-icon { font-size: 3.8rem; display: block; margin-bottom: 16px; }
+.success-screen h2 { font-size: 1.9rem; color: var(--gold); margin-bottom: 10px; }
+
+.score-summary { display: flex; justify-content: center; gap: 16px; margin: 16px 0 22px; flex-wrap: wrap; }
+.score-pill {
+  padding: 8px 20px; border-radius: 30px;
+  font-family: 'Playfair Display', serif; font-size: 0.97rem; font-weight: 600;
+}
+.score-pill.ok { background: rgba(45,106,79,0.15); border: 1px solid rgba(45,106,79,0.4); color: #6fcf97; }
+.score-pill.warn { background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.3); color: var(--gold-light); }
+.score-pill.err { background: rgba(139,38,53,0.15); border: 1px solid rgba(139,38,53,0.4); color: #e08090; }
+
+.errors-list { text-align: left; margin: 0 auto 24px; max-width: 580px; }
+.errors-list-title {
+  font-family: 'Playfair Display', serif; font-size: 0.78rem; text-transform: uppercase;
+  letter-spacing: 1.5px; color: var(--cream-dim); margin-bottom: 12px;
+}
+.error-item { background: var(--navy-mid); border: 1px solid rgba(139,38,53,0.18); border-radius: 8px; padding: 14px 16px; margin-bottom: 10px; }
+.error-item .ei-q { font-size: 0.88rem; color: var(--cream); margin-bottom: 6px; line-height: 1.5; }
+.error-item .ei-err { font-size: 0.82rem; color: #e08090; margin-bottom: 4px; }
+.error-item .ei-ok { font-size: 0.82rem; color: #6fcf97; }
+
+.badge-reveal {
+  border: 1px solid rgba(201,168,76,0.2); border-radius: 14px;
+  padding: 24px 20px; margin: 24px auto; max-width: 380px;
+  background: var(--navy-mid); position: relative; overflow: hidden;
+}
+.badge-reveal.earned-reveal {
+  border-color: rgba(201,168,76,0.5);
+  background: linear-gradient(160deg, #152a50, #1c3568);
+  box-shadow: 0 0 40px rgba(201,168,76,0.14);
+  animation: badge-pop 0.6s ease;
+}
+.badge-reveal.earned-reveal::before {
+  content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.badge-reveal.repesca-reveal { border-color: rgba(201,168,76,0.35); animation: pulse-border 2s ease-in-out infinite; }
+.badge-reveal.failed-reveal { border-color: rgba(139,38,53,0.25); }
+@keyframes badge-pop {
+  0% { transform: scale(0.8); opacity: 0; }
+  60% { transform: scale(1.05); }
+  100% { transform: scale(1); opacity: 1; }
+}
+.badge-reveal-icon { font-size: 3.2rem; display: block; margin-bottom: 10px; }
+.badge-reveal h3 { font-size: 1.15rem; margin-bottom: 6px; }
+.badge-reveal.earned-reveal h3 { color: var(--gold); }
+.badge-reveal.repesca-reveal h3 { color: var(--gold-light); }
+.badge-reveal.failed-reveal h3 { color: var(--cream-dim); }
+.badge-reveal p { font-size: 0.88rem; color: var(--cream-dim); line-height: 1.6; margin-bottom: 14px; }
+
+/* ── REPESCA SCREEN ── */
+.repesca-header {
+  background: rgba(201,168,76,0.05); border: 1px solid rgba(201,168,76,0.2);
+  border-radius: 12px; padding: 24px; margin-bottom: 28px; text-align: center;
+}
+.repesca-header h2 { font-size: 1.6rem; color: var(--gold); margin-bottom: 8px; }
+.repesca-header p { color: var(--cream-dim); font-size: 0.9rem; line-height: 1.65; }
+.repesca-info {
+  display: inline-block; margin-top: 12px; padding: 6px 16px;
+  background: rgba(201,168,76,0.1); border-radius: 20px;
+  font-family: 'Playfair Display', serif; font-size: 0.82rem; color: var(--gold-light);
+}
+
+/* ── FINAL SCREEN ── */
+.final-screen { text-align: center; padding: 48px 24px; animation: fadeInUp 0.5s ease; }
+.final-screen h2 { font-size: 2.1rem; color: var(--gold); margin-bottom: 14px; }
+.final-screen p { color: var(--cream); line-height: 1.7; margin-bottom: 14px; }
+.stats-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin: 24px 0; }
+.stat-card { background: var(--navy-mid); border: var(--border); border-radius: 10px; padding: 20px; }
+.stat-card .val { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: var(--gold); }
+.stat-card .lbl { color: var(--cream-dim); font-size: 0.82rem; margin-top: 4px; }
+
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+
+@media (max-width: 580px) {
+  .login-card { padding: 32px 20px; }
+  .modul-card { padding: 18px; }
+  .teoria-box { padding: 20px; }
+  .stats-grid { grid-template-columns: 1fr; }
+  .insignies-grid { grid-template-columns: repeat(3, 1fr); }
+  .score-summary { flex-direction: column; align-items: center; }
+}
+@media (max-width: 360px) { .insignies-grid { grid-template-columns: repeat(2, 1fr); } }
+
+/* ── REVIEW MODE ── */
+.revisio-banner {
+  background: rgba(201,168,76,0.07); border: 1px solid rgba(201,168,76,0.25);
+  border-radius: 9px; padding: 11px 16px; margin-bottom: 24px;
+  font-size: 0.84rem; color: var(--gold-light); text-align: center;
+  font-family: 'Playfair Display', serif;
+}
+.opcio-btn.correcta-review {
+  border-color: rgba(45,106,79,0.7); background: rgba(45,106,79,0.12);
+  color: var(--white); cursor: default; pointer-events: none;
+}
+.opcio-btn.correcta-review .opcio-lletra { background: rgba(45,106,79,0.5); color: #fff; }
+.opcio-btn.incorrecta-review {
+  border-color: rgba(180,50,50,0.5); background: rgba(180,50,50,0.08);
+  color: var(--cream-dim); cursor: default; pointer-events: none;
+}
+.opcio-btn.incorrecta-review .opcio-lletra { background: rgba(180,50,50,0.4); color: #fff; }
+.opcions-grid > .opcio-btn:not(.correcta-review):not(.incorrecta-review) {
+  opacity: 0.38; cursor: default; pointer-events: none;
+}
+.reflexio-review-text {
+  background: var(--navy); border: 1px solid rgba(201,168,76,0.1);
+  border-radius: 8px; padding: 14px 16px;
+  font-size: 0.91rem; color: var(--cream); line-height: 1.75;
+  min-height: 80px; white-space: pre-wrap;
+}
+
+
+   SIMULADOR GEOPOLÍTIC
+══════════════════════════════════════ */
+.sim-rol-grid { display:grid; gap:14px; margin:24px 0; }
+.sim-rol-card {
+  background:var(--navy-mid); border:1px solid rgba(201,168,76,0.15);
+  border-radius:12px; padding:20px 22px; cursor:pointer;
+  transition:all 0.25s; position:relative; overflow:hidden;
+}
+.sim-rol-card:hover { border-color:rgba(201,168,76,0.45); transform:translateY(-2px); box-shadow:var(--shadow); background:var(--navy-card); }
+.sim-rol-card::after { content:''; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--gold); }
+.sim-rol-card .rol-bandera { font-size:2rem; display:block; margin-bottom:8px; }
+.sim-rol-card .rol-nom { font-family:'Playfair Display',serif; font-size:1.05rem; color:var(--gold); margin-bottom:3px; font-weight:700; }
+.sim-rol-card .rol-titol { font-size:0.8rem; color:var(--cream-dim); margin-bottom:8px; font-style:italic; }
+.sim-rol-card .rol-resum { font-size:0.85rem; color:var(--cream); line-height:1.6; }
+
+.sim-fase-badge {
+  display:inline-flex; align-items:center; gap:8px; margin-bottom:20px;
+  background:rgba(201,168,76,0.08); border:1px solid rgba(201,168,76,0.2);
+  border-radius:20px; padding:6px 14px; font-family:'Playfair Display',serif;
+  font-size:0.78rem; color:var(--gold); text-transform:uppercase; letter-spacing:1px;
+}
+.sim-context-card {
+  background:rgba(11,26,46,0.85); border:1px solid rgba(201,168,76,0.14);
+  border-left:3px solid var(--gold); border-radius:0 10px 10px 0;
+  padding:18px 20px; margin-bottom:22px;
+}
+.sim-context-card .sim-data { font-size:0.7rem; color:var(--gold); font-family:'Playfair Display',serif; text-transform:uppercase; letter-spacing:1.2px; margin-bottom:8px; }
+.sim-context-card p { font-size:0.9rem; line-height:1.78; color:var(--cream); }
+
+.sim-opcions { display:grid; gap:11px; margin:18px 0; }
+.sim-opcio-btn {
+  display:flex; align-items:flex-start; gap:14px; padding:15px 17px;
+  background:var(--navy-mid); border:1px solid rgba(201,168,76,0.14); border-radius:10px;
+  cursor:pointer; text-align:left; width:100%;
+  color:var(--cream); font-family:'Lora',serif; font-size:0.91rem; line-height:1.58;
+  transition:all 0.18s;
+}
+.sim-opcio-btn:hover { border-color:rgba(201,168,76,0.45); background:var(--navy-card); transform:translateX(3px); }
+.sim-opcio-lletra {
+  display:inline-flex; align-items:center; justify-content:center;
+  min-width:27px; height:27px; background:rgba(201,168,76,0.12); border-radius:50%;
+  font-family:'Playfair Display',serif; font-weight:700; font-size:0.82rem;
+  color:var(--gold); flex-shrink:0; margin-top:1px;
+}
+.sim-consequencia {
+  background:var(--navy-mid); border:1px solid rgba(201,168,76,0.2);
+  border-radius:12px; padding:24px; margin:16px 0; animation:fadeInUp 0.4s ease;
+}
+.sim-consequencia h4 { font-size:0.75rem; text-transform:uppercase; letter-spacing:1.5px; color:var(--gold); margin-bottom:12px; font-family:'Playfair Display',serif; }
+.sim-consequencia p { font-size:0.92rem; line-height:1.82; color:var(--cream); }
+
+.sim-perfil-card {
+  background:linear-gradient(160deg,#152a50,#1c3568);
+  border:1px solid rgba(201,168,76,0.4); border-radius:14px;
+  padding:22px; margin:18px 0; text-align:center;
+  box-shadow:0 0 28px rgba(201,168,76,0.1); position:relative; overflow:hidden;
+}
+.sim-perfil-card::before { content:''; display:block; height:2px; margin-bottom:16px; background:linear-gradient(90deg,transparent,var(--gold),transparent); }
+.sim-perfil-titol { font-family:'Playfair Display',serif; font-size:0.7rem; text-transform:uppercase; letter-spacing:2px; color:var(--gold-light); margin-bottom:6px; }
+.sim-perfil-nom { font-family:'Playfair Display',serif; font-size:1.25rem; color:var(--gold); font-weight:700; margin-bottom:8px; }
+.sim-perfil-desc { font-size:0.86rem; color:var(--cream-dim); line-height:1.65; }
+
+.sim-progress-dots { display:flex; gap:7px; margin-bottom:22px; align-items:center; flex-wrap:wrap; }
+.sim-dot { width:9px; height:9px; border-radius:50%; background:rgba(201,168,76,0.1); border:1px solid rgba(201,168,76,0.2); transition:all 0.3s; }
+.sim-dot.done { background:var(--gold); border-color:var(--gold); }
+.sim-dot.current { background:rgba(201,168,76,0.4); border-color:var(--gold); transform:scale(1.3); }
+.sim-dot.fase2 { border-color:rgba(91,155,213,0.35); background:rgba(91,155,213,0.08); }
+.sim-dot.fase2.done { background:#5b9bd5; border-color:#5b9bd5; }
+.sim-dot.fase2.current { background:rgba(91,155,213,0.35); border-color:#5b9bd5; transform:scale(1.3); }
+.sim-dot-sep { width:16px; height:1px; background:rgba(201,168,76,0.2); margin:0 2px; }
+
+.fase2-alert {
+  background:rgba(91,155,213,0.07); border:1px solid rgba(91,155,213,0.22);
+  border-radius:10px; padding:16px 18px; margin-bottom:18px;
+}
+.fase2-alert .fa2-tag { font-family:'Playfair Display',serif; font-size:0.7rem; text-transform:uppercase; letter-spacing:1.5px; color:#7ab4e0; margin-bottom:7px; }
+.fase2-alert p { font-size:0.88rem; color:var(--cream); line-height:1.72; }
+
+.sim-modul-card {
+  background:linear-gradient(160deg,#152a50,#192e5e);
+  border:1px solid rgba(201,168,76,0.3); border-radius:12px;
+  padding:26px 28px; cursor:pointer; transition:all 0.3s;
+  position:relative; overflow:hidden; margin-top:14px;
+}
+.sim-modul-card::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,transparent,var(--gold),transparent); }
+.sim-modul-card::after { content:''; position:absolute; left:0; top:0; bottom:0; width:4px; background:var(--gold); }
+.sim-modul-card:hover { transform:translateY(-3px); box-shadow:0 8px 32px rgba(201,168,76,0.2); border-color:rgba(201,168,76,0.55); }
+.sim-modul-card.locked { opacity:0.32; cursor:not-allowed; }
+.sim-modul-card.locked::before, .sim-modul-card.locked::after { opacity:0.3; }
+.sim-modul-card.completat::after { background:var(--green); }
+.sim-modul-card.completat { border-color:rgba(45,106,79,0.4); }
+.sim-label { display:inline-flex; align-items:center; gap:6px; font-family:'Playfair Display',serif; font-size:0.7rem; text-transform:uppercase; letter-spacing:1.5px; color:var(--gold); margin-bottom:14px; }
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+// ═══════════════════════════════════════════════════════
+// ▸ CONFIGURACIÓ
+// ═══════════════════════════════════════════════════════
+const GAS_URL = 'https://script.google.com/macros/s/AKfycbzh4EAVx9WfKo-NUcF4j_XLtcChPTaON0sR-AUj8jLkyj88hJKabAVcZNgIZ0loMipD/exec';
+const GAS_CONFIGURAT = !GAS_URL.includes('POSA_AQUI');
+const MINIM_INSIGNIA = 0.6;   // 60% per obtenir insígnia directament
+const MINIM_REPESCA  = 0.667; // 2 de 3 a la repesca
+
+// ═══════════════════════════════════════════════════════
+// ▸ INSÍGNIES
+// ═══════════════════════════════════════════════════════
+const INSIGNIES = [
+  { id: 'M1',  icon: '🌍',  nom: 'Cartògraf del Món',      desc: 'Geopolítica bàsica dominada',    modul: 1    },
+  { id: 'M2',  icon: '🏛️',  nom: 'Delegada de l\'ONU',     desc: 'Estructura de l\'ONU assolida',  modul: 2    },
+  { id: 'M3',  icon: '⚖️',  nom: 'Advocada Internacional', desc: 'Dret internacional comprès',     modul: 3    },
+  { id: 'M4',  icon: '☮️',  nom: 'Analista de Conflictes', desc: 'Conflictes actuals analitzats',  modul: 4    },
+  { id: 'SIM', icon: '🕊️',  nom: 'Diplomàtica del Món',    desc: 'Missió final completada',        modul: null },
+];
+
+// ═══════════════════════════════════════════════════════
+// ▸ REPESCA — 3 preguntes alternatives per mòdul
+// ═══════════════════════════════════════════════════════
+const REPESCA = {
+  1: { titol: 'Geopolítica i Poder', preguntes: [
+    { id:'R1Q1', pregunta:'Quin tractat del 1648 va establir el principi de sobirania entre estats com a base del sistema internacional modern?',
+      opcions:['Tractat de Versalles','Tractat de Westfàlia','Tractat d\'Utrecht','Tractat de Roma'], correcta:1 },
+    { id:'R1Q2', pregunta:'Quin terme descriu la capacitat d\'influenciar altres estats a través de l\'atractiu cultural i els valors, sense recórrer a la força militar?',
+      opcions:['Hard power','Poder nuclear','Soft power','Poder coercitiu'], correcta:2 },
+    { id:'R1Q3', pregunta:'Quin element geogràfic és especialment estratègic per al control del comerç marítim internacional i la projecció de poder naval?',
+      opcions:['Les serralades interiors','Els deserts centrals','Els estrets i canals marítims','Les planes agrícoles'], correcta:2 },
+  ]},
+  2: { titol: 'L\'ONU i el Consell de Seguretat', preguntes: [
+    { id:'R2Q1', pregunta:'Quants membres té en total el Consell de Seguretat de l\'ONU (permanents + no permanents)?',
+      opcions:['5','10','15','20'], correcta:2 },
+    { id:'R2Q2', pregunta:'En quin any es va fundar l\'Organització de les Nacions Unides i es va signar la seva Carta fundacional?',
+      opcions:['1939','1945','1948','1955'], correcta:1 },
+    { id:'R2Q3', pregunta:'Quina de les agències de l\'ONU s\'ocupa específicament de la salut pública mundial i de la coordinació davant pandèmies?',
+      opcions:['UNICEF','UNESCO','ACNUR','OMS'], correcta:3 },
+  ]},
+  3: { titol: 'Dret Internacional', preguntes: [
+    { id:'R3Q1', pregunta:'Quin principi llatí, fonamental en el dret internacional, estableix que els tractats internacionals signats s\'han de complir?',
+      opcions:['Habeas corpus','Pacta sunt servanda','In dubio pro reo','Nullum crimen sine lege'], correcta:1 },
+    { id:'R3Q2', pregunta:'On té la seu la Cort Internacional de Justícia, l\'òrgan judicial principal de les Nacions Unides?',
+      opcions:['Nova York','Ginebra','La Haia','Brussel·les'], correcta:2 },
+    { id:'R3Q3', pregunta:'Quina declaració, aprovada per l\'Assemblea General de l\'ONU el 1948, estableix els drets fonamentals de tota persona humana?',
+      opcions:['Carta de l\'Atlàntic','Tractat de Roma','Declaració Universal dels Drets Humans','Conveni Europeu de Drets Humans'], correcta:2 },
+  ]},
+};
+
+// ═══════════════════════════════════════════════════════
+// ▸ SIMULADOR — ROLS, DADES I PERFILS
+// ═══════════════════════════════════════════════════════
+const SIM_ROLS = {
+  FR:{ id:'FR', bandera:'🇫🇷', pais:'França', rol:'Representant permanent al CS de l\'ONU',
+    resum:'Membre permanent amb dret a veto. Aliada d\'Ucraïna, però amb tradició d\'autonomia estratègica (gaullisme). Macron mantenia canals directes amb Putin fins a l\'últim moment.' },
+  CN:{ id:'CN', bandera:'🇨🇳', pais:'Xina', rol:'Representant permanent al CS de l\'ONU',
+    resum:'Membre permanent amb dret a veto. "Amistat sense límits" declarada amb Rússia el febrer 2022, però enormes interessos econòmics amb Occident. La gran potència de l\'ambigüitat calculada.' },
+  EU:{ id:'EU', bandera:'🇪🇺', pais:'Unió Europea', rol:'Alt/a Representant per a Afers Exteriors',
+    resum:'No és membre del CS, però controla les sancions econòmiques més potents del món. 27 estats amb interessos molt diversos. Actor civil que ha de decidir si vol ser actor de seguretat.' },
+};
+
+const SIM_PERFILS = {
+  assertiu:{ etiqueta:'Línia Assertiva', desc:'Has prioritzat la fermesa i la pressió sobre el diàleg. Les teves decisions han marcat una postura clara i creïble, però amb costos diplomàtics elevats.' },
+  dialoguista:{ etiqueta:'Línia Dialoguista', desc:'Has prioritzat el diàleg i la preservació de canals sobre la pressió directa. Una postura que manté opcions obertes, però que alguns actors han percebut com a manca de determinació.' },
+  equilibrat:{ etiqueta:'Postura Pragmàtica', desc:'Has barrejat pressió i diàleg en funció del context. Una postura realista que preserva relacions, però sense el lideratge inequívoc que alguns esperaven.' },
+};
+
+const SIM_DATA = {
+  p1:{
+    titol:'Ucraïna, febrer de 2022',
+    contextGlobal:'El 24 de febrer de 2022, Rússia inicia una invasió a gran escala d\'Ucraïna. Tropes russes avancen cap a Kíev. El Consell de Seguretat es reuneix d\'emergència. Les decisions dels propers dies marcaran el curs de la guerra i redefiniran l\'ordre internacional.',
+    rondes:{
+      FR:[
+        { titol:'La votació d\'emergència al CS', data:'24 febrer 2022 · Nit',
+          context:'El CS es reuneix d\'urgència. Com a membre permanent, tens tres vies: presentar una resolució de condemna (Rússia la vetarà, però mobilitzarà la comunitat internacional), abstenir-te per mantenir els canals diplomàtics oberts amb el Kremlin, o proposar una via mixta que combini condemna i mediació.',
+          opcions:[
+            { text:'Presentar i votar una resolució de condemna exigint la retirada immediata de les tropes russes', eixos:{mU:1,hD:1},
+              consequencia:'Rússia la veta en minuts, com era previsible. Però la iniciativa mobilitza l\'Assemblea General: 141 països condemnaran la invasió en una votació histórica. França ha marcat una línia clara i la relació directa Macron-Putin es trenca durant setmanes.' },
+            { text:'Abstenir-se per mantenir canals diplomàtics oberts amb Moscou i preservar la capacitat mediadora', eixos:{mU:-1,hD:-1},
+              consequencia:'La decisió provoca crítiques internes a la UE i l\'OTAN. Però París conserva la línia directa amb el Kremlin i en les setmanes següents és l\'únic canal occidental amb Moscou. Ucraïna ho viu com una traïció parcial, però França manté la seva autonomia estratègica.' },
+            { text:'Votar a favor de la condemna i proposar paral·lelament una missió mediadora de l\'OSCE', eixos:{mU:1,hD:-1},
+              consequencia:'França vota la condemna però obre simultàniament una via diplomàtica. Els aliats ho interpreten com ambigüitat; Rússia, com debilitat. L\'OSCE mai desplegarà la missió, però França manté totes les relacions obertes sense alienar cap actor del tot.' },
+          ]
+        },
+        { titol:'El debat sobre les sancions econòmiques', data:'Març 2022',
+          context:'El CS ha quedat paralitzat pel veto rus. L\'atenció es desplaça a les sancions. Europa rep el 40% del seu gas de Rússia. Tallar les relacions energètiques protegiria Ucraïna, però podria enfonsar les economies europees. Cal decidir fins on arribar.',
+          opcions:[
+            { text:'Defensar les sancions màximes: exclusió del SWIFT bancari i embargament energètic total immediat', eixos:{mU:1,hD:1},
+              consequencia:'França lidera el bloc dur de la UE. Les sancions impacten durament l\'economia russa, però l\'hivern de 2022-23 porta una crisi energètica severa a Europa amb preus disparats i racionament. La credibilitat europea davant Ucraïna és màxima, però el cost polític intern és enorme.' },
+            { text:'Sancions financeres i tecnològiques dures, però excloure el sector energètic per protegir les economies europees', eixos:{mU:0,hD:0},
+              consequencia:'França opta per la postura de consens europeu: dura però no suïcida. Rússia perd accés als mercats financers occidentals però continua venent gas. Polònia i els Bàltics ho critiquen com a hipocresia, però és, essencialment, el que passa a la realitat.' },
+            { text:'Proposar sancions graduals i condicionals, que s\'enduriran si no hi ha negociació en 30 dies', eixos:{mU:-1,hD:-1},
+              consequencia:'La proposta és rebuda amb escepticisme pels aliats. Putin ho interpreta com manca de determinació. Les sancions s\'acaben imposant de totes maneres, però França ha perdut la iniciativa dins la coalició occidental i és percebuda com a actor que prioritza interessos propis.' },
+          ]
+        },
+        { titol:'L\'armament a Ucraïna', data:'Juny 2022',
+          context:'Ucraïna resisteix contra tot pronòstic però necessita artilleria pesada de llarg abast al Donbàs. Zelenski demana armament ofensiu. Hi ha debat intens a l\'OTAN: les armes ofensives poden ser decisives per a Ucraïna, però Rússia les pot interpretar com una escalada directa d\'Occident.',
+          opcions:[
+            { text:'Enviar els canons d\'artilleria Caesar i comprometre\'s amb enviaments regulars d\'armament pesat', eixos:{mU:0,hD:2},
+              consequencia:'França trenca el tabú europeu. L\'impacte sobre el terreny és immediat: Ucraïna recupera capacitat ofensiva al Donbàs. Rússia eleva l\'amenaça nuclear retòrica i altres aliats segueixen l\'exemple francès. Kíev ho recorda com a punt d\'inflexió, però genera mesos de tensió diplomàtica extrema.' },
+            { text:'Armament defensiu coordinat amb tots els aliats de l\'OTAN, sense sistemes ofensius de llarg abast', eixos:{mU:1,hD:1},
+              consequencia:'França envia armes defensives mantenint la coordinació OTAN. No és tot el que Ucraïna vol, però és un compromís sostingut que evita la percepció d\'escalada unilateral i manté la unitat de l\'aliança.' },
+            { text:'Proposar un alto el foc negociat i suspendre enviaments d\'armes mentre hi ha possibilitat de diàleg', eixos:{mU:-1,hD:-2},
+              consequencia:'"Demanar-nos que negociem mentre morim és una traïció", reacciona Zelenski amb fúria. La proposta fracassa en 48 hores i França és percebuda com el "fluix" de l\'aliança occidental. El dany reputacional durarà mesos.' },
+          ]
+        }
+      ],
+      CN:[
+        { titol:'La votació d\'emergència al CS', data:'24 febrer 2022 · Nit',
+          context:'El CS es reuneix d\'urgència. Fa tres setmanes, Xi i Putin van declarar una "amistat sense límits". Però la invasió ha sorprès Pequín, que no va ser avisada. Vetar protegiria Rússia però deterioraria la relació amb Occident. Votar en contra trencaria l\'aliança estratègica amb Moscou. Abstenir-se és l\'opció de màxima ambigüitat.',
+          opcions:[
+            { text:'Vetar la resolució per protegir l\'aliança estratègica amb Rússia i enviar un missatge inequívoc a Moscou', eixos:{mU:-2,hD:1},
+              consequencia:'La Xina veta conjuntament amb Rússia. Occident reacciona amb amenaces de sancions secundàries i les relacions amb la UE es deterioren bruscament. Però Pequín ha enviat un missatge inequívoc a Moscou: l\'amistat té un preu real, i la Xina està disposada a pagar-lo.' },
+            { text:'Abstenir-se: no condemnar la invasió però tampoc avalar-la formalment', eixos:{mU:0,hD:0},
+              consequencia:'La Xina s\'absté, com va fer a la realitat. Màxima ambigüitat calculada: no trenca amb Rússia, però no avala formalment la invasió. Occident critica però no pot imposar sancions. Pequín queda posicionada com a possible mediador futur. La postura maximitza la flexibilitat a costa de generar desconfiança a tots els flancs.' },
+            { text:'Votar a favor de la resolució, distanciant-se públicament de Rússia per protegir les relacions amb Occident', eixos:{mU:2,hD:-1},
+              consequencia:'La decisió sacseja la política internacional: Xi trenca amb Putin en el pitjor moment per a Moscou. Occident respon positivament relaxant alguns aranzels. Però dins la Xina la decisió és percebuda com a capitulació. Un canvi estratègic de primera magnitud amb beneficis a llarg termini però costos immediats enormes.' },
+          ]
+        },
+        { titol:'El comerç i les sancions occidentals', data:'Març 2022',
+          context:'Occident imposa sancions sense precedents. Les empreses occidentals marxen de Rússia. La Xina pot substituir importacions, comprar petroli rus a preus de derrota i convertir-se en el salvavides econòmic de Moscou. Però arrisca sancions secundàries dels EUA i la UE que podrien danyar la seva pròpia economia.',
+          opcions:[
+            { text:'Incrementar el comerç amb Rússia i comprar petroli rus amb descompte, acceptant el risc de sancions secundàries', eixos:{mU:-1,hD:1},
+              consequencia:'La Xina compra petroli rus amb un 30% de descompte i exporta components tecnològics vitals. Els EUA amenacen sancions secundàries i la UE obre investigacions. Però Pequín guanya influència enorme sobre una Rússia cada cop més dependent, i l\'economia xinesa es beneficia a curt termini.' },
+            { text:'Mantenir el comerç normal sense ajudar activament Rússia a eludir les sancions occidentals', eixos:{mU:0,hD:0},
+              consequencia:'La Xina manté l\'equilibri: ni trenca amb Rússia ni li ofereix un rescat actiu. El comerç creix lleugerament però sense el salt que Moscou esperava. Frustra tant Rússia com Occident, però manté totes les portes obertes maximitzant la flexibilitat futura.' },
+            { text:'Reduir el comerç amb Rússia per evitar sancions secundàries i protegir les relacions econòmiques amb la UE i els EUA', eixos:{mU:1,hD:-1},
+              consequencia:'La Xina protegeix la seva relació amb Occident. Moscou ho viu com una traïció. La UE i els EUA responen positivament relaxant alguns aranzels i reactivant negociacions comercials. La Xina guanya credibilitat internacional però perd influència sobre Rússia.' },
+          ]
+        },
+        { titol:'La narrativa diplomàtica global', data:'Tardor 2022',
+          context:'La guerra s\'allarga. El Sud Global es divideix. La Xina té una oportunitat única: presentar-se com a mediador neutral o líder d\'un tercer bloc. Però la mediació real requereix pressionar Rússia, cosa que deterioraria la relació bilateral. L\'ambigüitat ha funcionat fins ara — però, fins quan?',
+          opcions:[
+            { text:'Proposar un pla de pau xinès de 12 punts i exercir pressió real sobre Rússia perquè negociï', eixos:{mU:1,hD:-1},
+              consequencia:'La Xina presenta un pla de pau que inclou un alto el foc. Ucraïna el rebutja (no preveu retirada russa), però la iniciativa posiciona Pequín com a actor diplomàtic global. Per primera vegada representants xinesos parlen directament amb Zelenski. La relació amb Rússia es refreda però la Xina guanya prestigi internacional.' },
+            { text:'Mantenir la neutralitat pública sense pressionar cap de les parts, preservant l\'ambigüitat estratègica', eixos:{mU:0,hD:0},
+              consequencia:'La Xina continua amb l\'ambigüitat calculada. Els mercats financers ho celebren. Però Pequín perd l\'oportunitat de liderar diplomàticament en un moment decisiu. La guerra continua i la Xina queda com a espectadora influent però passiva d\'un conflicte que remodela el món.' },
+            { text:'Donar suport discret a Rússia: components de doble ús i cobertura diplomàtica davant les investigacions occidentals', eixos:{mU:-1,hD:2},
+              consequencia:'La Xina proporciona components que Rússia necessita. Els serveis d\'intel·ligència occidentals ho detecten parcialment. Si Rússia guanya, Pequín en sortirà enormement reforçada; si perd, haurà perdut credibilitat internacional i relacions amb Occident. L\'aposta estratègica de major risc i major recompensa potencial.' },
+          ]
+        }
+      ],
+      EU:[
+        { titol:'La resposta immediata de la UE', data:'24 febrer 2022 · Primeres hores',
+          context:'La UE no és membre del CS, però és la major potència econòmica al costat d\'Ucraïna. Les primeres 24 hores son crítiques. Hi ha divisió interna severa: Polònia i els Bàltics exigeixen la postura més dura possible; Hongria pot bloquejar per unanimitat; Alemanya i França volen preservar opcions diplomàtiques.',
+          opcions:[
+            { text:'Declaració conjunta de màxima condemna i activació immediata del mecanisme europeu de sancions', eixos:{mU:1,hD:1},
+              consequencia:'La UE parla amb una sola veu en una crisi de seguretat per primera vegada. Hongria intenta bloquejar però és aïllada. Rússia amenaça el subministrament de gas. La decisió dona credibilitat enorme a la UE com a actor global, però inicia una crisi energètica que s\'allarga mesos.' },
+            { text:'Condemna moderada i oferta de diàleg: sancions preparades però no activades, donant temps a la diplomàcia', eixos:{mU:0,hD:-1},
+              consequencia:'La UE opta per la moderació calculada. Polònia i els Bàltics amenacen d\'actuar bilateralment. Ucraïna ho interpreta com inacció. Però la finestra diplomàtica mantinguda permet explorar vies d\'alto el foc que d\'altra manera no serien possibles.' },
+            { text:'Activar el Fons Europeu de Pau per finançar directament l\'enviament d\'armament ucraïnès', eixos:{mU:-1,hD:2},
+              consequencia:'La UE trenca el tabú de ser actor exclusivament civil. Rússia ho qualifica de "declaració de guerra per proxy". Quatre estats membres s\'abstenen internament. Però l\'impacte sobre la capacitat defensiva ucraïnesa és immediat i crea un precedent que transformarà la política europea de seguretat.' },
+          ]
+        },
+        { titol:'La dependència energètica de Rússia', data:'Primavera 2022',
+          context:'El 40% del gas europeu ve de Rússia. Tallar aquest flux perjudicaria enormement l\'economia europea però mantenir-lo finança la guerra russa. Aquesta decisió és el cor de la credibilitat de les sancions europees i definirà si la UE és un actor creïble o si els seus interessos econòmics superen els seus valors.',
+          opcions:[
+            { text:'Embargo energètic total: tallar el gas rus immediatament acceptant els costos econòmics i socials', eixos:{mU:1,hD:2},
+              consequencia:'L\'hivern de 2022-23 és dur: racionament, preus disparats, recessió a Alemanya i Itàlia. Però l\'economia russa s\'enfonsa sense els ingressos del gas. La decisió accelera la transició energètica europea. A llarg termini, Europa emergeix molt menys vulnerable, però a un cost immediat altíssim.' },
+            { text:'Reducció progressiva en dos anys: embargar el petroli immediatament i substituir el gas gradualment', eixos:{mU:1,hD:1},
+              consequencia:'La UE adopta la resposta de consens: dura però gradual. El petroli s\'embarga immediatament, el gas es substituirà en 24 mesos. Europa té temps per construir infraestructura alternativa. Menys heroic però més sostenible — i, essencialment, el que passa a la realitat.' },
+            { text:'Mantenir el gas rus: les sancions europees no afectaran el sector energètic', eixos:{mU:-1,hD:-1},
+              consequencia:'Polònia i els Bàltics viuen la decisió com una humiliació. Ucraïna parla de "sancions de paper". L\'economia europea evita la recessió però la UE finança involuntàriament prop d\'un terç de la guerra russa durant mesos. El dany reputacional és durador.' },
+          ]
+        },
+        { titol:'La candidatura d\'Ucraïna a la UE', data:'Juny 2022',
+          context:'Zelenski demana l\'adhesió accelerada a la UE com a gest de suport polític. La UE mai ha acceptat un país en guerra. Concedir l\'estatus de candidat seria el gest polític més fort possible, però obre un debat intern complex: com integrar un país en guerra amb enormes costos estructurals potencials?',
+          opcions:[
+            { text:'Concedir l\'estatus de candidat oficial en una cimera extraordinària: gest polític contundent i ancoratge estratègic', eixos:{mU:1,hD:1},
+              consequencia:'En una cimera extraordinària, els 27 acorden unànimement l\'estatus de candidat oficial, sota pressió intensa sobre Hongria. Putin qualifica la decisió d\'"ampliació de l\'OTAN per la porta del darrere", però el missatge per als ucraïnesos és inequívoc: el seu futur és europeu.' },
+            { text:'Reconèixer la "perspectiva europea" d\'Ucraïna sense concedir l\'estatus formal de candidat', eixos:{mU:0,hD:0},
+              consequencia:'La UE opta per un gest simbòlic però no vinculant. Ucraïna ho accepta com un primer pas. La UE evita el debat constitucional intern sobre com acceptar un país en guerra. Una solució que no contenta ningú del tot però tampoc provoca cap crisi interna.' },
+            { text:'Rebutjar la candidatura: no és el moment, cal concentrar-se en el suport militar i econòmic immediat', eixos:{mU:-1,hD:-1},
+              consequencia:'La decisió és rebuda amb amargura a Kíev. Alguns membres de la UE ho celebren en privat: l\'adhesió seria la major expansió en 20 anys amb costos estructurals enormes. Però el missatge polític és desastrós en el pitjor moment per a la moral ucraïnesa.' },
+          ]
+        }
+      ]
+    }
+  },
+  p2:{
+    titol:'Crisi de l\'Estret d\'Ormuz, abril de 2026',
+    contextGlobal:'El 28 de febrer de 2026, els EUA i Israel van llançar l\'Operació Epic Fury contra Iran: atacs coordinats que van assassinar el líder suprem Khamenei i destruir instal·lacions nuclears i militars. Iran va respondre tancant l\'Estret d\'Ormuz — per on passa el 20% del petroli mundial — i llançant drons i míssils contra bases americanes i aliats al Golf Pèrsic. Ahir, 13 d\'abril de 2026, els EUA van activar un bloqueig naval d\'Iran. Les negociacions a Pakistan han fracassat. Més de 150 vaixells estan paralitzats. El petroli supera els 110 dòlars el barril.',
+    intros:{
+      FR:{
+        assertiu:'Les teves decisions fermes el 2022 van reforçar la credibilitat de França i la UE, i van accelerar la independència energètica europea. Però ara el tancament d\'Ormuz ha tornat a exposar Europa: el GNL de Qatar i els Emirats que havia substituït el gas rus deixa d\'arribar. I els EUA han llançat una guerra al Pròxim Orient sense consultar els aliats europeus. La tradició gaul·lista d\'autonomia estratègica et posa en una posició d\'enorme responsabilitat.',
+        dialoguista:'La teva aposta pel diàleg el 2022 va ser criticada, però avui té un valor inesperat: París manté canals de comunicació oberts amb molts actors, inclosos alguns que ara ningú pot contactar. Però la guerra EUA-Israel-Iran posa França davant una pregunta incòmoda: els EUA no van demanar permís europeu per atacar Iran. L\'autonomia estratègica francesa és ara més necessària que mai — però actuarà França?',
+        equilibrat:'La postura equilibrada francesa de 2022 ha preservat relacions amb tots els actors, però sense un lideratge clar. Ara, amb l\'estret tancat i el bloqueig americà actiu des d\'ahir, França ha de decidir si finalment pren una postura clara. Europa no té capacitat militar per protegir les seves rutes comercials. França — l\'única potència nuclear europea — sí.',
+      },
+      CN:{
+        assertiu:'Les decisions pragmàtiques de 2022 van convertir la Xina en l\'ancla econòmica de Rússia. Quatre anys després, Moscou deu enormes favors a Pequín. Però l\'estret tancat ha provocat escassetat energètica severa a l\'Àsia oriental — la Xina és el major comprador de petroli iranià. Trump amenaça qualsevol país que ajudi Iran amb aranzels del 50%. I el bloqueig americà ha entrat en vigor ahir.',
+        dialoguista:'L\'ambigüitat calculada xinesa de 2022 et va donar flexibilitat estratègica. Avui, aquella postura moderada és un actiu: Pequín és percebuda com un actor que pot parlar amb tothom. Però la crisi d\'Ormuz és el pitjor escenari per a la Xina: depèn d\'Iran per a l\'energia, necessita els EUA per al comerç, i vol liderar globalment sense semblar vassall de cap potència. La decisió no pot ajornar-se.',
+        equilibrat:'Les decisions equilibrades de 2022 han preservat totes les relacions, però ara la crisi d\'Ormuz força una elecció impossible d\'ajornar: l\'estret tancat paralitza el petroli que necessita l\'Àsia, Trump amenaça amb aranzels massius, i Iran espera saber si pot comptar amb Pequín. L\'hora de l\'ambigüitat ha acabat.',
+      },
+      EU:{
+        assertiu:'Les sancions dures de 2022 van accelerar la independència energètica europea, però a un cost enorme. Quatre anys de diversificació han reduït la vulnerabilitat respecte a Rússia. Però ara el tancament d\'Ormuz ha tornat a exposar Europa: el GNL de Qatar i dels Emirats que havia substituït el gas rus ja no arriba. I els EUA han decidit actuar sense consultar els aliats europeus.',
+        dialoguista:'La via dialoguista de la UE el 2022 va evitar una crisi energètica aguda. Quatre anys després, aquella moderació té un valor inesperat: la UE manté relacions diplomàtiques obertes amb Iran, un actiu únic ara que gairebé ningú hi pot parlar. Però la guerra EUA-Israel-Iran planteja una pregunta existencial: la UE segueix els EUA o manté autonomia estratègica real?',
+        equilibrat:'La postura europea equilibrada de 2022 va ser sostenible en una crisi que creixia gradualment. Però la crisi d\'Ormuz és sobtada i severa. L\'estret tancat, el bloqueig americà d\'ahir i la crisi energètica que s\'accelera exigeixen decisions urgents. 27 estats membres han de posar-se d\'acord en qüestió de dies.',
+      }
+    },
+    rondes:{
+      FR:[
+        { titol:'Posició al CS sobre el bloqueig americà', data:'14 abril 2026',
+          context:'El bloqueig naval americà ha entrat en vigor fa hores. Iran el qualifica d\'"acte de guerra." El CS es reuneix d\'emergència. Com a membre P5, tens veu i vot. Els EUA vetaran qualsevol resolució que els condemni. Tu pots presentar una resolució alternativa que demani negociació immediata, recolzar la postura americana, o abstenir-te.',
+          opcions:[
+            { text:'Presentar una resolució al CS demanant una treva de 72 hores i negociació immediata EUA-Iran', eixos:{mU:1,hD:-1},
+              consequencia:'França exerceix el seu paper mediador tradicional. Els EUA veten la resolució però la iniciativa diplomàtica europea queda al centre. Washington reacciona amb irritació. Però Teheran envia un missatge discret a París: estaria disposada a escoltar si un país europeu actua de garant.' },
+            { text:'Abstenir-se: respectar la decisió sobirana americana sense avalar explícitament el bloqueig', eixos:{mU:0,hD:0},
+              consequencia:'França absté, senyalant desacord sense trencament. Alguns aliats europeus fan el mateix. Washington ho interpreta com "falta de suport en moment crític". La postura manté obertes les opcions diplomàtiques però França perd influència en les decisions americanes sobre com resoldre la crisi.' },
+            { text:'Recolzar explícitament el bloqueig americà: l\'estret ha d\'estar obert per a tots, i Iran el va tancar primer', eixos:{mU:-1,hD:1},
+              consequencia:'França s\'alinea amb els EUA i enforteix la unitat atlàntica. Washington valora el suport europeu. Però a casa, el govern és criticat per "subordinació estratègica" davant una acció de legalitat dubtosa. La decisió tanca la porta a qualsevol rol mediador de França en els propers dies.' },
+          ]
+        },
+        { titol:'La crisi energètica europea', data:'Abril 2026',
+          context:'L\'estret tancat dispara els preus del gas a Europa un 180% en sis setmanes. El GNL de Qatar i els Emirats ha deixat d\'arribar. Alguns membres de la UE pressionen per buscar alternatives d\'urgència, inclosa la possibilitat de relaxar parcialment les sancions a Rússia, que s\'ha ofert a subministrar més gas.',
+          opcions:[
+            { text:'Negociar directament un corredor energètic amb Iran, fora del marc del bloqueig americà', eixos:{mU:1,hD:-1},
+              consequencia:'França fa la proposta més atrevida: parlar directament amb Teheran per garantir un corredor d\'energia. Washington reacciona amb duresa: "França no pot negociar amb un país en guerra contra els nostres interessos." Però alguns vaixells tornen a circular. La tensió atlàntica arriba al punt màxim des de l\'Iraq de 2003.' },
+            { text:'Liderar una resposta energètica europea d\'emergència: reserves estratègiques, racionament coordinat i acceleració de renovables', eixos:{mU:1,hD:1},
+              consequencia:'França proposa una resposta europea unificada que eviti dependre d\'Iran o de Rússia. Les reserves s\'activen i el racionament és dur però redistribuït equitativament entre els 27. La decisió reforça la credibilitat europea d\'autonomia energètica, però els preus seguiran alts durant mesos.' },
+            { text:'Defensar la relaxació parcial de sancions a Rússia per garantir el subministrament energètic europeu durant la crisi', eixos:{mU:-1,hD:-1},
+              consequencia:'La proposta és políticament explosiva. Polònia i els Bàltics amenacen de veto. Ucraïna parla de "traïció total". La mesura no prosperarà, però el sol fet d\'haver-la plantejat ha danyat greument la credibilitat de França davant els seus aliats orientals.' },
+          ]
+        },
+        { titol:'El futur de l\'arquitectura de seguretat europea', data:'Abril 2026',
+          context:'La doble crisi — Ucraïna 2022 i Ormuz 2026 — ha demostrat que Europa és vulnerable quan depèn d\'actors externs. La UE no té capacitat militar pròpia per protegir les seves rutes comercials crítiques. Cal decidir quin camí prendre per construir una Europa estratègicament autònoma.',
+          opcions:[
+            { text:'Proposar la creació d\'una flota naval europea independent per protegir les rutes comercials crítiques de la UE', eixos:{mU:1,hD:1},
+              consequencia:'França, amb la seva Marina, proposa crear una capacitat naval europea autònoma. La crisi d\'Ormuz ha creat la voluntat política que faltava. Alemanya i Polònia s\'hi sumen. És el primer pas cap a una defensa europea real, però necessitarà una dècada per materialitzar-se i requerirà redefinir la relació amb l\'OTAN.' },
+            { text:'Liderar una gran coalició multilateral sota mandat ONU per garantir la llibertat de navegació global', eixos:{mU:2,hD:0},
+              consequencia:'França aposta pel multilateralisme: una coalició naval sota mandat del CS de l\'ONU que inclogui Europa, Àsia i el Sud Global. La proposta és elegant però xoca amb la postura unilateral americana. Xina i Índia s\'hi mostren interessades. Podria ser la base d\'un nou ordre marítim, però arribarà tard per a la crisi actual.' },
+            { text:'Negociar un nou pacte atlàntic que doni a Europa major autonomia de decisió dins l\'OTAN', eixos:{mU:0,hD:0},
+              consequencia:'França aposta per reformar, no trencar. Un nou pacte atlàntic on Europa pot vetar intervencions que no afecten directament la seva seguretat. La negociació serà llarga i Trump la complicarà, però és la via que menys trenca i que té més possibilitats de prosperar gradualment.' },
+          ]
+        }
+      ],
+      CN:[
+        { titol:'Posició al CS sobre el bloqueig americà', data:'14 abril 2026',
+          context:'El bloqueig naval americà ha entrat en vigor fa hores. Cap resolució pot avançar al CS si els EUA o la Xina veten. La Xina ha de decidir si presenta una resolució pròpia demanant el cessament del bloqueig, s\'absté en tot, o vota a favor de la llibertat de navegació — cosa que podria ser interpretada com avalar la postura americana.',
+          opcions:[
+            { text:'Presentar una resolució pròpia demanant el cessament simultani del bloqueig americà i del tancament iranià', eixos:{mU:1,hD:0},
+              consequencia:'La Xina proposa una resolució de "doble cessament" que els EUA veten. Però Pequín ha demostrat que és un actor que busca solucions. El Sud Global aplaudeix la iniciativa. La Xina guanya posicionament diplomàtic global i es posiciona com a líder d\'un ordre mundial alternatiu.' },
+            { text:'Abstenir-se en totes les resolucions: màxima ambigüitat estratègica, sense avalar cap de les dues parts', eixos:{mU:0,hD:0},
+              consequencia:'La Xina s\'absté sistemàticament. La postura maximitza la flexibilitat: no trenca amb Iran, no trenca amb els EUA. Però a mesura que la crisi s\'allarga, l\'abstenció comença a ser percebuda no com a neutralitat sinó com a inacció que beneficia el statu quo del tancament.' },
+            { text:'Votar a favor d\'una resolució que demani llibertat de navegació per a tots, posant-se de facto al costat dels EUA', eixos:{mU:-1,hD:1},
+              consequencia:'La Xina sorprèn el món votant a favor de la llibertat de navegació. Trump celebra el gest però immediatament intenta aprofitar-lo per demanar concessions comercials. Iran ho interpreta com una traïció de Pequín, el seu proveïdor energètic i aliat tàcit.' },
+          ]
+        },
+        { titol:'La dependència energètica i les amenaces de Trump', data:'Abril 2026',
+          context:'Trump amenaça qualsevol país que ajudi Iran amb aranzels del 50%. La Xina és el major comprador de petroli iranià. Ha de decidir si trenca temporalment amb Iran per protegir la relació comercial amb els EUA, o manté l\'accés energètic acceptant les conseqüències. L\'estret tancat ja ha provocat escassetat energètica a l\'Àsia oriental.',
+          opcions:[
+            { text:'Continuar comprant petroli iranià i desafiar les amenaces de Trump, acceptant possibles aranzels massius', eixos:{mU:-1,hD:1},
+              consequencia:'La Xina desafia Trump. Washington imposa aranzels selectius del 50%. La guerra comercial s\'intensifica. Però la Xina manté el seu accés energètic i Iran la recompensa amb preus favorables. Internament, el govern presenta la decisió com a defensa de la sobirania econòmica davant l\'imperialisme americà.' },
+            { text:'Suspendre temporalment les importacions iranianes per negociar amb Trump la reducció dels aranzels existents', eixos:{mU:1,hD:-1},
+              consequencia:'La Xina fa una concessió estratègica. Trump ho interpreta inicialment com una victòria. Iran reacciona amb fúria. La Xina obté certes concessions arancelàries, però ha mostrat que els seus compromisos amb els aliats son condicionals als seus interessos propis.' },
+            { text:'Proposar un mecanisme multilateral de compra d\'energia amb Índia, Brasil i altres importadors per diluir la pressió americana', eixos:{mU:2,hD:0},
+              consequencia:'La Xina proposa distribuir la pressió americana entre molts actors. La iniciativa guanya suport del Sud Global. Trump no pot imposar aranzels del 50% a mitja humanitat. Però l\'organització pren temps que la crisi energètica immediata no permet fàcilment.' },
+          ]
+        },
+        { titol:'El lideratge del Sud Global en la crisi', data:'Abril 2026',
+          context:'Índia, Brasil, Àfrica del Sud i desenes de països del Sud Global pateixen enormement per la crisi energètica però no tienen veu al CS. La Xina pot liderar una proposta del "tercer bloc" que exigeixi una solució negociada — però requereix un posicionament clar que fins ara Pequín ha evitat sistemàticament.',
+          opcions:[
+            { text:'Convocar una cimera d\'urgència dels BRICS+ per presentar una postura conjunta i pressionar per una sortida negociada', eixos:{mU:1,hD:0},
+              consequencia:'30 països recolzen la declaració final que demana cessament del bloqueig, obertura de l\'estret i negociació immediata. Occident la critica com a "cobertura diplomàtica per a Iran", però la pressió multilateral comença a tenir efecte. Pequín es posiciona com a líder d\'un ordre mundial alternatiu, el gran salt geopolític que Xi ha buscat.' },
+            { text:'Negociar bilateralment amb els EUA: oferir canvis en la postura d\'Ormuz a canvi de concessions en la guerra comercial', eixos:{mU:-1,hD:-1},
+              consequencia:'La Xina opta per la realpolitik bilateral: negocia directament amb Trump. A canvi de suport tàcit al bloqueig, obté reducció d\'aranzels i suspensió de noves restriccions tecnològiques. Iran se sent traït. El Sud Global perd la seva veu potencial. La Xina ha protegit la seva economia a curt termini al cost de la seva credibilitat com a líder alternatiu.' },
+            { text:'Facilitar discretament a Iran combustible i components mentre el bloqueig americà duri', eixos:{mU:-2,hD:1},
+              consequencia:'La Xina proporciona a Iran via tercers el que necessita per resistir el bloqueig. Els serveis d\'intel·ligència americans ho detecten parcialment. Trump imposa aranzels massius i truca Xi públicament un "enemic dels EUA". Si el bloqueig americà fracassa, la Xina haurà guanyat enormement. Si els EUA s\'imposen, haurà perdut en tots els fronts.' },
+          ]
+        }
+      ],
+      EU:[
+        { titol:'La postura europea davant la guerra EUA-Israel-Iran', data:'Abril 2026',
+          context:'Els EUA van atacar Iran el 28 de febrer sense consultar prèviament els aliats europeus. La UE s\'ha vist abocada a prendre posició sobre un conflicte que no va poder influenciar. Washington demana ara suport explícit als aliats europeus. La decisió definirà si la UE és un actor estratègic autònom o un aliat subordinat.',
+          opcions:[
+            { text:'Donar suport condicionat: avalar les operacions defensives però condemnar els atacs a infraestructura civil iraniana', eixos:{mU:1,hD:0},
+              consequencia:'La UE navega entre el suport atlàntic i els seus compromisos amb el dret internacional. Washington ho accepta a contrecor. Teheran ho interpreta com "suport occidental amb maquillatge legal." La postura manté la relació atlàntica i preserva una certa credibilitat jurídica, però no satisfà ningú completament.' },
+            { text:'Declarar neutralitat activa: ni condemna ni suport, i oferir formalment la UE com a mediadora entre EUA i Iran', eixos:{mU:2,hD:-1},
+              consequencia:'Washington reacciona amb irritació: "En un moment de crisi, els aliats han de sumar, no distreure." Però Teheran envia una resposta positiva discreta i el Sud Global aplaudeix la iniciativa. La UE es posiciona com a actor de pau, però la relació atlàntica arriba al punt de major tensió des de l\'Iraq de 2003.' },
+            { text:'Condemnar parcialment les operacions: els atacs inicials violaven el dret internacional i demanen alto el foc immediat', eixos:{mU:0,hD:-2},
+              consequencia:'La UE fa la declaració més valenta i arriscada: condemna els atacs inicials com a il·legals. Trump amenaça retirar tropes d\'Europa i revisar el compromís OTAN. Alguns estats membres europeus no estan d\'acord internament. Però la UE queda posicionada com a defensora consecuent del dret internacional.' },
+          ]
+        },
+        { titol:'La crisi energètica i les decisions urgents', data:'Abril 2026',
+          context:'El preu del gas s\'ha multiplicat per tres en sis setmanes. Alguns estats membres amenacen d\'actuar unilateralment si la UE no respon. Cal una decisió urgent. Les opcions passen per activar reserves pròpies, negociar un corredor directe amb Iran, o explorar la possibilitat de relaxar parcialment les sancions a Rússia.',
+          opcions:[
+            { text:'Negociar directament amb Iran un corredor energètic: alguns vaixells amb GNL podrien circular si la UE actua de garant', eixos:{mU:1,hD:-1},
+              consequencia:'La UE proposa a Teheran un corredor per a països neutrals. Iran respon positivament: vol demostrar que el problema és el bloqueig americà, no el seu tancament. Washington reacciona amb fúria. Alguns vaixells tornen a circular. La UE ha forçat un canvi real sobre el terreny, però a costa d\'una greu tensió atlàntica.' },
+            { text:'Activar reserves estratègiques i imposar un pla de racionament d\'emergència coordinat entre tots els estats membres', eixos:{mU:1,hD:1},
+              consequencia:'La UE activa la seva resposta interna: reserves, racionament coordinat i acceleració de renovables. La resposta és ordenada però el cost social és alt i els preus restaran alts durant mesos. La UE demostra capacitat de resposta autònoma però no resol la crisi a curt termini.' },
+            { text:'Relaxar parcialment les sancions a Rússia per garantir el subministrament energètic europeu durant la crisi', eixos:{mU:-1,hD:-2},
+              consequencia:'La proposta és políticament catastròfica. Polònia i els Bàltics amenacen veto. Ucraïna trenca les negociacions d\'adhesió. La mesura no prosperarà, però el sol fet d\'haver-la plantejat ha danyat greument la credibilitat europea davant els seus aliats orientals.' },
+          ]
+        },
+        { titol:'El model europeu per al futur', data:'Abril 2026',
+          context:'La doble crisi ha deixat una lliçó clara: Europa és vulnerable si depèn d\'actors externs. Cal decidir quin model vol la UE per als propers deu anys. Les opcions representen visions molt diferentes de qué hauria de ser la Unió Europea en el món del segle XXI.',
+          opcions:[
+            { text:'Proposar una "Autonomia Estratègica Europea": capacitat militar, energètica i tecnològica independent', eixos:{mU:1,hD:1},
+              consequencia:'La UE llança el projecte més ambiciós de la seva història. Requerirà milers de milers de milions i una integració política molt més profunda. Però la crisi ha creat la voluntat política que faltava. Si reïx, serà la transformació més gran de la UE des de la creació de l\'euro.' },
+            { text:'Reformar l\'OTAN per donar a Europa major autonomia de decisió mantenint el paraigua de seguretat americà', eixos:{mU:0,hD:0},
+              consequencia:'La UE aposta per reformar, no trencar. Una nova arquitectura atlàntica on Europa pot vetar intervencions que no involucren directament la seva seguretat. La negociació amb Washington serà dura, però és la via més realista a curt termini.' },
+            { text:'Liderar un nou ordre multilateral global basat en el dret internacional i les institucions de l\'ONU', eixos:{mU:2,hD:-1},
+              consequencia:'La UE proposa reconstruir el sistema multilateral: reformar l\'ONU, crear nous mecanismes de resolució de conflictes i garantir el dret internacional per sobre de les decisions unilaterals. La visió més idealista però també la més coherent amb els valors fundacionals europeus.' },
+          ]
+        }
+      ]
+    }
+  }
+};
+
+// ═══════════════════════════════════════════════════════
+// ▸ MÒDULS
+// ═══════════════════════════════════════════════════════
+const MODULS = [
+  {
+    id: 1, icon: '🌍',
+    titol: 'Introducció a la Geopolítica',
+    subtitol: 'Qui mana al món i per qué',
+    desc: 'Aprèn els conceptes fonamentals que expliquen com els estats interactuen, per qué alguns tenen més poder que d\'altres i com la geografia determina la política.',
+    teoria: `
+      <h4>Qué és la geopolítica?</h4>
+      <p>La <strong>geopolítica</strong> és la disciplina que estudia com la geografia, els recursos naturals i la posició dels territoris influencien el poder polític i les relacions entre estats. Intenta respondre preguntes com: per qué hi ha conflictes entre determinats països? Per qué alguns estats acumulen molt poder? Com afecta la posició d'un territori al seu destí polític?</p>
+      <p>El terme va ser encunyat a finals del segle XIX, però les idees que l'expliquen — que la geografia condiciona el poder — existien molt abans. Avui és una eina essencial per entendre les notícies internacionals.</p>
+      <h4>El principal actor: l'estat-nació</h4>
+      <p>El sistema internacional modern gira al voltant dels <strong>estats-nació</strong>: territoris amb fronteres definides, una població, un govern i el concepte clau de <strong>sobirania</strong>. La sobirania és el dret d'un estat a governar-se a si mateix sense interferències externes. És el principi fonamental del sistema internacional des del Tractat de Westfàlia (1648).</p>
+      <p>Però no tots els actors del sistema internacional són estats. Hi ha actors molt rellevants:</p>
+      <ul>
+        <li><strong>Organitzacions internacionals</strong>: com l'ONU, l'OTAN o la Unió Europea</li>
+        <li><strong>Empreses multinacionals</strong>: amb poder econòmic sovint superior al PIB de molts estats</li>
+        <li><strong>ONG i moviments globals</strong>: com Metges Sense Fronteres o Amnistia Internacional</li>
+        <li><strong>Grups armats no estatals</strong>: com Hezbollah o Hamas, actors clau en conflictes actuals</li>
+      </ul>
+      <h4>Fonts de poder geopolític</h4>
+      <p>Qué fa poderós un estat? No sols la mida. Els factors de poder són variats:</p>
+      <ul>
+        <li><strong>Posició geogràfica</strong>: controlar estrets marítims, rutes comercials o fronteres estratègiques</li>
+        <li><strong>Recursos naturals</strong>: petroli, gas, minerals essencials, terres rares, aigua</li>
+        <li><strong>Poder militar</strong>: exèrcit, tecnologia armamentística, capacitat nuclear</li>
+        <li><strong>Poder econòmic</strong>: PIB, innovació tecnològica, moneda de reserva internacional</li>
+        <li><strong>Poder tou</strong> (<em>soft power</em>): atractiu cultural, valors, marca diplomàtica</li>
+      </ul>
+      <div class="highlight-box">Exemple de <em>soft power</em>: els EUA exerceix una enorme influència global no sols pels seus exèrcits o la seva economia, sinó perquè la seva cultura —cinema, música, tecnologia, universitats— és enormement atractiva a tot el món. Però el <em>soft power</em> no és exclusiu de les grans potències militars: la <strong>Unió Europea</strong> és un dels exemples més poderosos. Malgrat no tenir exèrcit propi, el seu model de drets, democràcia, mercat únic i estat del benestar és tan atractiu que desenes de països han fet reformes profundes únicament per apropar-s'hi —i molts continuen aspirant-hi. Això és influència sense coerció.</div>
+      <h4>Esferes d'influència i equilibri de poder</h4>
+      <p>Les grans potències construeixen <strong>esferes d'influència</strong>, zones on exerceixen poder polític, econòmic o militar sense sobirania formal. Per exemple, Rússia considera Ucraïna i els països veïns com la seva esfera natural.</p>
+      <p>Per evitar que una sola potència domini el sistema, els estats tendeixen a formar aliances per contrarestar el poder del més fort. Això s'anomena <strong>equilibri de poder</strong>. L'OTAN va néixer com a equilibri davant de la potència soviètica durant la Guerra Freda.</p>
+      <h4>Com s'explica el món? Les grans corrents de les relacions internacionals</h4>
+      <p>No tots els analistes i experts interpreten el funcionament del sistema internacional de la mateixa manera. Al llarg del segle XX es van desenvolupar quatre grans corrents de pensament —o <strong>teories de les relacions internacionals</strong>— que ofereixen marcs molt diferents per entendre per qué els estats actuen com actuen:</p>
+      <div class="highlight-box" style="margin-bottom:14px;">
+        <strong>Realisme</strong><br>
+        El realisme parteix d'una premissa dura: el sistema internacional és anàrquic (no hi ha un govern mundial) i els estats, com a actors racionals, busquen sobretot la seva <em>supervivència i el poder</em>. En un món sense policia global, cada estat ha de comptar amb si mateix. La cooperació existeix, però és instrumental i fràgil. La guerra és sempre una possibilitat. Autors clau: Tucídides, Maquiavel, Hans Morgenthau, Kenneth Waltz.<br><br>
+        <em>Exemple d'aplicació realista:</em> L'expansió de l'OTAN cap a l'est s'interpreta com una amenaça directa a la seguretat russa, i la invasió d'Ucraïna és la resposta d'un estat que percep que el seu entorn estratègic s'estreny.
+      </div>
+      <div class="highlight-box" style="margin-bottom:14px;">
+        <strong>Liberalisme (o internacionalisme liberal)</strong><br>
+        Els liberals comparteixen que el sistema és anàrquic, però creuen que els estats poden <em>cooperar de manera estable</em> a través d'institucions, comerç i dret internacional. Els règims democràtics tendeixen a no guerrejar entre si ("pau democràtica"). El comerç crea interdependències que fan la guerra costosa. Autors clau: Kant, Woodrow Wilson, Robert Keohane.<br><br>
+        <em>Exemple d'aplicació liberal:</em> La creació de la UE és la gran aposta liberal: integrar economies i institucions fins al punt que la guerra entre els seus membres sigui pràcticament impossible.
+      </div>
+      <div class="highlight-box" style="margin-bottom:14px;">
+        <strong>Estructuralisme (o teoria crítica / dependència)</strong><br>
+        L'estructuralisme desplaça el focus dels estats als <em>sistemes econòmics globals</em>. El sistema internacional no és neutre: reprodueix desigualtats entre països rics (centre) i països pobres (perifèria). La geopolítica no es pot entendre sense entendre com el capitalisme global distribueix el poder i la riquesa de manera asimètrica. Autors clau: Immanuel Wallerstein, Antonio Gramsci, la teoria de la dependència llatinoamericana.<br><br>
+        <em>Exemple d'aplicació estructuralista:</em> El deute extern d'Àfrica o el control occidental sobre les institucions financeres (FMI, Banc Mundial) es llegeixen no com a ajuda al desenvolupament, sinó com a mecanismes de dominació estructural.
+      </div>
+      <div class="highlight-box" style="margin-bottom:14px;">
+        <strong>Constructivisme</strong><br>
+        El constructivisme sosté que el sistema internacional no és una realitat objectiva i fixa, sinó que és <em>construït socialment</em>: les identitats, les normes, les idees i les percepcions dels actors modelen com actuen, sovint tant o més que els interessos materials. Els estats no saben automaticament quins són els seus "interessos": els aprenen i els construeixen. Autors clau: Alexander Wendt, Nicholas Onuf.<br><br>
+        <em>Exemple d'aplicació constructivista:</em> Per qué els EUA i el Regne Unit —ambdós potències nuclears— no es perceben com a amenaces mútues, mentre que una Corea del Nord nuclear sí genera alarma? No és sols per la capacitat militar: és per la identitat, la història i les normes compartides.
+      </div>
+      <p style="font-size:0.88rem;color:var(--cream-dim);line-height:1.7;">Cap d'aquestes corrents té la veritat absoluta. Els analistes més sofisticats les combinen: l'important és saber <em>quina lent fas servir</em> per interpretar un conflicte o una política exterior, i ser conscient de les seves limitacions.</p>
+    `,
+    recursos: [
+      { icon:'📖', text:'Geopolítica – Viquipèdia en català', url:'https://ca.wikipedia.org/wiki/Geopol%C3%ADtica' },
+      { icon:'📖', text:'Sobirania – Viquipèdia en català', url:'https://ca.wikipedia.org/wiki/Sobirania' },
+      { icon:'📖', text:'Relacions internacionals – Viquipèdia', url:'https://ca.wikipedia.org/wiki/Relacions_internacionals' },
+      { icon:'🌐', text:'El Orden Mundial – Geopolítica per a tothom', url:'https://elordenmundial.com/' },
+      { icon:'🌐', text:'CIDOB – Anuari internacional', url:'https://www.cidob.org/' },
+    ],
+    comprensio: [
+      { id:'M1Q1', pregunta:'Quin és el principal actor del sistema internacional modern?', opcions:['Les empreses multinacionals','Els estats-nació','Les organitzacions internacionals','Les persones individuals'], correcta:1 },
+      { id:'M1Q2', pregunta:'Quin concepte descriu el dret d\'un estat a governar-se sense interferències externes?', opcions:['Democràcia','Multilateralisme','Sobirania','Federalisme'], correcta:2 },
+      { id:'M1Q3', pregunta:'Quin d\'aquests factors NO és típicament considerat una font de poder geopolític?', opcions:['La posició geogràfica del territori','La llengua oficial de la població','El potencial militar de l\'estat','L\'accés a recursos naturals'], correcta:1 },
+      { id:'M1Q4', pregunta:'Quan parlem d\'una "esfera d\'influència", a qué ens referim?', opcions:['L\'àrea geogràfica on un estat recapta impostos','La zona on un estat exerceix poder polític o econòmic sense sobirania formal','El territori oficial d\'un estat reconegut internacionalment','Les antigues colònies d\'un país'], correcta:1 },
+      { id:'M1Q5', pregunta:'Quin terme descriu la tendència dels estats a formar aliances per contrarestar el poder d\'un actor dominant?', opcions:['Imperialisme','Unilateralisme','Equilibri de poder','Sobirania compartida'], correcta:2 },
+    ],
+    reflexio: [
+      { id:'M1R1', pregunta:'Pensa en un país que creguis que té una posició geogràfica estratègicament important. Explica per quins motius la seva ubicació li aporta poder o influència en la política internacional. (Pots pensar en control de rutes marítimes, fronteres, accés a recursos, etc.)' },
+      { id:'M1R2', pregunta:'Alguns estats petits (com Singapur, Qatar o Suïssa) tenen una gran influència internacional tot i tenir poca extensió territorial. Com creus que és possible? Quins factors, més enllà del territori i la població, poden fer poderós un estat?' },
+    ]
+  },
+  {
+    id: 2, icon: '🏛️',
+    titol: 'L\'ONU: Com s\'organitza el món',
+    subtitol: 'Institucions, òrgans i limitacions',
+    desc: 'Comprèn l\'estructura i el funcionament de l\'Organització de les Nacions Unides, les seves eines per mantenir la pau i per qué no sempre és efectiva.',
+    teoria: `
+      <h4>Per qué va néixer l'ONU?</h4>
+      <p>Després de la Segona Guerra Mundial (1939–1945), que va causar entre 70 i 85 milions de morts i la destrucció de bona part d'Europa, les potències vencedores van crear l'<strong>Organització de les Nacions Unides (ONU)</strong> el 1945 a San Francisco. L'objectiu fundacional era clar: evitar a tota costa que un conflicte d'aquella escala es tornés a repetir.</p>
+      <p>La Carta de les Nacions Unides estableix els principis bàsics: igualtat sobirana dels estats, prohibició de l'ús de la força entre estats, resolució pacífica de controvèrsies i respecte als drets humans. Avui l'ONU té <strong>193 estats membres</strong> —pràcticament tots els països del món— i la seva seu principal és a Nova York.</p>
+      <h4>L'Assemblea General</h4>
+      <p>L'<strong>Assemblea General</strong> és el "parlament" de l'ONU: tots els estats membres hi participen amb igualtat de vot (un estat = un vot). Debat i aprova resolucions sobre qualsevol tema internacional. Però atenció: <strong>les seves resolucions no són legalment vinculants</strong> per als estats. Són recomanacions i declaracions de consens, amb un gran pes moral però sense força jurídica directa.</p>
+      <h4>El Consell de Seguretat: el nucli del poder</h4>
+      <p>El <strong>Consell de Seguretat</strong> és l'òrgan amb poder real. Té 15 membres: <strong>5 permanents (P5)</strong> i 10 elegits rotatòriament cada dos anys. Els cinc membres permanents són: <strong>Estats Units, Rússia, Xina, França i Regne Unit</strong>.</p>
+      <p>Cada membre permanent té el <strong>dret de veto</strong>: pot bloquejar sol qualsevol resolució del Consell, independentment de quants membres la recolzin. Això significa que si un d'aquests cinc països és part d'un conflicte, l'ONU no pot actuar formalment de manera vinculant.</p>
+      <div class="highlight-box">Els P5 reflecteixen l'equilibri de poder de 1945. Cap revisió d'aquesta composició ha prosperat des de llavors, tot i que el món ha canviat dràsticament. Índia, Brasil o els països africans no hi estan representats com a membres permanents.</div>
+      <h4>Altres òrgans i agències</h4>
+      <ul>
+        <li><strong>OMS</strong>: coordina respostes a pandèmies i malalties globals</li>
+        <li><strong>UNICEF</strong>: protecció de la infància arreu del món</li>
+        <li><strong>ACNUR</strong>: protecció i assistència a refugiats</li>
+        <li><strong>UNESCO</strong>: educació, ciència i cultura</li>
+        <li><strong>PMA</strong>: assistència alimentària en crisis humanitàries</li>
+        <li><strong>CIJ</strong> (Cort Internacional de Justícia): resol disputes legals entre estats</li>
+      </ul>
+      <h4>Els reptes estructurals de l'ONU</h4>
+      <p>L'ONU s'enfronta a reptes estructurals que expliquen per qué no sempre pot actuar amb la rapidesa o la contundència que les crisis exigeixen. El <strong>dret de veto</strong> paralitza el Consell quan un P5 és protagonista del conflicte —però aquest mecanisme també va ser la condició perquè les grans potències de 1945 acceptessin entrar a l'organització. <strong>L'ONU no té un exèrcit propi</strong>: les missions de pau depenen de la voluntat dels estats de cedir tropes i finançament, cosa que les fa sovint lentes i insuficients. El principi de <strong>sobirania</strong> crea una tensió permanent entre no interferir en afers interns i protegir persones quan els seus propis governs les vulneren. I el pressupost depèn de les aportacions dels estats, que poden retenir-les com a instrument de pressió política.</p>
+      <p>Aquests reptes no fan l'ONU inútil —al contrari, l'organització té un paper insustituïble en coordinació humanitària, dret internacional i diplomàcia preventiva. Però expliquen per qué el seu impacte és tan desigual entre conflictes.</p>
+    `,
+    recursos: [
+      { icon:'🌐', text:'Lloc web oficial de l\'ONU', url:'https://www.un.org/es/' },
+      { icon:'📖', text:'ONU – Viquipèdia en català', url:'https://ca.wikipedia.org/wiki/Organitzaci%C3%B3_de_les_Nacions_Unides' },
+      { icon:'📖', text:'Consell de Seguretat – Viquipèdia', url:'https://ca.wikipedia.org/wiki/Consell_de_Seguretat_de_les_Nacions_Unides' },
+      { icon:'🌐', text:'Historial de vetos al CS des de 1946', url:'https://research.un.org/en/docs/sc/quick/veto' },
+      { icon:'🌐', text:'El Orden Mundial – L\'ONU i la pau global', url:'https://elordenmundial.com/temas/onu-y-paz-global/' },
+    ],
+    comprensio: [
+      { id:'M2Q1', pregunta:'Per quin motiu principal es va crear l\'ONU el 1945?', opcions:['Per regular el comerç internacional','Per evitar conflictes armats com la Segona Guerra Mundial','Per establir una moneda única mundial','Per controlar la migració entre països'], correcta:1 },
+      { id:'M2Q2', pregunta:'Quants membres permanents té el Consell de Seguretat?', opcions:['3','5','10','15'], correcta:1 },
+      { id:'M2Q3', pregunta:'Quina característica especial té el vot dels membres permanents del Consell de Seguretat?', opcions:['Compten doble en les votacions','Poden bloquejar qualsevol resolució en solitari (dret de veto)','Poden expulsar altres membres de l\'ONU','Decideixen el pressupost de tota l\'organització'], correcta:1 },
+      { id:'M2Q4', pregunta:'Quin és l\'estatus legal de les resolucions de l\'Assemblea General de l\'ONU?', opcions:['Són legalment vinculants per a tots els estats membres','Són recomanacions sense força jurídica directa','Obliguen als membres del Consell però no als altres','Depèn de si han estat aprovades per unanimitat'], correcta:1 },
+      { id:'M2Q5', pregunta:'Quina agència de l\'ONU s\'ocupa específicament de la protecció dels refugiats?', opcions:['UNICEF','UNESCO','ACNUR (UNHCR)','OMS'], correcta:2 },
+    ],
+    reflexio: [
+      { id:'M2R1', pregunta:'El dret de veto permet a 5 països bloquejar qualsevol resolució del Consell de Seguretat. Analitza aquest sistema: quines avantatges i inconvenients té? Si poguessis reformar l\'ONU, com canviaries el sistema de veto? Argumenta la teva proposta.' },
+      { id:'M2R2', pregunta:'Analitza la frase: "L\'ONU és necessària però insuficient." Hi estàs d\'acord? Argumenta la teva posició amb exemples concrets de situacions on l\'ONU ha funcionat bé i situacions on ha fallat.' },
+    ]
+  },
+  {
+    id: 3, icon: '⚖️',
+    titol: 'El Dret Internacional',
+    subtitol: 'Normes, tribunals i el problema de l\'aplicació',
+    desc: 'Explora com es regulen les relacions entre estats, qui jutja les violacions i per qué el dret internacional és tan diferent del dret intern d\'un país.',
+    teoria: `
+      <h4>Qué és el dret internacional?</h4>
+      <p>El <strong>dret internacional</strong> és el conjunt de normes que regulen les relacions entre estats i altres actors del sistema internacional. La gran diferència respecte al dret intern és que no hi ha un legislador global que aprovi les lleis, ni una policia global que les faci complir, ni un jutge amb autoritat universal. Els estats accepten ser vinculats per les normes que ells mateixos han acceptat voluntàriament.</p>
+      <h4>Les fonts del dret internacional</h4>
+      <ul>
+        <li><strong>Tractats i convenis internacionals</strong>: acords escrits entre estats. Per exemple, la Carta de l'ONU o les Convencions de Ginebra. El principi rector és <em>pacta sunt servanda</em> (els acords s'han de respectar).</li>
+        <li><strong>Costum internacional</strong>: pràctiques que els estats han seguit de manera consistent durant tant de temps que es consideren obligatòries (p.ex. la immunitat diplomàtica).</li>
+        <li><strong>Principis generals del dret</strong>: principis compartits per la majoria de sistemes jurídics nacionals, com la bona fe.</li>
+      </ul>
+      <h4>La CIJ i la CPI: dos tribunals molt diferents</h4>
+      <ul>
+        <li>La <strong>CIJ</strong> (Cort Internacional de Justícia, La Haia, 1945) resol disputes legals entre <em>estats</em>. Un estat pot demandar un altre. Exemple: Sudàfrica va presentar una demanda contra Israel el 2023 per possible genocidi a Gaza.</li>
+        <li>La <strong>CPI</strong> (Cort Penal Internacional, La Haia, 2002) jutja <em>individus</em> per crims de guerra, crims contra la humanitat i genocidi. Va emetre una ordre de detenció contra Vladimir Putin el 2023 per la deportació il·legal de nens ucraïnesos.</li>
+      </ul>
+      <div class="highlight-box">Ni la CIJ ni la CPI tenen mecanismes propis d'execució. Depenen que els estats cooperin voluntàriament. Un estat que no reconeix la jurisdicció de la CPI —com els EUA, Rússia o la Xina— no és automàticament obligat a complir les seves ordres.</div>
+      <h4>El gran problema: qui fa complir el dret internacional?</h4>
+      <p>No existeix cap autoritat global coercitiva. Llavors, per qué molts estats el respecten?</p>
+      <ul>
+        <li><strong>Reputació</strong>: violar tractats et posa en mala posició davant tots els altres estats, cosa que afecta negocis, aliances i credibilitat</li>
+        <li><strong>Reciprocitat</strong>: si tu respectes el dret internacional, els altres et respectaran a tu</li>
+        <li><strong>Sancions econòmiques</strong>: la comunitat internacional pot respondre castigant econòmicament l'infractor</li>
+        <li><strong>Previsibilitat</strong>: als estats els convé tenir un sistema de normes estables que tothom respecti</li>
+      </ul>
+      <h4>El dret humanitari internacional (DIH)</h4>
+      <p>Les <strong>Convencions de Ginebra</strong> (1949) regulen la conducta dels conflictes armats per protegir persones que no participen en els combats. Prohibicions clares: atacar deliberadament civils, bombardejar hospitals, torturar presoners de guerra, o privar la població civil d'accés a aliments i medicines.</p>
+      <p>La <strong>Declaració Universal dels Drets Humans</strong> (1948) estableix els drets fonamentals de tota persona. És una declaració —té gran autoritat moral però no és per si sola legalment obligatòria de la mateixa manera que un tractat.</p>
+    `,
+    recursos: [
+      { icon:'🌐', text:'Cort Internacional de Justícia – Web oficial', url:'https://www.icj-cij.org/' },
+      { icon:'🌐', text:'Cort Penal Internacional – Web oficial', url:'https://www.icc-cpi.int/' },
+      { icon:'📄', text:'Declaració Universal dels Drets Humans (text en català)', url:'https://www.humanrights.com/assets/files/what-are-human-rights/pdf/UDHR-booklet-CA.pdf' },
+      { icon:'📖', text:'Convencions de Ginebra – Viquipèdia', url:'https://ca.wikipedia.org/wiki/Convencions_de_Ginebra' },
+      { icon:'🌐', text:'El Orden Mundial – Dret internacional', url:'https://elordenmundial.com/temas/derecho-internacional/' },
+      { icon:'🌐', text:'CIDOB – Fitxes de dret internacional', url:'https://www.cidob.org/publicaciones/documentos/cidob/' },
+    ],
+    comprensio: [
+      { id:'M3Q1', pregunta:'Quina és la principal diferència entre la CIJ i la CPI?', opcions:['La CIJ és de l\'ONU i la CPI és independent','La CIJ jutja disputes entre estats; la CPI jutja individus per crims internacionals','La CIJ pot imposar penes de presó; la CPI sols multes','La CPI és més antiga que la CIJ'], correcta:1 },
+      { id:'M3Q2', pregunta:'Quina és la principal font del dret internacional?', opcions:['Les decisions del Secretari General de l\'ONU','Les lleis aprovades pels EUA com a superpotència','Els tractats i convenis signats entre estats','Les decisions del Consell de Seguretat'], correcta:2 },
+      { id:'M3Q3', pregunta:'Quin és el problema fonamental del dret internacional respecte al seu compliment?', opcions:['Que hi ha massa tractats i generen confusió','Que no existeix una autoritat global que el faci complir de manera coercitiva','Que sols s\'aplica als països europeus','Que és massa recent per ser efectiu'], correcta:1 },
+      { id:'M3Q4', pregunta:'Qué regulen principalment les Convencions de Ginebra?', opcions:['El comerç d\'armes entre estats','Els límits de la pesca als oceans','La protecció de les persones en conflictes armats','Els drets dels immigrants econòmics'], correcta:2 },
+      { id:'M3Q5', pregunta:'Per quin motiu molts estats respecten el dret internacional tot i no haver-hi cap "policia global" que els hi obligui?', opcions:['Perquè l\'ONU els pot expulsar si no ho fan','Per raons de reputació, reciprocitat i previsibilitat, entre d\'altres','Perquè els EUA imposen sancions automàtiques als infractors','Perquè la CIJ pot ordenar intervencions militars'], correcta:1 },
+    ],
+    reflexio: [
+      { id:'M3R1', pregunta:'Si no hi ha cap "policia internacional" que faci complir el dret internacional, per quin motiu molts estats el respecten? Reflexiona sobre el paper de la reputació, les sancions econòmiques, la reciprocitat i la pressió internacional. Creus que aquests mecanismes són suficients?' },
+      { id:'M3R2', pregunta:'La Cort Penal Internacional va emetre el 2023 una ordre de detenció contra Vladimir Putin per crims de guerra a Ucraïna. Fins avui, cap estat que tingui la capacitat de fer-ho l\'ha detingut. Analitza aquesta situació: quin problema fonamental del dret internacional il·lustra? Qué caldria per a que el dret internacional fos més efectiu?' },
+    ]
+  },
+  {
+    id: 4, icon: '📰',
+    titol: 'Conflictes Actuals al Món',
+    subtitol: 'Ucraïna · Gaza · Iran · Líban',
+    desc: 'Aplica tot el que has après per analitzar quatre conflictes reals. Identificaràs actors, interessos geopolítics, el paper de l\'ONU i els dilemes del dret internacional.',
+    teoria: `
+      <h4>🇺🇦 Ucraïna: geopolítica i veto al Consell de Seguretat</h4>
+      <p>El 24 de febrer de 2022, Rússia va llançar una invasió a gran escala d'Ucraïna. Rússia argumentava que l'expansió de l'OTAN cap a l'est era una amenaça existencial, i que protegia la població russoparlant d'Ucraïna oriental. Des de la perspectiva geopolítica, Ucraïna és estratègica: un gran estat fronterer entre Rússia i l'Europa occidental, amb accés al Mar Negre i importants recursos agrícoles i industrials.</p>
+      <p>Des del dret internacional, la invasió viola l'article 2.4 de la Carta de l'ONU (prohibició de l'ús de la força). L'Assemblea General va aprovar resolucions condemnant la invasió amb majories àmplies. Però el Consell de Seguretat no ha pogut actuar de forma vinculant: Rússia ha bloquejat totes les resolucions amb el seu veto. La CPI va emetre el 2023 una ordre de detenció contra Putin per la deportació il·legal de nens ucraïnesos.</p>
+      <h4>🇵🇸 Gaza: dret humanitari i el dilema del veto</h4>
+      <p>El 7 d'octubre de 2023, Hamas va llançar un atac terrorista massiu al sud d'Israel, matant unes 1.200 persones i prenent uns 250 ostatges. Israel va respondre amb una ofensiva militar a Gaza que va causar desenes de milers de víctimes civils i una greu crisi humanitària. El conflicte ha generat debats intensos sobre la proporcionalitat de la resposta, l'aplicació del DIH en zones densament poblades i la responsabilitat d'Israel com a potència ocupant. Al Consell de Seguretat, els EUA han vetat diverses resolucions de cessament del foc.</p>
+      <h4>🇮🇷 Iran: el programa nuclear i la influència regional</h4>
+      <p>El <strong>programa nuclear iranià</strong> ha estat durant dècades una de les principals fonts de tensió internacional. El 2015 es va signar el JCPOA, on Iran acceptava limitar el seu programa nuclear a canvi de l'aixecament de sancions. El 2018, els EUA es van retirar unilateralment de l'acord, accelerant el deteriorament de la situació. Iran projectava poder regional a través del suport a grups armats aliats a Gaza, Líban, Iemen, Iraq i Síria —estratègia denominada "<em>guerra per proxy</em>"— sense enviar formalment el seu exèrcit.</p>
+      <p>El 28 de febrer de 2026, els EUA i Israel van llançar l'Operació Epic Fury: atacs coordinats que van assassinar el líder suprem Ali Khamenei i van destruir instal·lacions nuclears i militars iranianes clau. El règim ha continuat funcionant sota un nou lideratge però profundament debilitat. Iran va respondre tancant l'Estret d'Ormuz —per on circula el 20% del petroli mundial— provocant una crisi energètica global que continua activa en el moment d'escriure aquestes línies.</p>
+      <h4>🇱🇧 El Líban com a escenari de guerra per proxy</h4>
+      <p>Per entendre el conflicte al Líban, cal entendre primer <strong>Hezbollah</strong>: una organització que és alhora un partit polític amb representació al parlament libanès i un poderós grup armat finançat principalment per Iran, amb un arsenal que supera el de molts exèrcits estatals. Hezbollah no actua sol: és el braç més poderós de l'anomenat "<em>Eix de la Resistència</em>" articulat per Iran per projectar influència regional sense una confrontació directa.</p>
+      <p>El Líban, com a Estat, és l'<em>escenari</em> d'aquesta dinàmica, no el seu autor. El govern libanès és feble i fragmentat, i no té control real sobre les decisions militars d'Hezbollah. El 2024, Israel va llançar una ofensiva al territori libanès que va desmantellar parcialment la cúpula militar d'Hezbollah i va causar milers de víctimes civils. Amb la guerra directa EUA-Israel-Iran de 2026, el futur del Líban com a escenari de proxy ha canviat: Hezbollah, sense el suport directe de Teheran, es troba en la seva posició més feble en dècades.</p>
+      <p>El cas libanès il·lustra un dels dilemes més complexos del dret internacional: quin grau de responsabilitat té un Estat quan grups armats operen des del seu territori sense que el govern els controli plenament?</p>
+    `,
+    recursos: [
+      { icon:'📖', text:'Guerra a Ucraïna – Viquipèdia en català', url:'https://ca.wikipedia.org/wiki/Invas%C3%AD%C3%B3_russa_d%27Ucra%C3%AFna_de_2022' },
+      { icon:'📖', text:'Conflicte israeliano-palestí – Viquipèdia', url:'https://ca.wikipedia.org/wiki/Conflicte_israeliano-palestin%C3%AD' },
+      { icon:'📖', text:'Hezbollah – Viquipèdia en català', url:'https://ca.wikipedia.org/wiki/Hezbollah' },
+      { icon:'🌐', text:'El Orden Mundial – Pròxim Orient', url:'https://elordenmundial.com/regiones/oriente-medio/' },
+      { icon:'🌐', text:'El Orden Mundial – Iran', url:'https://elordenmundial.com/regiones/oriente-medio/iran/' },
+      { icon:'🌐', text:'CIDOB – Cronologies de conflictes', url:'https://www.cidob.org/publicaciones/series-de-publicacion/dossiers-de-cidob' },
+      { icon:'🌐', text:'ACNUR – Situacions d\'emergència actuals', url:'https://www.acnur.org/es-es/situaciones-de-emergencia' },
+    ],
+    comprensio: [],
+    reflexio: [
+      { id:'M4A1', pregunta:'L\'ONU va intentar aprovar diverses resolucions vinculants per respondre a la invasió russa d\'Ucraïna, però el Consell de Seguretat no va poder actuar. Explica detalladament per quin motiu, connectant-ho amb el que has après sobre el funcionament de l\'ONU. Quines alternatives va tenir la comunitat internacional davant d\'aquesta situació?' },
+      { id:'M4A2', pregunta:'El conflicte a Gaza ha generat un intens debat sobre l\'aplicació del dret humanitari internacional. Basant-te en el que has après al mòdul 3, explica quines normes haurien d\'aplicar-se a un conflicte com aquest i quins obstacles dificulten el seu compliment.' },
+      { id:'M4A3', pregunta:'Iran no ha envaït cap país de manera formal, però el seu programa nuclear i el suport a grups armats regionals generen una gran tensió geopolítica. Per quin motiu un país que formalment no ha atacat ningú pot ser considerat una amenaça internacional? Quins mecanismes té la comunitat internacional per respondre a aquest tipus d\'amenaces sense recórrer a la guerra?' },
+      { id:'M4A4', pregunta:'El Líban ha estat durant anys un escenari de guerra per proxy: actors externs —sobretot Iran— han projectat el seu poder al país a través d\'Hezbollah, sense que el govern libanès en tingui control real. Explica qué és una guerra per proxy, per qué actors com Iran prefereixen aquest tipus d\'estratègia a una confrontació directa, i quin impacte té sobre la sobirania i la població del país que n\'és l\'escenari.' },
+      { id:'M4A5', pregunta:'Reflexió global: Després d\'analitzar els quatre conflictes, identifica el que creus que és la principal feblesa del sistema internacional actual per resoldre conflictes. Utilitza exemples concrets i proposa, de manera argumentada, una possible millora del sistema.' },
+    ]
+  }
+];
+
+// ═══════════════════════════════════════════════════════
+// ▸ ESTAT
+// ═══════════════════════════════════════════════════════
+const KEY = 'geopol_v2';
+let alumne = null;
+let completats = {};
+// completats[id] = { punts, total, reflexions[], insigniaEarnedDirecta, repesca: null|{punts,total,earned} }
+let respostesActuals = {};
+let currentView = 'login';
+let currentModulId = null;
+let simEstat = null;
+
+function loadState() {
+  try {
+    const raw = localStorage.getItem(KEY);
+    if (raw) { const d = JSON.parse(raw); alumne = d.alumne||null; completats = d.completats||{}; }
+  } catch(e) {}
+}
+function saveState() { localStorage.setItem(KEY, JSON.stringify({ alumne, completats })); }
+function isModulDisponible(id) { return id === 1 || !!completats[id - 1]; }
+
+// ── Lògica d'insígnies ──
+function getInsigniaEstat(insId) {
+  const ins = INSIGNIES.find(i => i.id === insId);
+  if (!ins) return 'locked';
+  if (ins.id === 'SIM') return completats['SIM'] ? 'earned' : 'locked';
+  const mid = ins.modul;
+  if (!completats[mid]) return 'locked';
+  const data = completats[mid];
+  if (mid === 4) return 'earned'; // M4 no té comprensió, sempre earned
+  if (data.insigniaEarnedDirecta) return 'earned';
+  if (data.repesca) return data.repesca.earned ? 'earned' : 'failed';
+  return 'repesca'; // repesca disponible
+}
+function calcInsigniaDirecta(punts, total) {
+  if (total === 0) return true;
+  return (punts / total) >= MINIM_INSIGNIA;
+}
+
+// ═══════════════════════════════════════════════════════
+// ▸ GAS
+// ═══════════════════════════════════════════════════════
+function loginGAS(nom, codi) {
+  return new Promise(resolve => {
+    if (!GAS_CONFIGURAT) { resolve({ ok: true, nom }); return; }
+    const cb = 'cb_' + Date.now();
+    const t = setTimeout(() => { resolve({ ok:false, error:'timeout' }); delete window[cb]; }, 12000);
+    window[cb] = data => { clearTimeout(t); delete window[cb]; resolve(data); };
+    const s = document.createElement('script');
+    s.src = GAS_URL + '?action=login&nom=' + encodeURIComponent(nom) + '&codi=' + encodeURIComponent(codi) + '&callback=' + cb;
+    s.onerror = () => { clearTimeout(t); resolve({ ok:false, error:'network' }); };
+    document.head.appendChild(s);
+  });
+}
+function saveResultsGAS(payload) {
+  if (!GAS_CONFIGURAT) { console.log('[DEMO] GAS results:', payload); return; }
+  fetch(GAS_URL, { method:'POST', mode:'no-cors', body: JSON.stringify({ action:'save', alumne, email:emailAlumne, ...payload }) }).catch(()=>{});
+}
+// Desa l'estat complet de l'alumne (completats) al full Progres → permet recuperar-lo en futures sessions
+function saveProgressGAS() {
+  if (!GAS_CONFIGURAT) { console.log('[DEMO] GAS progress:', completats); return; }
+  fetch(GAS_URL, { method:'POST', mode:'no-cors', body: JSON.stringify({ action:'progress', alumne, email:emailAlumne, completats }) }).catch(()=>{});
+}
+
+// ═══════════════════════════════════════════════════════
+// ▸ RENDER HELPERS
+// ═══════════════════════════════════════════════════════
+const app = document.getElementById('app');
+
+function header() {
+  return `<header class="site-header">
+    <span class="emblem">🗺️</span>
+    <h1>Geopolítica i Món</h1>
+    <p class="subtitol-header">Itinerari d'aprenentatge · 3r ESO</p>
+  </header>`;
+}
+function warningBanner() {
+  if (GAS_CONFIGURAT) return '';
+  return `<div class="warning-banner">⚠️ <strong>Mode demostració:</strong> El Google Apps Script no està configurat. Les dades no s'enviaran al full de càlcul.</div>`;
+}
+function insigniesPanel() {
+  const cards = INSIGNIES.map(ins => {
+    const estat = getInsigniaEstat(ins.id);
+    const labels = { earned:'✓ Obtinguda', repesca:'⚡ Repesca!', failed:'✗ No assolida', locked:'🔒 Bloquejada' };
+    const click = estat === 'repesca' && ins.modul ? `onclick="showRepesca(${ins.modul})" style="cursor:pointer"` : '';
+    return `
+      <div class="insignia-card ${estat}" ${click} title="${ins.desc}">
+        ${estat === 'earned' ? '<div class="insignia-check">✓</div>' : ''}
+        <span class="insignia-icon">${ins.icon}</span>
+        <span class="insignia-nom">${ins.nom}</span>
+        <span class="insignia-estat">${labels[estat]}</span>
+      </div>`;
+  }).join('');
+  return `<div class="insignies-section">
+    <div class="section-label">Les meves insígnies</div>
+    <div class="insignies-grid">${cards}</div>
+  </div>`;
+}
+
+// ═══════════════════════════════════════════════════════
+// ▸ LOGIN
+// ═══════════════════════════════════════════════════════
+function showLogin() {
+  currentView = 'login';
+  app.innerHTML = header() + warningBanner() + `
+    <div class="login-wrap"><div class="login-card">
+      <h2>Accés a l'itinerari</h2>
+      <p class="intro">Introdueix les teves dades i el codi que t'ha facilitat el teu professor o professora per accedir a les activitats.</p>
+      <div class="form-group"><label>Nom i cognoms</label>
+        <input type="text" id="inp-nom" placeholder="Escriu el teu nom complet..." autocomplete="name" /></div>
+      <div class="form-group"><label>Correu electrònic</label>
+        <input type="email" id="inp-email" placeholder="el.teu@correu.com" autocomplete="email" /></div>
+      <div class="form-group"><label>Codi d'accés</label>
+        <input type="text" id="inp-codi" placeholder="Codi facilitat pel professor/a" autocomplete="off" /></div>
+      <button class="btn-primary" id="btn-login" onclick="handleLogin()">Entrar →</button>
+      <div class="error-box" id="login-error" style="display:none;"></div>
+    </div></div>`;
+  document.getElementById('inp-nom').addEventListener('keydown', e => { if(e.key==='Enter') document.getElementById('inp-email').focus(); });
+  document.getElementById('inp-email').addEventListener('keydown', e => { if(e.key==='Enter') document.getElementById('inp-codi').focus(); });
+  document.getElementById('inp-codi').addEventListener('keydown', e => { if(e.key==='Enter') handleLogin(); });
+}
+
+let emailAlumne = '';
+async function handleLogin() {
+  const nom = document.getElementById('inp-nom').value.trim();
+  const email = document.getElementById('inp-email').value.trim();
+  const codi = document.getElementById('inp-codi').value.trim();
+  const btn = document.getElementById('btn-login');
+  const err = document.getElementById('login-error');
+  if (!nom || !codi || !email) { err.textContent='Cal omplir tots els camps.'; err.style.display='block'; return; }
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { err.textContent='Introdueix un correu electrònic vàlid.'; err.style.display='block'; return; }
+  btn.disabled=true; btn.textContent='Verificant...'; err.style.display='none';
+  const res = await loginGAS(nom, codi);
+  if (res.ok) {
+    alumne = nom;
+    emailAlumne = email;
+    if (res.completats) completats = { ...res.completats, ...completats };
+    saveState(); showModuls();
+  } else {
+    btn.disabled=false; btn.textContent='Entrar →';
+    err.textContent = (res.error==='timeout'||res.error==='network')
+      ? 'No s\'ha pogut connectar. Comprova la connexió o avisa el professor/a.'
+      : 'Codi d\'accés incorrecte. Comprova les dades i torna-ho a intentar.';
+    err.style.display='block';
+  }
+}
+
+function buildSimCard() {
+  const unlocked = !!completats[4];
+  const done = !!completats['SIM'];
+  if (!unlocked) {
+    return `<div class="sim-modul-card locked">
+      <div class="sim-label">🔒 Missió Final</div>
+      <h3 style="font-family:'Playfair Display',serif;color:var(--cream-dim);font-size:1.1rem;margin-bottom:6px;">🎭 Simulador Geopolític</h3>
+      <p style="color:var(--cream-dim);font-size:0.84rem;line-height:1.65;">Es desbloqueja en completar el Mòdul 4.</p>
+    </div>`;
+  }
+  if (done) {
+    const rolData = SIM_ROLS[completats['SIM'].rol];
+    const perfil = completats['SIM'].profile ? SIM_PERFILS[completats['SIM'].profile.tendency].etiqueta : '';
+    return `<div class="sim-modul-card completat" onclick="showSimDone()">
+      <div class="sim-label">✅ Missió Final Completada</div>
+      <h3 style="font-family:'Playfair Display',serif;color:var(--gold);font-size:1.15rem;margin-bottom:8px;">🎭 Simulador Geopolític · ${rolData.bandera} ${rolData.pais}</h3>
+      <p style="color:var(--cream-dim);font-size:0.84rem;margin-bottom:6px;">Perfil: <strong style="color:var(--cream)">${perfil}</strong></p>
+      <p style="color:var(--cream-dim);font-size:0.82rem;">Toca per veure el resum de les teves decisions.</p>
+    </div>`;
+  }
+  return `<div class="sim-modul-card" onclick="showSimulator()">
+    <div class="sim-label">🎭 Missió Final — Desbloqueada</div>
+    <h3 style="font-family:'Playfair Display',serif;color:var(--gold);font-size:1.2rem;margin-bottom:8px;">Simulador Geopolític: Diplomàcia en Crisi</h3>
+    <p style="color:var(--cream);font-size:0.88rem;line-height:1.65;margin-bottom:14px;">Viu dues crisis reals des de dins: Ucraïna 2022 i l'Estret d'Ormuz 2026. Escull el teu rol — França, Xina o UE — i pren decisions sense respostes correctes.</p>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;">
+      <span class="badge">🇫🇷 França</span>
+      <span class="badge">🇨🇳 Xina</span>
+      <span class="badge">🇪🇺 Unió Europea</span>
+      <span class="badge verd">2 fases · 6 rondes</span>
+    </div>
+  </div>`;
+}
+
+// ═══════════════════════════════════════════════════════
+// ▸ LLISTA DE MÒDULS
+// ═══════════════════════════════════════════════════════
+function showModuls() {
+  currentView = 'moduls';
+  const done = Object.keys(completats).filter(k => !isNaN(k) && Number(k) >= 1 && Number(k) <= 4).length;
+  const pct = Math.round((done / MODULS.length) * 100);
+
+  const cards = MODULS.map(m => {
+    const disp = isModulDisponible(m.id);
+    const comp = !!completats[m.id];
+    const data = completats[m.id];
+    const ins = INSIGNIES.find(i => i.modul === m.id);
+    const insEstat = ins ? getInsigniaEstat(ins.id) : null;
+
+    let statusIcon = '🔒';
+    if (comp) statusIcon = '✅';
+    else if (disp) statusIcon = '▶';
+
+    let badges = '';
+    if (m.comprensio.length) badges += `<span class="badge">${m.comprensio.length} comprensió</span>`;
+    if (m.reflexio.length) badges += `<span class="badge">${m.reflexio.length} reflexió</span>`;
+    if (comp && data.total > 0) {
+      const cls = data.insigniaEarnedDirecta ? 'verd' : 'vermell';
+      badges += `<span class="badge ${cls}">${data.punts}/${data.total} pts</span>`;
+    }
+    if (comp && data.total === 0) badges += `<span class="badge verd">Completat</span>`;
+    if (insEstat === 'repesca') badges += `<span class="badge amber">⚡ Repesca disponible</span>`;
+    if (insEstat === 'failed') badges += `<span class="badge vermell">Insígnia no assolida</span>`;
+
+    return `
+      <div class="modul-card ${!disp?'locked':''} ${comp?'completat':''}"
+           onclick="${disp?'showModul('+m.id+')':'void(0)'}">
+        <div class="modul-card-top">
+          <div class="modul-num">0${m.id}</div>
+          <div class="modul-info"><h3>${m.icon} ${m.titol}</h3><span class="sub">${m.subtitol}</span></div>
+          <div class="modul-status">${statusIcon}</div>
+        </div>
+        <p class="modul-card-desc">${m.desc}</p>
+        <div class="modul-badges">${badges}</div>
+      </div>`;
+  }).join('');
+
+  app.innerHTML = header() + warningBanner() + `
+    <div class="alumne-bar">
+      <div><span class="nom">👤 ${alumne}</span>
+        <span class="progres-text">${done} de ${MODULS.length} mòduls completats</span></div>
+      <button class="btn-sortir" onclick="sortir()">Sortir</button>
+    </div>
+    <div class="progress-global"><div class="progress-bar" style="width:${pct}%"></div></div>
+    ${insigniesPanel()}
+    <div class="section-label">Mòduls</div>
+    <div class="moduls-grid">${cards}</div>
+    ${buildSimCard()}`;
+}
+
+function sortir() {
+  if (confirm('Vols sortir? El teu progrés es conservarà.')) { alumne=null; saveState(); showLogin(); }
+}
+
+// ═══════════════════════════════════════════════════════
+// ▸ DETALL DE MÒDUL
+// ═══════════════════════════════════════════════════════
+function showModul(id) {
+  currentView = 'modul'; currentModulId = id;
+  const m = MODULS[id-1];
+  if (!m || !isModulDisponible(id)) { showModuls(); return; }
+
+  const recursos = m.recursos.map(r =>
+    `<a href="${r.url}" target="_blank" rel="noopener"><span>${r.icon}</span>${r.text} ↗</a>`).join('');
+
+  const teoriaHTML = `
+    <div class="teoria-box">
+      <h3>📚 Teoria</h3>${m.teoria}
+      <div class="recursos-box"><h4>📌 Recursos per aprofundir</h4>${recursos}</div>
+    </div>`;
+
+  // ── MODE REVISIÓ (mòdul ja completat) ──────────────────
+  if (completats[id]) {
+    const data = completats[id];
+    const lletres = ['A','B','C','D'];
+
+    let exHTML = `<div class="revisio-banner">👁️ Mode revisió — les teves respostes estan guardades i no es poden modificar</div>`;
+    exHTML += `<h2 class="exercicis-titol">Les teves respostes</h2>`;
+
+    if (m.comprensio.length > 0) {
+      exHTML += `<div class="exercici-section-label">Comprensió</div>`;
+      exHTML += m.comprensio.map((q, qi) => {
+        const chosen = data.respostes ? data.respostes[q.id] : undefined;
+        const ops = q.opcions.map((op, oi) => {
+          let cls = 'opcio-btn';
+          if (oi === q.correcta) cls += ' correcta-review';
+          else if (oi === chosen && chosen !== q.correcta) cls += ' incorrecta-review';
+          const mark = oi === q.correcta ? '✓' : (oi === chosen && chosen !== q.correcta ? '✗' : lletres[oi]);
+          return `<div class="${cls}"><span class="opcio-lletra">${mark}</span><span>${op}</span></div>`;
+        }).join('');
+        const result = chosen === undefined ? '' :
+          chosen === q.correcta
+            ? `<div class="feedback-msg correcta" style="display:block;margin-top:10px;">✓ Correcta</div>`
+            : `<div class="feedback-msg incorrecta" style="display:block;margin-top:10px;">✗ Incorrecta — la correcta era: <strong>${q.opcions[q.correcta]}</strong></div>`;
+        return `<div class="comprensio-card">
+          <p class="q-num">Pregunta ${qi+1} de ${m.comprensio.length}</p>
+          <p class="pregunta">${q.pregunta}</p>
+          <div class="opcions-grid">${ops}</div>
+          ${result}</div>`;
+      }).join('');
+    }
+
+    const refLabel = m.comprensio.length > 0 ? 'Reflexió i anàlisi' : 'Anàlisi i pensament crític';
+    exHTML += `<div class="exercici-section-label">${refLabel}</div>`;
+    exHTML += m.reflexio.map((r, ri) => {
+      const saved = data.reflexions ? data.reflexions.find(x => x.id === r.id) : null;
+      const text = saved ? saved.text : '';
+      return `<div class="reflexio-card">
+        <span class="reflexio-badge">${m.comprensio.length===0?'Anàlisi '+(ri+1):'Reflexió '+(ri+1)}</span>
+        <p class="pregunta">${r.pregunta}</p>
+        <div class="reflexio-review-text">${text || '<em style="color:var(--cream-dim)">Sense resposta guardada</em>'}</div>
+      </div>`;
+    }).join('');
+
+    app.innerHTML = header() + `
+      <button class="back-btn" onclick="showModuls()">← Tornar als mòduls</button>
+      <div class="modul-header"><h2>${m.icon} ${m.titol}</h2><p class="sub-header">${m.subtitol}</p></div>
+      ${teoriaHTML}
+      ${exHTML}`;
+    return;
+  }
+
+  // ── MODE INTERACTIU (mòdul no completat) ───────────────
+  respostesActuals = {};
+  let exHTML = `<h2 class="exercicis-titol">Exercicis</h2>`;
+  if (m.comprensio.length > 0) {
+    exHTML += `<p class="exercicis-sub">Llegeix la teoria i respon les preguntes. Veuràs el feedback immediatament per a cada pregunta. Després escriu les reflexions i entrega el mòdul.</p>`;
+    exHTML += `<div class="exercici-section-label">Comprensió</div>`;
+    exHTML += m.comprensio.map((q, qi) => {
+      const lletres = ['A','B','C','D'];
+      const ops = q.opcions.map((op,oi) =>
+        `<button class="opcio-btn" id="op_${q.id}_${oi}" onclick="selectAnswer('${q.id}',${oi},${q.correcta})">
+          <span class="opcio-lletra">${lletres[oi]}</span><span>${op}</span></button>`).join('');
+      return `<div class="comprensio-card" id="q_${q.id}">
+        <p class="q-num">Pregunta ${qi+1} de ${m.comprensio.length}</p>
+        <p class="pregunta">${q.pregunta}</p>
+        <div class="opcions-grid">${ops}</div>
+        <div class="feedback-msg" id="fb_${q.id}"></div></div>`;
+    }).join('');
+  }
+
+  const refLabel = m.comprensio.length > 0 ? 'Reflexió i anàlisi' : 'Anàlisi i pensament crític';
+  exHTML += `<div class="exercici-section-label">${refLabel}</div>`;
+  exHTML += m.reflexio.map((r,ri) => `
+    <div class="reflexio-card">
+      <span class="reflexio-badge">${m.comprensio.length===0?'Anàlisi '+(ri+1):'Reflexió '+(ri+1)}</span>
+      <p class="pregunta">${r.pregunta}</p>
+      <textarea id="ref_${r.id}" placeholder="Escriu aquí la teva resposta de manera reflexionada i argumentada..." oninput="updateCharCount('${r.id}')"></textarea>
+      <p class="char-count" id="cc_${r.id}">0 caràcters (mínim 80)</p>
+    </div>`).join('');
+
+  const note = m.comprensio.length > 0
+    ? 'Assegura\'t que has respost totes les preguntes i has escrit les reflexions (mínim 80 caràcters cadascuna).'
+    : 'Assegura\'t que has escrit una resposta argumentada a cadascuna de les preguntes d\'anàlisi (mínim 80 caràcters).';
+
+  exHTML += `<div class="submit-box">
+    ${m.comprensio.length>0?'<p class="punts-preview" id="punts-preview">Puntuació comprensió: – / '+m.comprensio.length+'</p>':''}
+    <p>${note}</p>
+    <div class="submit-error" id="submit-error"></div>
+    <button class="btn-primary" onclick="submitModul(${id})">Entregar mòdul →</button>
+  </div>`;
+
+  app.innerHTML = header() + `
+    <button class="back-btn" onclick="showModuls()">← Tornar als mòduls</button>
+    <div class="modul-header"><h2>${m.icon} ${m.titol}</h2><p class="sub-header">${m.subtitol}</p></div>
+    ${teoriaHTML}
+    ${exHTML}`;
+}
+
+function selectAnswer(qId, chosen, correct) {
+  if (respostesActuals[qId] !== undefined) return;
+  respostesActuals[qId] = chosen;
+  const m = MODULS[currentModulId-1];
+  const q = m.comprensio.find(q => q.id === qId);
+  q.opcions.forEach((_,i) => { const b=document.getElementById('op_'+qId+'_'+i); if(b) b.disabled=true; });
+  const cb=document.getElementById('op_'+qId+'_'+chosen);
+  const kb=document.getElementById('op_'+qId+'_'+correct);
+  if(kb) kb.classList.add('correcta');
+  if(chosen!==correct && cb) cb.classList.add('incorrecta');
+  const fb=document.getElementById('fb_'+qId);
+  if(fb) {
+    fb.classList.add('show');
+    if(chosen===correct){fb.classList.add('ok');fb.textContent='✓ Correcte!';}
+    else{fb.classList.add('err');fb.textContent='✗ Incorrecte. La resposta correcta era: '+q.opcions[correct];}
+  }
+  updatePuntsPreview();
+}
+
+function updatePuntsPreview() {
+  const m = MODULS[currentModulId-1];
+  const p = document.getElementById('punts-preview');
+  if (!p || !m.comprensio.length) return;
+  const correct = Object.entries(respostesActuals).filter(([id,ch]) => {
+    const q=m.comprensio.find(q=>q.id===id); return q && ch===q.correcta;
+  }).length;
+  const answered = Object.keys(respostesActuals).length;
+  p.textContent = `Puntuació comprensió: ${answered>0?correct:'–'} / ${m.comprensio.length}`;
+}
+
+function updateCharCount(refId) {
+  const ta=document.getElementById('ref_'+refId);
+  const cc=document.getElementById('cc_'+refId);
+  if(!ta||!cc) return;
+  const len=ta.value.trim().length;
+  cc.textContent=len+' caràcters (mínim 80)';
+  cc.className='char-count'+(len>=80?' ok':'');
+}
+
+function submitModul(id) {
+  const m = MODULS[id-1];
+  const errEl = document.getElementById('submit-error');
+
+  if (m.comprensio.length > 0) {
+    const unans = m.comprensio.filter(q => respostesActuals[q.id]===undefined);
+    if (unans.length > 0) {
+      errEl.textContent=`Falta respondre ${unans.length} pregunta/es de comprensió.`;
+      errEl.classList.add('show'); errEl.scrollIntoView({behavior:'smooth',block:'center'}); return;
+    }
+  }
+  const shortRef = m.reflexio.filter(r => {
+    const ta=document.getElementById('ref_'+r.id); return !ta || ta.value.trim().length<80;
+  });
+  if (shortRef.length > 0) {
+    errEl.textContent='Cal escriure almenys 80 caràcters a cadascuna de les respostes.';
+    errEl.classList.add('show'); errEl.scrollIntoView({behavior:'smooth',block:'center'}); return;
+  }
+  errEl.classList.remove('show');
+
+  const punts = m.comprensio.length > 0
+    ? Object.entries(respostesActuals).filter(([qId,ch]) => {
+        const q=m.comprensio.find(q=>q.id===qId); return q && ch===q.correcta;
+      }).length : 0;
+  const total = m.comprensio.length;
+  const insigniaEarnedDirecta = calcInsigniaDirecta(punts, total);
+  const reflexions = m.reflexio.map(r => ({ id:r.id, text:document.getElementById('ref_'+r.id).value.trim() }));
+
+  completats[id] = { punts, total, reflexions, respostes: {...respostesActuals}, insigniaEarnedDirecta, repesca: null };
+  saveState();
+  saveResultsGAS({ modul_id:id, modul_titol:m.titol, punts, total, insignia:insigniaEarnedDirecta, reflexions:reflexions.map(r=>r.text) });
+  saveProgressGAS(); // Desa l'estat complet al full Progres per recuperació futura
+  showSuccess(id);
+}
+
+// ═══════════════════════════════════════════════════════
+// ▸ SUCCESS + BADGE REVEAL
+// ═══════════════════════════════════════════════════════
+function showSuccess(id) {
+  const m = MODULS[id-1];
+  const data = completats[id];
+  const seguent = MODULS[id];
+  const ins = INSIGNIES.find(i => i.modul===id);
+  const estat = ins ? getInsigniaEstat(ins.id) : null;
+  const isFresh = Object.keys(respostesActuals).length > 0;
+
+  // Score
+  let scoreHTML = '';
+  if (data.total > 0) {
+    const pct = Math.round((data.punts/data.total)*100);
+    const cls = pct>=60?'ok':pct>=40?'warn':'err';
+    scoreHTML = `<div class="score-summary"><span class="score-pill ${cls}">${data.punts} / ${data.total} correctes (${pct}%)</span></div>`;
+    // Error list (only fresh)
+    if (isFresh && data.punts < data.total) {
+      const errItems = m.comprensio
+        .filter(q => respostesActuals[q.id]!==undefined && respostesActuals[q.id]!==q.correcta)
+        .map(q => `<div class="error-item">
+          <p class="ei-q">❓ ${q.pregunta}</p>
+          <p class="ei-err">✗ La teva resposta: ${q.opcions[respostesActuals[q.id]]}</p>
+          <p class="ei-ok">✓ Resposta correcta: ${q.opcions[q.correcta]}</p>
+        </div>`).join('');
+      if (errItems) scoreHTML += `<div class="errors-list"><p class="errors-list-title">Preguntes incorrectes</p>${errItems}</div>`;
+    }
+  } else {
+    scoreHTML = `<div class="score-summary"><span class="score-pill ok">Mòdul d'anàlisi completat ✓</span></div>`;
+  }
+
+  // Badge reveal
+  let badgeHTML = '';
+  if (ins && estat) {
+    if (estat==='earned') {
+      badgeHTML = `<div class="badge-reveal earned-reveal">
+        <span class="badge-reveal-icon">${ins.icon}</span>
+        <h3>Insígnia obtinguda!</h3>
+        <p><strong>${ins.nom}</strong><br><em>${ins.desc}</em></p>
+      </div>`;
+    } else if (estat==='repesca') {
+      badgeHTML = `<div class="badge-reveal repesca-reveal">
+        <span class="badge-reveal-icon">⚡</span>
+        <h3>Repesca disponible</h3>
+        <p>No has assolit el 60% mínim per obtenir la insígnia <strong>${ins.nom}</strong>. Tens una oportunitat de repesca amb 3 preguntes alternatives.</p>
+        <button class="btn-amber" onclick="showRepesca(${id})">Intentar la repesca →</button>
+      </div>`;
+    }
+  }
+
+  const nextBtn = seguent
+    ? `<button class="btn-primary" style="max-width:300px;margin:0 auto;" onclick="showModul(${seguent.id})">Continuar al mòdul ${seguent.id} →</button>`
+    : `<button class="btn-primary" style="max-width:300px;margin:0 auto;" onclick="showModuls()">Veure el tauler →</button>`;
+
+  app.innerHTML = header() + `
+    <div class="success-screen">
+      <span class="big-icon">🎉</span>
+      <h2>Mòdul completat!</h2>
+      <p style="color:var(--cream-dim);margin-bottom:14px;"><strong>${m.icon} ${m.titol}</strong></p>
+      ${scoreHTML}${badgeHTML}
+      <div style="display:flex;flex-direction:column;gap:12px;align-items:center;max-width:340px;margin:20px auto 0;">
+        ${nextBtn}
+        <button class="btn-secondary" onclick="showModuls()">Tornar a la llista de mòduls</button>
+      </div>
+    </div>`;
+}
+
+// ═══════════════════════════════════════════════════════
+// ▸ REPESCA
+// ═══════════════════════════════════════════════════════
+function showRepesca(modulId) {
+  const rep = REPESCA[modulId];
+  const ins = INSIGNIES.find(i => i.modul===modulId);
+  if (!rep || !ins) { showModuls(); return; }
+  if (completats[modulId] && completats[modulId].repesca) { showSuccess(modulId); return; }
+
+  respostesActuals = {};
+  currentView = 'repesca'; currentModulId = modulId;
+  const lletres = ['A','B','C','D'];
+
+  const preguntes = rep.preguntes.map((q,qi) => {
+    const ops = q.opcions.map((op,oi) =>
+      `<button class="opcio-btn" id="op_${q.id}_${oi}" onclick="selectRepescaAnswer('${q.id}',${oi},${q.correcta})">
+        <span class="opcio-lletra">${lletres[oi]}</span><span>${op}</span></button>`).join('');
+    return `<div class="comprensio-card" id="q_${q.id}">
+      <p class="q-num">Pregunta ${qi+1} de ${rep.preguntes.length}</p>
+      <p class="pregunta">${q.pregunta}</p>
+      <div class="opcions-grid">${ops}</div>
+      <div class="feedback-msg" id="fb_${q.id}"></div></div>`;
+  }).join('');
+
+  app.innerHTML = header() + `
+    <button class="back-btn" onclick="showModuls()">← Tornar als mòduls</button>
+    <div class="repesca-header">
+      <h2>⚡ Repesca — ${ins.icon} ${ins.nom}</h2>
+      <p>Tens una única oportunitat de repesca. Respon les 3 preguntes alternatives. Necessites almenys 2 respostes correctes (67%) per desbloquejar la insígnia.</p>
+      <span class="repesca-info">Mòdul ${modulId}: ${rep.titol}</span>
+    </div>
+    ${preguntes}
+    <div class="submit-box">
+      <p class="punts-preview" id="punts-preview-rep">Respostes: 0 / ${rep.preguntes.length}</p>
+      <p>Respon totes les preguntes per entregar la repesca.</p>
+      <div class="submit-error" id="submit-error-rep"></div>
+      <button class="btn-primary" onclick="submitRepesca(${modulId})">Entregar repesca →</button>
+    </div>`;
+}
+
+function selectRepescaAnswer(qId, chosen, correct) {
+  if (respostesActuals[qId]!==undefined) return;
+  respostesActuals[qId] = chosen;
+  const rep = REPESCA[currentModulId];
+  const q = rep.preguntes.find(q=>q.id===qId);
+  q.opcions.forEach((_,i)=>{ const b=document.getElementById('op_'+qId+'_'+i); if(b) b.disabled=true; });
+  const cb=document.getElementById('op_'+qId+'_'+chosen);
+  const kb=document.getElementById('op_'+qId+'_'+correct);
+  if(kb) kb.classList.add('correcta');
+  if(chosen!==correct&&cb) cb.classList.add('incorrecta');
+  const fb=document.getElementById('fb_'+qId);
+  if(fb){
+    fb.classList.add('show');
+    if(chosen===correct){fb.classList.add('ok');fb.textContent='✓ Correcte!';}
+    else{fb.classList.add('err');fb.textContent='✗ Incorrecte. La resposta correcta era: '+q.opcions[correct];}
+  }
+  // Update counter
+  const answered=Object.keys(respostesActuals).length;
+  const correctCount=Object.entries(respostesActuals).filter(([id2,ch2])=>{
+    const q2=rep.preguntes.find(qq=>qq.id===id2); return q2&&ch2===q2.correcta;
+  }).length;
+  const pv=document.getElementById('punts-preview-rep');
+  if(pv) pv.textContent=`Respostes: ${answered} / ${rep.preguntes.length} · Encerts: ${correctCount}`;
+}
+
+function submitRepesca(modulId) {
+  const rep = REPESCA[modulId];
+  const errEl = document.getElementById('submit-error-rep');
+  const unans = rep.preguntes.filter(q=>respostesActuals[q.id]===undefined);
+  if (unans.length>0){ errEl.textContent=`Falta respondre ${unans.length} pregunta/es.`; errEl.classList.add('show'); return; }
+  errEl.classList.remove('show');
+
+  const punts = rep.preguntes.filter(q=>respostesActuals[q.id]===q.correcta).length;
+  const total = rep.preguntes.length;
+  const earned = (punts/total) >= MINIM_REPESCA;
+
+  completats[modulId].repesca = { punts, total, earned };
+  saveState();
+  saveResultsGAS({ modul_id:modulId, modul_titol:'Repesca M'+modulId, punts, total, insignia:earned, reflexions:[] });
+  saveProgressGAS(); // Actualitza l'estat complet al full Progres
+  showRepescaResult(modulId, punts, total, earned);
+}
+
+function showRepescaResult(modulId, punts, total, earned) {
+  const ins = INSIGNIES.find(i=>i.modul===modulId);
+  const seguent = MODULS[modulId];
+
+  const badgeHTML = earned
+    ? `<div class="badge-reveal earned-reveal">
+        <span class="badge-reveal-icon">${ins.icon}</span>
+        <h3>Insígnia obtinguda!</h3>
+        <p>Enhorabona! Has superat la repesca i has obtingut la insígnia <strong>${ins.nom}</strong>.</p>
+      </div>`
+    : `<div class="badge-reveal failed-reveal">
+        <span class="badge-reveal-icon" style="filter:grayscale(1)">${ins.icon}</span>
+        <h3>Repesca no superada</h3>
+        <p>Has obtingut ${punts}/${total}. La insígnia <strong>${ins.nom}</strong> no s'ha pogut desbloquejar, però el teu progrés continua.</p>
+      </div>`;
+
+  const nextBtn = seguent
+    ? `<button class="btn-primary" style="max-width:300px;margin:0 auto;" onclick="showModul(${seguent.id})">Continuar al mòdul ${seguent.id} →</button>`
+    : `<button class="btn-primary" style="max-width:300px;margin:0 auto;" onclick="showModuls()">Veure el tauler →</button>`;
+
+  app.innerHTML = header() + `
+    <div class="success-screen">
+      <span class="big-icon">${earned?'⭐':'📋'}</span>
+      <h2>${earned?'Repesca superada!':'Repesca completada'}</h2>
+      <div class="score-summary">
+        <span class="score-pill ${earned?'ok':'err'}">${punts} / ${total} correctes</span>
+      </div>
+      ${badgeHTML}
+      <div style="display:flex;flex-direction:column;gap:12px;align-items:center;max-width:340px;margin:20px auto 0;">
+        ${nextBtn}
+        <button class="btn-secondary" onclick="showModuls()">Tornar a la llista de mòduls</button>
+      </div>
+    </div>`;
+}
+
+// ═══════════════════════════════════════════════════════
+// ▸ PANTALLA FINAL
+// ═══════════════════════════════════════════════════════
+function showFinal() {
+  const done = Object.keys(completats).filter(k=>!isNaN(k)&&Number(k)>=1&&Number(k)<=4).length;
+  if (done < MODULS.length) { showModuls(); return; }
+  const earnedCount = INSIGNIES.filter(i=>getInsigniaEstat(i.id)==='earned').length;
+  const tPunts = Object.values(completats).reduce((s,m)=>s+(m.punts||0),0);
+  const tTotal = Object.values(completats).reduce((s,m)=>s+(m.total||0),0);
+
+  app.innerHTML = header() + `
+    <div class="final-screen">
+      <span style="font-size:4rem;display:block;margin-bottom:16px;">🌍</span>
+      <h2>Itinerari completat!</h2>
+      <p>Enhorabona, ${alumne}! Has completat tots els mòduls de l'itinerari.</p>
+      <div class="stats-grid">
+        <div class="stat-card"><div class="val">${MODULS.length}</div><div class="lbl">Mòduls completats</div></div>
+        <div class="stat-card"><div class="val">${tTotal>0?tPunts+'/'+tTotal:'—'}</div><div class="lbl">Punts de comprensió</div></div>
+        <div class="stat-card"><div class="val">${earnedCount}/${INSIGNIES.length}</div><div class="lbl">Insígnies obtingudes</div></div>
+        <div class="stat-card"><div class="val">✓</div><div class="lbl">Registrat al seguiment</div></div>
+      </div>
+      ${insigniesPanel()}
+      <button class="btn-secondary" onclick="showModuls()">Revisar els mòduls</button>
+    </div>`;
+}
+
+// ═══════════════════════════════════════════════════════
+// ▸ SIMULADOR — FUNCIONS
+// ═══════════════════════════════════════════════════════
+function showSimulator() {
+  if (!completats[4]) { showModuls(); return; }
+  if (completats['SIM']) { showSimDone(); return; }
+  showSimIntro();
+}
+
+function showSimIntro() {
+  const rolCards = Object.values(SIM_ROLS).map(r => `
+    <div class="sim-rol-card" onclick="startSim('${r.id}')">
+      <span class="rol-bandera">${r.bandera}</span>
+      <div class="rol-nom">${r.pais}</div>
+      <div class="rol-titol">${r.rol}</div>
+      <div class="rol-resum">${r.resum}</div>
+    </div>`).join('');
+
+  app.innerHTML = header() + `
+    <button class="back-btn" onclick="showModuls()">← Tornar als mòduls</button>
+    <div class="sim-fase-badge">🎭 Missió Final — Simulador Geopolític</div>
+    <h2 style="font-size:1.75rem;color:var(--gold);margin-bottom:10px;">Diplomàcia en Crisi</h2>
+    <p style="color:var(--cream-dim);font-size:0.9rem;line-height:1.75;margin-bottom:22px;">Viuràs dues crisis geopolítiques reals des de dins. Prendràs decisions que no tenen respostes correctes — sols conseqüències. Cada opció reflecteix un dilema que actors reals han hagut d'afrontar.</p>
+    <div class="sim-context-card">
+      <p class="sim-data">⚔️ Fase 1 · ${SIM_DATA.p1.titol}</p>
+      <p>${SIM_DATA.p1.contextGlobal}</p>
+    </div>
+    <p style="font-family:'Playfair Display',serif;font-size:0.82rem;color:var(--gold);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px;">Escull el teu rol</p>
+    <div class="sim-rol-grid">${rolCards}</div>`;
+}
+
+function startSim(rolId) {
+  simEstat = { rol:rolId, fase:1, ronda:0, decisions:{}, profile:null, reflexions:['',''], done:false };
+  showSimRound();
+}
+
+function buildProgressDots() {
+  const dots = [];
+  for (let f = 1; f <= 2; f++) {
+    if (f === 2) dots.push('<div class="sim-dot-sep"></div>');
+    for (let r = 0; r < 3; r++) {
+      const key = 'p'+f+'r'+r;
+      let cls = 'sim-dot' + (f===2?' fase2':'');
+      if (simEstat.decisions[key] !== undefined) cls += ' done';
+      else if (f===simEstat.fase && r===simEstat.ronda) cls += ' current';
+      dots.push('<div class="'+cls+'"></div>');
+    }
+  }
+  return dots.join('');
+}
+
+function showSimRound() {
+  const {fase,ronda,rol} = simEstat;
+  const rd = SIM_DATA['p'+fase].rondes[rol][ronda];
+  const rolData = SIM_ROLS[rol];
+  const lletres = ['A','B','C'];
+
+  const faseBadge = fase===1
+    ? `<div class="sim-fase-badge">🇺🇦 Fase 1 · Ucraïna 2022 · Ronda ${ronda+1} de 3</div>`
+    : `<div class="sim-fase-badge" style="border-color:rgba(91,155,213,0.3);color:#7ab4e0;">⚡ Fase 2 · Ormuz 2026 · Ronda ${ronda+1} de 3</div>`;
+
+  const opcions = rd.opcions.map((op,i) => `
+    <button class="sim-opcio-btn" onclick="chooseSimOption(${i})">
+      <span class="sim-opcio-lletra">${lletres[i]}</span>
+      <span>${op.text}</span>
+    </button>`).join('');
+
+  app.innerHTML = header() + `
+    <button class="back-btn" onclick="showSimIntro()">← Canviar de rol</button>
+    <div class="sim-progress-dots">${buildProgressDots()}</div>
+    ${faseBadge}
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px;">
+      <span style="font-size:1.5rem;">${rolData.bandera}</span>
+      <span style="font-family:'Playfair Display',serif;font-size:0.82rem;color:var(--cream-dim);">${rolData.rol}</span>
+    </div>
+    <h2 style="font-size:1.45rem;color:var(--gold);margin-bottom:4px;">${rd.titol}</h2>
+    <p style="color:var(--cream-dim);font-size:0.84rem;font-style:italic;margin-bottom:18px;">${rd.data}</p>
+    <div class="sim-context-card">
+      <p class="sim-data">Context de la situació</p>
+      <p>${rd.context}</p>
+    </div>
+    <p style="font-family:'Playfair Display',serif;font-size:0.78rem;color:var(--gold);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px;">La teva decisió</p>
+    <div class="sim-opcions">${opcions}</div>`;
+}
+
+function chooseSimOption(idx) {
+  const {fase,ronda} = simEstat;
+  simEstat.decisions['p'+fase+'r'+ronda] = idx;
+  showSimConsequence(idx);
+}
+
+function showSimConsequence(idx) {
+  const {fase,ronda,rol} = simEstat;
+  const rd = SIM_DATA['p'+fase].rondes[rol][ronda];
+  const opcio = rd.opcions[idx];
+  const lletres = ['A','B','C'];
+
+  const isLastP1 = fase===1 && ronda===2;
+  const isLastP2 = fase===2 && ronda===2;
+  let nextBtn;
+  if (isLastP1)     nextBtn = `<button class="btn-primary" style="max-width:320px;margin:0 auto" onclick="showPhase2Transition()">Avançar al 2026 →</button>`;
+  else if (isLastP2) nextBtn = `<button class="btn-primary" style="max-width:320px;margin:0 auto" onclick="showSimReflection()">Reflexió final →</button>`;
+  else              nextBtn = `<button class="btn-primary" style="max-width:320px;margin:0 auto" onclick="nextSimRound()">Continua →</button>`;
+
+  const faseBadge = fase===1
+    ? `<div class="sim-fase-badge">🇺🇦 Fase 1 · Ronda ${ronda+1} · Decisió ${lletres[idx]}</div>`
+    : `<div class="sim-fase-badge" style="border-color:rgba(91,155,213,0.3);color:#7ab4e0;">⚡ Fase 2 · Ronda ${ronda+1} · Decisió ${lletres[idx]}</div>`;
+
+  app.innerHTML = header() + `
+    <div class="sim-progress-dots">${buildProgressDots()}</div>
+    ${faseBadge}
+    <h3 style="color:var(--gold);font-size:1.3rem;margin-bottom:4px;">${rd.titol}</h3>
+    <p style="color:var(--cream-dim);font-size:0.82rem;font-style:italic;margin-bottom:18px;">${rd.data}</p>
+    <div style="background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.18);border-radius:9px;padding:13px 16px;margin-bottom:18px;">
+      <p style="font-size:0.78rem;color:var(--cream-dim);margin-bottom:4px;">Has escollit</p>
+      <p style="font-size:0.91rem;color:var(--white);">${lletres[idx]}. ${opcio.text}</p>
+    </div>
+    <div class="sim-consequencia">
+      <h4>📋 Conseqüències de la teva decisió</h4>
+      <p>${opcio.consequencia}</p>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;margin-top:22px;">${nextBtn}</div>`;
+}
+
+function nextSimRound() {
+  if (simEstat.ronda < 2) simEstat.ronda++;
+  else { simEstat.fase = 2; simEstat.ronda = 0; }
+  showSimRound();
+}
+
+function calcSimProfile() {
+  let hD = 0;
+  const rol = simEstat.rol;
+  SIM_DATA.p1.rondes[rol].forEach((rd, i) => {
+    const key = 'p1r'+i;
+    if (simEstat.decisions[key] !== undefined)
+      hD += rd.opcions[simEstat.decisions[key]].eixos.hD;
+  });
+  const tendency = hD >= 2 ? 'assertiu' : hD <= -2 ? 'dialoguista' : 'equilibrat';
+  return { hD, tendency };
+}
+
+function showPhase2Transition() {
+  simEstat.profile = calcSimProfile();
+  const perfil = SIM_PERFILS[simEstat.profile.tendency];
+  const intro = SIM_DATA.p2.intros[simEstat.rol][simEstat.profile.tendency];
+
+  app.innerHTML = header() + `
+    <div style="text-align:center;padding:20px 0 24px;animation:fadeInUp 0.5s ease;">
+      <span style="font-size:3.2rem;display:block;margin-bottom:14px;">⏩</span>
+      <h2 style="font-size:1.8rem;color:var(--gold);margin-bottom:8px;">Han passat 4 anys</h2>
+      <p style="color:var(--cream-dim);font-size:0.88rem;">Les teves decisions de 2022 han tingut conseqüències.</p>
+    </div>
+    <div class="sim-perfil-card">
+      <p class="sim-perfil-titol">El teu perfil diplomàtic (Fase 1)</p>
+      <p class="sim-perfil-nom">${SIM_ROLS[simEstat.rol].bandera} ${SIM_ROLS[simEstat.rol].pais} · ${perfil.etiqueta}</p>
+      <p class="sim-perfil-desc">${perfil.desc}</p>
+    </div>
+    <div class="fase2-alert">
+      <p class="fa2-tag">⚡ Abril 2026 · Crisi de l'Estret d'Ormuz</p>
+      <p>${SIM_DATA.p2.contextGlobal}</p>
+    </div>
+    <div class="sim-context-card" style="border-left-color:#5b9bd5;">
+      <p class="sim-data" style="color:#5b9bd5;">La teva situació específica com a ${SIM_ROLS[simEstat.rol].pais}</p>
+      <p>${intro}</p>
+    </div>
+    <div style="text-align:center;margin-top:24px;">
+      <button class="btn-primary" style="max-width:320px;margin:0 auto" onclick="startPhase2()">Entrar a la Fase 2 →</button>
+    </div>`;
+}
+
+function startPhase2() {
+  simEstat.fase = 2; simEstat.ronda = 0;
+  showSimRound();
+}
+
+function showSimReflection() {
+  app.innerHTML = header() + `
+    <div class="sim-fase-badge">🕊️ Reflexió metacognitiva final</div>
+    <h2 style="font-size:1.65rem;color:var(--gold);margin-bottom:8px;">Reflexiona sobre les teves decisions</h2>
+    <p style="color:var(--cream-dim);font-size:0.87rem;line-height:1.75;margin-bottom:26px;">Has pres 6 decisions crucials en dos moments crítics de la història recent. Ara mira enrere.</p>
+    <div class="reflexio-card">
+      <span class="reflexio-badge">Reflexió 1</span>
+      <p class="pregunta">Mirant totes les teves decisions a les dues fases: quins valors o principis han guiat les teves eleccions? Han estat coherents entre la crisi d'Ucraïna i la d'Ormuz, o han canviat? Per qué?</p>
+      <textarea id="sim-r1" placeholder="Escriu aquí la teva reflexió..." oninput="simCc(1)"></textarea>
+      <p class="char-count" id="sim-cc1">0 caràcters (mínim 80)</p>
+    </div>
+    <div class="reflexio-card">
+      <span class="reflexio-badge">Reflexió 2</span>
+      <p class="pregunta">Compara les teves decisions amb el que ha passat a la realitat. Qué et diu la comparació sobre la complexitat de la presa de decisions en política internacional i sobre els límits dels actors internacionals — fins i tot els més poderosos?</p>
+      <textarea id="sim-r2" placeholder="Escriu aquí la teva reflexió..." oninput="simCc(2)"></textarea>
+      <p class="char-count" id="sim-cc2">0 caràcters (mínim 80)</p>
+    </div>
+    <div class="submit-box">
+      <p>Cal un mínim de 80 caràcters a cada reflexió.</p>
+      <div class="submit-error" id="sim-err"></div>
+      <button class="btn-primary" onclick="submitSim()">Completar el simulador →</button>
+    </div>`;
+}
+
+function simCc(n) {
+  const ta = document.getElementById('sim-r'+n);
+  const cc = document.getElementById('sim-cc'+n);
+  if (!ta||!cc) return;
+  const len = ta.value.trim().length;
+  cc.textContent = len + ' caràcters (mínim 80)';
+  cc.className = 'char-count' + (len>=80?' ok':'');
+}
+
+function submitSim() {
+  const r1 = document.getElementById('sim-r1').value.trim();
+  const r2 = document.getElementById('sim-r2').value.trim();
+  const errEl = document.getElementById('sim-err');
+  if (r1.length<80 || r2.length<80) {
+    errEl.textContent = 'Cal escriure almenys 80 caràcters a cadascuna de les reflexions.';
+    errEl.classList.add('show'); return;
+  }
+  errEl.classList.remove('show');
+  simEstat.reflexions = [r1, r2];
+  simEstat.done = true;
+
+  completats['SIM'] = {
+    rol: simEstat.rol,
+    decisions: simEstat.decisions,
+    profile: simEstat.profile,
+    reflexions: [r1, r2],
+    done: true
+  };
+  saveState();
+
+  // Enviar al GAS
+  const rol = simEstat.rol;
+  const rolData = SIM_ROLS[rol];
+  const lletres = ['A','B','C'];
+  const decisionsArr = [];
+  for (let f=1;f<=2;f++) for (let r=0;r<3;r++) {
+    const key = 'p'+f+'r'+r;
+    const idx = simEstat.decisions[key];
+    if (idx!==undefined) {
+      const rd = SIM_DATA['p'+f].rondes[rol][r];
+      decisionsArr.push('F'+f+'R'+(r+1)+': '+lletres[idx]+') '+rd.opcions[idx].text.substring(0,70));
+    }
+  }
+  const profileLabel = simEstat.profile ? SIM_PERFILS[simEstat.profile.tendency].etiqueta : '—';
+  saveResultsGAS({
+    modul_id:'SIM', modul_titol:'Simulador - '+rolData.pais,
+    punts:0, total:0, insignia:true,
+    reflexions:[
+      'Rol: '+rolData.pais+' | Perfil: '+profileLabel,
+      ...decisionsArr, r1, r2
+    ]
+  });
+  saveProgressGAS();
+  showSimDone();
+}
+
+function showSimDone() {
+  const data = completats['SIM'];
+  if (!data) { showModuls(); return; }
+  const rolData = SIM_ROLS[data.rol];
+  const perfil = data.profile ? SIM_PERFILS[data.profile.tendency] : null;
+  const lletres = ['A','B','C'];
+
+  const decisionsHTML = [1,2].map(f => {
+    const items = [0,1,2].map(r => {
+      const key='p'+f+'r'+r, idx=data.decisions[key];
+      if (idx===undefined) return '';
+      const rd = SIM_DATA['p'+f].rondes[data.rol][r];
+      return `<p style="font-size:0.82rem;color:var(--cream-dim);margin-bottom:7px;line-height:1.55;">
+        <span style="color:var(--gold);font-family:'Playfair Display',serif;font-size:0.78rem;">R${r+1}.</span> ${lletres[idx]}) ${rd.opcions[idx].text.substring(0,75)}…
+      </p>`;
+    }).join('');
+    const label = f===1?'🇺🇦 Fase 1 · Ucraïna 2022':'⚡ Fase 2 · Ormuz 2026';
+    return `<div style="margin-bottom:18px;"><p style="font-size:0.7rem;color:var(--gold);text-transform:uppercase;letter-spacing:1.5px;font-family:'Playfair Display',serif;margin-bottom:8px;">${label}</p>${items}</div>`;
+  }).join('');
+
+  app.innerHTML = header() + `
+    <div class="success-screen">
+      <span class="big-icon">🕊️</span>
+      <h2>Simulador completat!</h2>
+      <p style="color:var(--cream-dim);margin-bottom:6px;">Has viscut dues de les crisis geopolítiques més importants de la nostra era.</p>
+      <div class="badge-reveal earned-reveal" style="max-width:320px;margin:20px auto;">
+        <span class="badge-reveal-icon">🕊️</span>
+        <h3>Insígnia obtinguda!</h3>
+        <p><strong>Diplomàtica del Món</strong><br><em>Missió final completada</em></p>
+      </div>
+      ${perfil ? `<div class="sim-perfil-card" style="max-width:480px;margin:20px auto;">
+        <p class="sim-perfil-titol">El teu perfil diplomàtic</p>
+        <p class="sim-perfil-nom">${rolData.bandera} ${rolData.pais} · ${perfil.etiqueta}</p>
+        <p class="sim-perfil-desc">${perfil.desc}</p>
+      </div>` : ''}
+      <div style="text-align:left;background:var(--navy-mid);border:var(--border);border-radius:12px;padding:20px 22px;margin:20px auto;max-width:520px;">
+        <p style="font-family:'Playfair Display',serif;font-size:0.75rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold);margin-bottom:16px;">Les teves decisions</p>
+        ${decisionsHTML}
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;max-width:340px;margin:20px auto 0;gap:12px;">
+        <button class="btn-secondary" onclick="showModuls()">Tornar al tauler</button>
+      </div>
+    </div>`;
+}
+
+// ═══════════════════════════════════════════════════════
+// ▸ PANELL PROFESSOR
+// ═══════════════════════════════════════════════════════
+const PROF_PASSWORD = 'prof2024'; // ha de coincidir amb el script.gs
+
+function showProfLogin() {
+  app.innerHTML = `
+    <header class="site-header">
+      <span class="emblem">🗺️</span>
+      <h1>Geopolítica i Món</h1>
+      <p class="subtitol-header">Panell del professor/a</p>
+    </header>
+    <div class="login-wrap"><div class="login-card">
+      <h2>Accés professor/a</h2>
+      <p class="intro">Introdueix la contrasenya per accedir al panell de gestió.</p>
+      <div class="form-group"><label>Contrasenya</label>
+        <input type="password" id="prof-pwd" placeholder="Contrasenya del professor/a" autocomplete="off" /></div>
+      <button class="btn-primary" onclick="handleProfLogin()">Entrar →</button>
+      <div class="error-box" id="prof-error" style="display:none;">Contrasenya incorrecta.</div>
+    </div></div>`;
+  document.getElementById('prof-pwd').addEventListener('keydown', e => { if(e.key==='Enter') handleProfLogin(); });
+}
+
+function handleProfLogin() {
+  const pwd = document.getElementById('prof-pwd').value;
+  if (pwd === PROF_PASSWORD) {
+    showProfPanel();
+  } else {
+    document.getElementById('prof-error').style.display = 'block';
+  }
+}
+
+function showProfPanel(msg) {
+  app.innerHTML = `
+    <header class="site-header">
+      <span class="emblem">🗺️</span>
+      <h1>Geopolítica i Món</h1>
+      <p class="subtitol-header">Panell del professor/a</p>
+    </header>
+    <div style="max-width:680px;margin:0 auto;padding:0 0 40px;">
+      ${msg ? `<div class="revisio-banner" style="margin-bottom:20px;">${msg}</div>` : ''}
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
+        <h2 style="font-family:'Playfair Display',serif;color:var(--gold);font-size:1.4rem;">Alumnes</h2>
+        <button class="btn-secondary" onclick="loadProfData()">↺ Actualitzar</button>
+      </div>
+      <div id="prof-taula">
+        <p style="color:var(--cream-dim);text-align:center;padding:30px;">Carregant dades…</p>
+      </div>
+    </div>`;
+  loadProfData();
+}
+
+function loadProfData() {
+  if (!GAS_CONFIGURAT) {
+    document.getElementById('prof-taula').innerHTML = `
+      <div class="revisio-banner">Mode demostració — GAS no configurat. No hi ha dades reals.</div>`;
+    return;
+  }
+  const cb = 'profcb_' + Date.now();
+  const t = setTimeout(() => {
+    delete window[cb];
+    document.getElementById('prof-taula').innerHTML =
+      `<p style="color:var(--cream-dim);text-align:center;">Error de connexió. Comprova que el script està desplegat.</p>`;
+  }, 12000);
+
+  window[cb] = data => {
+    clearTimeout(t);
+    delete window[cb];
+    renderProfTaula(data);
+  };
+
+  const s = document.createElement('script');
+  s.src = GAS_URL + '?action=getStudents&password=' + encodeURIComponent(PROF_PASSWORD) + '&callback=' + cb;
+  s.onerror = () => { clearTimeout(t); document.getElementById('prof-taula').innerHTML = '<p style="color:var(--cream-dim);text-align:center;">Error de xarxa.</p>'; };
+  document.head.appendChild(s);
+}
+
+function renderProfTaula(data) {
+  const el = document.getElementById('prof-taula');
+  if (!el) return;
+
+  if (!data.ok) {
+    el.innerHTML = `<p style="color:#e88;text-align:center;">Error: ${data.error}</p>`;
+    return;
+  }
+
+  if (!data.alumnes || data.alumnes.length === 0) {
+    el.innerHTML = `<p style="color:var(--cream-dim);text-align:center;">Cap alumne al full Alumnes.</p>`;
+    return;
+  }
+
+  const files = data.alumnes.map(a => {
+    const progres = a.teProgres
+      ? `${a.moduls}/4 mòduls${a.sim ? ' · 🕊️ Sim' : ''}`
+      : '—';
+    const updated = a.updated || '—';
+    const btnReset = a.teProgres
+      ? `<button onclick="confirmarReset('${a.nom.replace(/'/g,"\\'")}', this)"
+           style="font-size:0.78rem;padding:6px 12px;background:rgba(180,50,50,0.15);
+           border:1px solid rgba(180,50,50,0.35);border-radius:6px;color:#e88;
+           cursor:pointer;font-family:'Lora',serif;transition:all 0.2s;"
+           onmouseover="this.style.background='rgba(180,50,50,0.28)'"
+           onmouseout="this.style.background='rgba(180,50,50,0.15)'">
+           Reiniciar progrés
+         </button>`
+      : `<span style="font-size:0.78rem;color:var(--cream-dim);">Sense progrés</span>`;
+
+    return `<tr>
+      <td style="padding:13px 14px;border-bottom:1px solid rgba(201,168,76,0.08);
+          color:var(--white);font-size:0.9rem;">${a.nom}</td>
+      <td style="padding:13px 14px;border-bottom:1px solid rgba(201,168,76,0.08);
+          color:var(--cream-dim);font-size:0.85rem;">${progres}</td>
+      <td style="padding:13px 14px;border-bottom:1px solid rgba(201,168,76,0.08);
+          color:var(--cream-dim);font-size:0.82rem;">${updated}</td>
+      <td style="padding:13px 14px;border-bottom:1px solid rgba(201,168,76,0.08);">${btnReset}</td>
+    </tr>`;
+  }).join('');
+
+  el.innerHTML = `
+    <table style="width:100%;border-collapse:collapse;background:var(--navy-mid);
+        border:var(--border);border-radius:12px;overflow:hidden;">
+      <thead>
+        <tr style="background:var(--navy-card);">
+          <th style="padding:11px 14px;text-align:left;font-family:'Playfair Display',serif;
+              font-size:0.75rem;text-transform:uppercase;letter-spacing:1.2px;
+              color:var(--gold);font-weight:600;">Alumne/a</th>
+          <th style="padding:11px 14px;text-align:left;font-family:'Playfair Display',serif;
+              font-size:0.75rem;text-transform:uppercase;letter-spacing:1.2px;
+              color:var(--gold);font-weight:600;">Progrés</th>
+          <th style="padding:11px 14px;text-align:left;font-family:'Playfair Display',serif;
+              font-size:0.75rem;text-transform:uppercase;letter-spacing:1.2px;
+              color:var(--gold);font-weight:600;">Última activitat</th>
+          <th style="padding:11px 14px;text-align:left;font-family:'Playfair Display',serif;
+              font-size:0.75rem;text-transform:uppercase;letter-spacing:1.2px;
+              color:var(--gold);font-weight:600;">Acció</th>
+        </tr>
+      </thead>
+      <tbody>${files}</tbody>
+    </table>
+    <p style="color:var(--cream-dim);font-size:0.78rem;margin-top:14px;text-align:center;">
+      El reinici esborra el progrés del servidor. L'alumne/a haurà de tornar a entrar per aplicar-lo.
+    </p>`;
+}
+
+function confirmarReset(nom, btn) {
+  if (!confirm(`Segur que vols reiniciar el progrés de "${nom}"?\n\nL'alumne/a haurà de tornar a fer tots els mòduls des de zero.`)) return;
+  btn.disabled = true;
+  btn.textContent = 'Reiniciant…';
+
+  fetch(GAS_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    body: JSON.stringify({ action: 'resetStudent', password: PROF_PASSWORD, nom })
+  }).then(() => {
+    showProfPanel(`✓ Progrés de "${nom}" reiniciat correctament.`);
+  }).catch(() => {
+    showProfPanel(`✓ Ordre enviada per a "${nom}". Actualitza per confirmar.`);
+  });
+}
+
+// ═══════════════════════════════════════════════════════
+// ▸ INIT
+// ═══════════════════════════════════════════════════════
+loadState();
+if (window.location.search.includes('prof')) {
+  showProfLogin();
+} else if (alumne) {
+  showModuls();
+} else {
+  showLogin();
+}
+</script>
+</body>
+</html>
