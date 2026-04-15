@@ -452,7 +452,7 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', serif; line-height: 1.2; }
   color: var(--cream-dim); cursor: default; pointer-events: none;
 }
 .opcio-btn.incorrecta-review .opcio-lletra { background: rgba(180,50,50,0.4); color: #fff; }
-.opcions-grid > .opcio-btn:not(.correcta-review):not(.incorrecta-review) {
+.mode-revisio .opcions-grid > .opcio-btn:not(.correcta-review):not(.incorrecta-review) {
   opacity: 0.38; cursor: default; pointer-events: none;
 }
 .reflexio-review-text {
@@ -1389,7 +1389,7 @@ function showModul(id) {
       <button class="back-btn" onclick="showModuls()">← Tornar als mòduls</button>
       <div class="modul-header"><h2>${m.icon} ${m.titol}</h2><p class="sub-header">${m.subtitol}</p></div>
       ${teoriaHTML}
-      ${exHTML}`;
+      <div class="mode-revisio">${exHTML}</div>`;
     return;
   }
 
@@ -2030,7 +2030,7 @@ function showSimDone() {
 // ═══════════════════════════════════════════════════════
 // ▸ PANELL PROFESSOR
 // ═══════════════════════════════════════════════════════
-const PROF_PASSWORD = 'prof2024'; // ha de coincidir amb el script.gs
+const PROF_PASSWORD = 'Nestor001+'; // ha de coincidir amb el script.gs
 
 function showProfLogin() {
   app.innerHTML = `
