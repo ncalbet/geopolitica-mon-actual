@@ -2184,7 +2184,10 @@ function confirmarReset(nom, btn) {
 // ▸ INIT
 // ═══════════════════════════════════════════════════════
 loadState();
-if (window.location.search.includes('prof')) {
+if (window.location.search.includes('reset')) {
+  localStorage.removeItem('geopol_v2');
+  window.location.href = window.location.pathname;
+} else if (window.location.search.includes('prof')) {
   showProfLogin();
 } else if (alumne) {
   showModuls();
