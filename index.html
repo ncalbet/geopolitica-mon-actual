@@ -6,7 +6,7 @@
 <title>Geopolítica i Món | Itinerari d'Aprenentatge</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Lora:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Lora:ital,wght@0,400;0,500;1,400&family=IBM+Plex+Mono:wght@300;400;600&family=IBM+Plex+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
 :root {
   --navy: #0b1a2e;
@@ -463,84 +463,8 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', serif; line-height: 1.2; }
 }
 
 
-   SIMULADOR GEOPOLÍTIC
+   SIMULADOR GEOPOLÍTIC V2 — overlay escopat
 ══════════════════════════════════════ */
-.sim-rol-grid { display:grid; gap:14px; margin:24px 0; }
-.sim-rol-card {
-  background:var(--navy-mid); border:1px solid rgba(201,168,76,0.15);
-  border-radius:12px; padding:20px 22px; cursor:pointer;
-  transition:all 0.25s; position:relative; overflow:hidden;
-}
-.sim-rol-card:hover { border-color:rgba(201,168,76,0.45); transform:translateY(-2px); box-shadow:var(--shadow); background:var(--navy-card); }
-.sim-rol-card::after { content:''; position:absolute; left:0; top:0; bottom:0; width:3px; background:var(--gold); }
-.sim-rol-card .rol-bandera { font-size:2rem; display:block; margin-bottom:8px; }
-.sim-rol-card .rol-nom { font-family:'Playfair Display',serif; font-size:1.05rem; color:var(--gold); margin-bottom:3px; font-weight:700; }
-.sim-rol-card .rol-titol { font-size:0.8rem; color:var(--cream-dim); margin-bottom:8px; font-style:italic; }
-.sim-rol-card .rol-resum { font-size:0.85rem; color:var(--cream); line-height:1.6; }
-
-.sim-fase-badge {
-  display:inline-flex; align-items:center; gap:8px; margin-bottom:20px;
-  background:rgba(201,168,76,0.08); border:1px solid rgba(201,168,76,0.2);
-  border-radius:20px; padding:6px 14px; font-family:'Playfair Display',serif;
-  font-size:0.78rem; color:var(--gold); text-transform:uppercase; letter-spacing:1px;
-}
-.sim-context-card {
-  background:rgba(11,26,46,0.85); border:1px solid rgba(201,168,76,0.14);
-  border-left:3px solid var(--gold); border-radius:0 10px 10px 0;
-  padding:18px 20px; margin-bottom:22px;
-}
-.sim-context-card .sim-data { font-size:0.7rem; color:var(--gold); font-family:'Playfair Display',serif; text-transform:uppercase; letter-spacing:1.2px; margin-bottom:8px; }
-.sim-context-card p { font-size:0.9rem; line-height:1.78; color:var(--cream); }
-
-.sim-opcions { display:grid; gap:11px; margin:18px 0; }
-.sim-opcio-btn {
-  display:flex; align-items:flex-start; gap:14px; padding:15px 17px;
-  background:var(--navy-mid); border:1px solid rgba(201,168,76,0.14); border-radius:10px;
-  cursor:pointer; text-align:left; width:100%;
-  color:var(--cream); font-family:'Lora',serif; font-size:0.91rem; line-height:1.58;
-  transition:all 0.18s;
-}
-.sim-opcio-btn:hover { border-color:rgba(201,168,76,0.45); background:var(--navy-card); transform:translateX(3px); }
-.sim-opcio-lletra {
-  display:inline-flex; align-items:center; justify-content:center;
-  min-width:27px; height:27px; background:rgba(201,168,76,0.12); border-radius:50%;
-  font-family:'Playfair Display',serif; font-weight:700; font-size:0.82rem;
-  color:var(--gold); flex-shrink:0; margin-top:1px;
-}
-.sim-consequencia {
-  background:var(--navy-mid); border:1px solid rgba(201,168,76,0.2);
-  border-radius:12px; padding:24px; margin:16px 0; animation:fadeInUp 0.4s ease;
-}
-.sim-consequencia h4 { font-size:0.75rem; text-transform:uppercase; letter-spacing:1.5px; color:var(--gold); margin-bottom:12px; font-family:'Playfair Display',serif; }
-.sim-consequencia p { font-size:0.92rem; line-height:1.82; color:var(--cream); }
-
-.sim-perfil-card {
-  background:linear-gradient(160deg,#152a50,#1c3568);
-  border:1px solid rgba(201,168,76,0.4); border-radius:14px;
-  padding:22px; margin:18px 0; text-align:center;
-  box-shadow:0 0 28px rgba(201,168,76,0.1); position:relative; overflow:hidden;
-}
-.sim-perfil-card::before { content:''; display:block; height:2px; margin-bottom:16px; background:linear-gradient(90deg,transparent,var(--gold),transparent); }
-.sim-perfil-titol { font-family:'Playfair Display',serif; font-size:0.7rem; text-transform:uppercase; letter-spacing:2px; color:var(--gold-light); margin-bottom:6px; }
-.sim-perfil-nom { font-family:'Playfair Display',serif; font-size:1.25rem; color:var(--gold); font-weight:700; margin-bottom:8px; }
-.sim-perfil-desc { font-size:0.86rem; color:var(--cream-dim); line-height:1.65; }
-
-.sim-progress-dots { display:flex; gap:7px; margin-bottom:22px; align-items:center; flex-wrap:wrap; }
-.sim-dot { width:9px; height:9px; border-radius:50%; background:rgba(201,168,76,0.1); border:1px solid rgba(201,168,76,0.2); transition:all 0.3s; }
-.sim-dot.done { background:var(--gold); border-color:var(--gold); }
-.sim-dot.current { background:rgba(201,168,76,0.4); border-color:var(--gold); transform:scale(1.3); }
-.sim-dot.fase2 { border-color:rgba(91,155,213,0.35); background:rgba(91,155,213,0.08); }
-.sim-dot.fase2.done { background:#5b9bd5; border-color:#5b9bd5; }
-.sim-dot.fase2.current { background:rgba(91,155,213,0.35); border-color:#5b9bd5; transform:scale(1.3); }
-.sim-dot-sep { width:16px; height:1px; background:rgba(201,168,76,0.2); margin:0 2px; }
-
-.fase2-alert {
-  background:rgba(91,155,213,0.07); border:1px solid rgba(91,155,213,0.22);
-  border-radius:10px; padding:16px 18px; margin-bottom:18px;
-}
-.fase2-alert .fa2-tag { font-family:'Playfair Display',serif; font-size:0.7rem; text-transform:uppercase; letter-spacing:1.5px; color:#7ab4e0; margin-bottom:7px; }
-.fase2-alert p { font-size:0.88rem; color:var(--cream); line-height:1.72; }
-
 .sim-modul-card {
   background:linear-gradient(160deg,#152a50,#192e5e);
   border:1px solid rgba(201,168,76,0.3); border-radius:12px;
@@ -555,10 +479,347 @@ h1, h2, h3, h4 { font-family: 'Playfair Display', serif; line-height: 1.2; }
 .sim-modul-card.completat::after { background:var(--green); }
 .sim-modul-card.completat { border-color:rgba(45,106,79,0.4); }
 .sim-label { display:inline-flex; align-items:center; gap:6px; font-family:'Playfair Display',serif; font-size:0.7rem; text-transform:uppercase; letter-spacing:1.5px; color:var(--gold); margin-bottom:14px; }
+.sim-perfil-card {
+  background:linear-gradient(160deg,#152a50,#1c3568);
+  border:1px solid rgba(201,168,76,0.4); border-radius:14px;
+  padding:22px; margin:18px 0; text-align:center;
+}
+.sim-perfil-titol { font-family:'Playfair Display',serif; font-size:0.7rem; text-transform:uppercase; letter-spacing:2px; color:var(--gold-light); margin-bottom:6px; }
+.sim-perfil-nom { font-family:'Playfair Display',serif; font-size:1.25rem; color:var(--gold); font-weight:700; margin-bottom:8px; }
+.sim-perfil-desc { font-size:0.86rem; color:var(--cream-dim); line-height:1.65; }
+
+/* ── CSS SIMULADOR V2 (escopat) ── */
+#sim-v2 {
+  position:fixed; inset:0; z-index:1000; overflow-y:auto; display:none;
+  background:#0a0a0f; color:#e8e6e0;
+  font-family:'IBM Plex Sans',sans-serif; font-weight:300;
+  --sv-bg:#0a0a0f; --sv-surface:#111118; --sv-surface2:#1a1a24;
+  --sv-border:#2a2a3a; --sv-text:#e8e6e0; --sv-muted:#888;
+  --sv-accent:#c8a96e; --sv-red:#e05a5a; --sv-yellow:#d4b84a;
+  --sv-blue:#5a8ce0; --sv-dark:#aaa;
+}
+#sim-v2 * { box-sizing:border-box; margin:0; padding:0; }
+#sim-v2 .sv-screen { display:none; min-height:100vh; flex-direction:column; }
+#sim-v2 .sv-screen.active { display:flex; }
+
+/* Intro */
+#sim-v2 .sv-intro { background:var(--sv-bg); position:relative; overflow:hidden; align-items:center; justify-content:center; }
+#sim-v2 .sv-grid { position:absolute; inset:0; background-image:linear-gradient(var(--sv-border) 1px,transparent 1px),linear-gradient(90deg,var(--sv-border) 1px,transparent 1px); background-size:60px 60px; opacity:0.3; pointer-events:none; }
+#sim-v2 .sv-intro-content { position:relative; z-index:2; display:flex; flex-direction:column; align-items:center; justify-content:center; min-height:100vh; padding:4rem 2rem; text-align:center; }
+#sim-v2 .sv-eyebrow { font-family:'IBM Plex Mono',monospace; font-size:0.7rem; letter-spacing:0.3em; color:var(--sv-accent); text-transform:uppercase; margin-bottom:2rem; }
+#sim-v2 .sv-title { font-family:'Playfair Display',serif; font-size:clamp(3rem,8vw,6rem); font-weight:900; line-height:1.0; margin-bottom:1rem; }
+#sim-v2 .sv-title span { color:var(--sv-accent); font-style:italic; }
+#sim-v2 .sv-subtitle { font-family:'Playfair Display',serif; font-size:clamp(1rem,2.5vw,1.4rem); font-style:italic; color:var(--sv-muted); margin-bottom:3rem; }
+#sim-v2 .sv-desc { max-width:640px; font-size:0.95rem; line-height:1.8; color:#bbb; margin-bottom:3rem; }
+#sim-v2 .sv-roles-preview { display:flex; gap:1rem; margin-bottom:3rem; flex-wrap:wrap; justify-content:center; }
+#sim-v2 .sv-role-chip { padding:0.6rem 1.4rem; border:1px solid var(--sv-border); background:var(--sv-surface); font-family:'IBM Plex Mono',monospace; font-size:0.8rem; letter-spacing:0.1em; }
+
+/* Botons generals */
+#sim-v2 .sv-btn-primary { background:var(--sv-accent); color:#0a0a0f; border:none; cursor:pointer; padding:1rem 3rem; font-family:'IBM Plex Mono',monospace; font-size:0.85rem; letter-spacing:0.2em; text-transform:uppercase; font-weight:600; transition:all 0.2s; }
+#sim-v2 .sv-btn-primary:hover { background:#e0c08a; transform:translateY(-1px); }
+#sim-v2 .sv-btn-secondary { background:transparent; border:1px solid var(--sv-accent); color:var(--sv-accent); padding:0.8rem 2rem; font-family:'IBM Plex Mono',monospace; font-size:0.75rem; letter-spacing:0.2em; text-transform:uppercase; cursor:pointer; transition:all 0.2s; width:100%; }
+#sim-v2 .sv-btn-secondary:hover { background:var(--sv-accent); color:#0a0a0f; }
+
+/* Selecció de rol */
+#sim-v2 .sv-role-screen { background:var(--sv-bg); align-items:center; justify-content:center; padding:4rem 2rem; }
+#sim-v2 .sv-role-title { font-family:'Playfair Display',serif; font-size:2rem; text-align:center; margin-bottom:0.5rem; }
+#sim-v2 .sv-role-sub { font-family:'IBM Plex Mono',monospace; font-size:0.7rem; letter-spacing:0.2em; color:var(--sv-muted); text-align:center; margin-bottom:3rem; text-transform:uppercase; }
+#sim-v2 .sv-roles-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; max-width:960px; width:100%; }
+#sim-v2 .sv-role-card { border:1px solid var(--sv-border); background:var(--sv-surface); padding:2rem; cursor:pointer; transition:all 0.3s; position:relative; overflow:hidden; }
+#sim-v2 .sv-role-card::before { content:''; position:absolute; top:0; left:0; width:3px; height:100%; background:var(--rc,var(--sv-accent)); transform:scaleY(0); transition:transform 0.3s; transform-origin:bottom; }
+#sim-v2 .sv-role-card:hover::before { transform:scaleY(1); }
+#sim-v2 .sv-role-card:hover { border-color:var(--rc,var(--sv-accent)); transform:translateY(-2px); }
+#sim-v2 .sv-role-card.fr { --rc:#5577ee; }
+#sim-v2 .sv-role-card.cn { --rc:#ee5544; }
+#sim-v2 .sv-role-card.eu { --rc:#f5c400; }
+#sim-v2 .sv-role-flag { font-size:2.5rem; margin-bottom:1rem; }
+#sim-v2 .sv-role-name { font-family:'Playfair Display',serif; font-size:1.4rem; margin-bottom:0.3rem; }
+#sim-v2 .sv-role-pos { font-family:'IBM Plex Mono',monospace; font-size:0.65rem; letter-spacing:0.15em; color:var(--sv-muted); text-transform:uppercase; margin-bottom:1rem; }
+#sim-v2 .sv-role-desc { font-size:0.85rem; line-height:1.7; color:#bbb; margin-bottom:1.5rem; }
+#sim-v2 .sv-stat-dots { display:flex; gap:2px; }
+#sim-v2 .sv-dot { width:6px; height:6px; border-radius:50%; background:var(--sv-border); }
+#sim-v2 .sv-dot.f { background:var(--dc,var(--sv-accent)); }
+
+/* Pantalla de joc */
+#sim-v2 .sv-game { flex-direction:row; min-height:100vh; }
+#sim-v2 .sv-sidebar { width:280px; flex-shrink:0; background:var(--sv-surface); border-right:1px solid var(--sv-border); padding:2rem 1.5rem; position:sticky; top:0; height:100vh; overflow-y:auto; display:flex; flex-direction:column; gap:2rem; }
+#sim-v2 .sv-sb-logo { font-family:'IBM Plex Mono',monospace; font-size:0.6rem; letter-spacing:0.2em; color:var(--sv-muted); text-transform:uppercase; padding-bottom:1rem; border-bottom:1px solid var(--sv-border); }
+#sim-v2 .sv-sb-role { display:flex; align-items:center; gap:0.8rem; }
+#sim-v2 .sv-sb-flag { font-size:1.8rem; }
+#sim-v2 .sv-sb-name { font-family:'Playfair Display',serif; font-size:1rem; }
+#sim-v2 .sv-sb-sub { font-family:'IBM Plex Mono',monospace; font-size:0.6rem; color:var(--sv-muted); letter-spacing:0.1em; }
+#sim-v2 .sv-phase-ind { font-family:'IBM Plex Mono',monospace; font-size:0.6rem; letter-spacing:0.15em; color:var(--sv-accent); text-transform:uppercase; padding:0.5rem 0.8rem; border:1px solid var(--sv-accent); text-align:center; }
+#sim-v2 .sv-vars { display:flex; flex-direction:column; gap:1rem; }
+#sim-v2 .sv-vars-title { font-family:'IBM Plex Mono',monospace; font-size:0.6rem; letter-spacing:0.2em; color:var(--sv-muted); text-transform:uppercase; }
+#sim-v2 .sv-var { display:flex; flex-direction:column; gap:0.3rem; }
+#sim-v2 .sv-var-label { display:flex; justify-content:space-between; font-family:'IBM Plex Mono',monospace; font-size:0.7rem; }
+#sim-v2 .sv-var-val { font-weight:600; }
+#sim-v2 .sv-var-bar { height:4px; background:var(--sv-border); border-radius:2px; overflow:hidden; }
+#sim-v2 .sv-var-fill { height:100%; border-radius:2px; transition:width 0.5s ease; }
+#sim-v2 .sv-var-fill.red { background:var(--sv-red); }
+#sim-v2 .sv-var-fill.yellow { background:var(--sv-yellow); }
+#sim-v2 .sv-var-fill.blue { background:var(--sv-blue); }
+#sim-v2 .sv-var-fill.dk { background:var(--sv-dark); }
+#sim-v2 .sv-interp { font-size:0.65rem; color:var(--sv-muted); font-style:italic; line-height:1.4; margin-top:0.8rem; padding:0.6rem; border-left:2px solid var(--sv-border); }
+#sim-v2 .sv-log-title { font-family:'IBM Plex Mono',monospace; font-size:0.6rem; letter-spacing:0.2em; color:var(--sv-muted); text-transform:uppercase; margin-bottom:0.8rem; }
+#sim-v2 .sv-log-item { font-size:0.7rem; color:var(--sv-muted); padding:0.4rem 0; border-bottom:1px solid var(--sv-border); line-height:1.4; }
+
+/* Main joc */
+#sim-v2 .sv-main { flex:1; overflow-y:auto; display:flex; flex-direction:column; }
+#sim-v2 .sv-phase-hdr { background:var(--sv-surface2); border-bottom:1px solid var(--sv-border); padding:2rem 3rem; }
+#sim-v2 .sv-phase-lbl { font-family:'IBM Plex Mono',monospace; font-size:0.65rem; letter-spacing:0.25em; color:var(--sv-accent); text-transform:uppercase; margin-bottom:0.5rem; }
+#sim-v2 .sv-phase-ttl { font-family:'Playfair Display',serif; font-size:1.6rem; margin-bottom:0.5rem; }
+#sim-v2 .sv-phase-ctx { font-size:0.85rem; color:#bbb; line-height:1.7; max-width:700px; }
+#sim-v2 .sv-dec-area { padding:3rem; flex:1; display:flex; flex-direction:column; }
+#sim-v2 .sv-dec-date { font-family:'IBM Plex Mono',monospace; font-size:0.65rem; letter-spacing:0.2em; color:var(--sv-accent); text-transform:uppercase; margin-bottom:0.5rem; }
+#sim-v2 .sv-dec-title { font-family:'Playfair Display',serif; font-size:1.8rem; margin-bottom:1rem; }
+#sim-v2 .sv-dec-ctx { font-size:0.9rem; line-height:1.8; color:#ccc; max-width:680px; padding:1rem 1.5rem; border-left:3px solid var(--sv-border); background:var(--sv-surface); }
+#sim-v2 .sv-cond-msg { font-family:'IBM Plex Mono',monospace; font-size:0.75rem; color:var(--sv-yellow); margin-top:1rem; padding:0.7rem 1rem; border:1px solid rgba(212,184,74,0.3); background:rgba(212,184,74,0.05); }
+#sim-v2 .sv-opts { display:flex; flex-direction:column; gap:1rem; margin-top:2rem; }
+#sim-v2 .sv-opt { background:var(--sv-surface); border:1px solid var(--sv-border); color:var(--sv-text); padding:1.5rem 2rem; text-align:left; cursor:pointer; transition:all 0.25s; position:relative; overflow:hidden; }
+#sim-v2 .sv-opt::before { content:''; position:absolute; left:0; top:0; width:3px; height:100%; background:var(--sv-accent); transform:scaleY(0); transition:transform 0.3s; transform-origin:bottom; }
+#sim-v2 .sv-opt:hover::before { transform:scaleY(1); }
+#sim-v2 .sv-opt:hover { border-color:var(--sv-accent); background:var(--sv-surface2); }
+#sim-v2 .sv-opt.special { border-color:var(--sv-yellow); }
+#sim-v2 .sv-opt.special::before { background:var(--sv-yellow); }
+#sim-v2 .sv-opt.locked { opacity:0.3; cursor:not-allowed; pointer-events:none; }
+#sim-v2 .sv-opt-ltr { font-family:'IBM Plex Mono',monospace; font-size:0.65rem; letter-spacing:0.2em; color:var(--sv-accent); text-transform:uppercase; margin-bottom:0.4rem; }
+#sim-v2 .sv-opt.special .sv-opt-ltr { color:var(--sv-yellow); }
+#sim-v2 .sv-opt-text { font-size:0.9rem; font-style:italic; color:#ddd; line-height:1.6; }
+#sim-v2 .sv-deltas { display:flex; flex-wrap:wrap; gap:0.4rem; margin-top:0.8rem; }
+#sim-v2 .sv-dtag { font-family:'IBM Plex Mono',monospace; font-size:0.65rem; padding:0.2rem 0.5rem; border-radius:1px; }
+#sim-v2 .sv-dtag.p { background:rgba(80,200,80,0.15); color:#7ec87e; }
+#sim-v2 .sv-dtag.n { background:rgba(200,80,80,0.15); color:#c87e7e; }
+#sim-v2 .sv-dtag.z { background:rgba(150,150,150,0.1); color:var(--sv-muted); }
+#sim-v2 .sv-excl { font-family:'IBM Plex Mono',monospace; font-size:0.55rem; letter-spacing:0.15em; color:var(--sv-yellow); border:1px solid var(--sv-yellow); padding:0.1rem 0.4rem; float:right; margin-left:0.5rem; }
+
+/* Feedback overlay */
+#sim-v2 .sv-fb-overlay { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.9); z-index:200; align-items:center; justify-content:center; padding:2rem; }
+#sim-v2 .sv-fb-overlay.active { display:flex; }
+#sim-v2 .sv-fb-box { background:var(--sv-surface); border:1px solid var(--sv-border); max-width:700px; width:100%; max-height:90vh; overflow-y:auto; padding:3rem; animation:svSlideUp 0.3s ease; }
+@keyframes svSlideUp { from { transform:translateY(20px); opacity:0; } to { transform:translateY(0); opacity:1; } }
+#sim-v2 .sv-fb-lbl { font-family:'IBM Plex Mono',monospace; font-size:0.6rem; letter-spacing:0.25em; color:var(--sv-accent); text-transform:uppercase; margin-bottom:1rem; }
+#sim-v2 .sv-fb-ttl { font-family:'Playfair Display',serif; font-size:1.3rem; margin-bottom:1.5rem; color:var(--sv-accent); }
+#sim-v2 .sv-fb-text { font-size:0.9rem; line-height:1.85; color:#ccc; margin-bottom:2rem; padding:1.2rem 1.5rem; border-left:3px solid var(--sv-accent); background:var(--sv-surface2); font-style:italic; }
+#sim-v2 .sv-fb-vars { display:grid; grid-template-columns:1fr 1fr; gap:0.8rem; margin-bottom:2rem; }
+#sim-v2 .sv-fb-var { display:flex; align-items:center; gap:0.6rem; font-family:'IBM Plex Mono',monospace; font-size:0.75rem; padding:0.6rem 0.8rem; background:var(--sv-surface2); border:1px solid var(--sv-border); }
+#sim-v2 .sv-fb-var .ch { margin-left:auto; font-weight:600; font-size:0.9rem; }
+#sim-v2 .sv-fb-var .ch.p { color:#7ec87e; }
+#sim-v2 .sv-fb-var .ch.n { color:#c87e7e; }
+#sim-v2 .sv-fb-var .ch.z { color:var(--sv-muted); }
+#sim-v2 .sv-fb-warn { font-family:'IBM Plex Mono',monospace; font-size:0.75rem; color:var(--sv-yellow); padding:0.8rem 1rem; border:1px solid rgba(212,184,74,0.4); background:rgba(212,184,74,0.05); margin-bottom:1.5rem; }
+
+/* Transició */
+#sim-v2 .sv-transition { background:var(--sv-bg); align-items:center; justify-content:center; padding:4rem 2rem; }
+#sim-v2 .sv-tr-content { max-width:700px; text-align:center; }
+#sim-v2 .sv-tr-years { font-family:'Playfair Display',serif; font-size:6rem; font-weight:900; color:var(--sv-border); margin-bottom:-1rem; line-height:1; }
+#sim-v2 .sv-tr-lbl { font-family:'IBM Plex Mono',monospace; font-size:0.7rem; letter-spacing:0.3em; color:var(--sv-accent); text-transform:uppercase; margin-bottom:2rem; }
+#sim-v2 .sv-tr-profile { font-family:'Playfair Display',serif; font-size:1.8rem; margin-bottom:1rem; }
+#sim-v2 .sv-tr-text { font-size:0.95rem; line-height:1.8; color:#bbb; margin-bottom:3rem; text-align:left; padding:1.5rem 2rem; border-left:3px solid var(--sv-accent); background:var(--sv-surface); }
+
+/* Ending */
+#sim-v2 .sv-ending { background:var(--sv-bg); align-items:center; justify-content:center; padding:4rem 2rem; }
+#sim-v2 .sv-end-content { max-width:760px; width:100%; }
+#sim-v2 .sv-end-eyebrow { font-family:'IBM Plex Mono',monospace; font-size:0.65rem; letter-spacing:0.3em; color:var(--sv-accent); text-transform:uppercase; margin-bottom:1rem; text-align:center; }
+#sim-v2 .sv-end-title { font-family:'Playfair Display',serif; font-size:2.5rem; margin-bottom:1rem; text-align:center; }
+#sim-v2 .sv-end-text { font-size:0.95rem; line-height:1.85; color:#ccc; margin-bottom:2rem; padding:1.5rem 2rem; border-left:3px solid var(--sv-accent); background:var(--sv-surface); }
+#sim-v2 .sv-end-pedagogy { font-family:'IBM Plex Mono',monospace; font-size:0.75rem; line-height:1.8; color:var(--sv-muted); margin-bottom:2rem; padding:1rem 1.5rem; border:1px solid var(--sv-border); }
+#sim-v2 .sv-end-vars { display:grid; grid-template-columns:repeat(4,1fr); gap:0.8rem; margin-bottom:3rem; }
+#sim-v2 .sv-end-var { text-align:center; padding:1.2rem; background:var(--sv-surface); border:1px solid var(--sv-border); }
+#sim-v2 .sv-end-var .elbl { font-family:'IBM Plex Mono',monospace; font-size:0.6rem; color:var(--sv-muted); margin-bottom:0.5rem; }
+#sim-v2 .sv-end-var .eval { font-family:'Playfair Display',serif; font-size:2rem; }
+
+/* Reflexió */
+#sim-v2 .sv-reflection { background:var(--sv-bg); align-items:center; justify-content:center; padding:4rem 2rem; }
+#sim-v2 .sv-ref-content { max-width:700px; width:100%; }
+#sim-v2 .sv-ref-title { font-family:'Playfair Display',serif; font-size:2rem; text-align:center; margin-bottom:0.5rem; }
+#sim-v2 .sv-ref-sub { font-family:'IBM Plex Mono',monospace; font-size:0.65rem; letter-spacing:0.2em; color:var(--sv-muted); text-transform:uppercase; text-align:center; margin-bottom:3rem; }
+#sim-v2 .sv-ref-q { margin-bottom:2rem; }
+#sim-v2 .sv-ref-qnum { font-family:'IBM Plex Mono',monospace; font-size:0.6rem; letter-spacing:0.2em; color:var(--sv-accent); text-transform:uppercase; margin-bottom:0.5rem; }
+#sim-v2 .sv-ref-qtext { font-family:'Playfair Display',serif; font-size:1rem; font-style:italic; margin-bottom:0.8rem; color:#ddd; }
+#sim-v2 .sv-ref-ta { width:100%; background:var(--sv-surface); border:1px solid var(--sv-border); color:var(--sv-text); padding:1rem; font-family:'IBM Plex Sans',sans-serif; font-size:0.85rem; line-height:1.7; resize:vertical; min-height:80px; }
+#sim-v2 .sv-ref-ta:focus { outline:none; border-color:var(--sv-accent); }
+#sim-v2 .sv-char-count { font-family:'IBM Plex Mono',monospace; font-size:0.6rem; color:var(--sv-muted); text-align:right; margin-top:0.3rem; }
+#sim-v2 .sv-char-count.ok { color:#7ec87e; }
+#sim-v2 .sv-ref-err { font-family:'IBM Plex Mono',monospace; font-size:0.75rem; color:var(--sv-red); margin-top:1rem; display:none; }
+
+@media(max-width:768px){
+  #sim-v2 .sv-game { flex-direction:column; }
+  #sim-v2 .sv-sidebar { width:100%; height:auto; position:relative; padding:1rem; }
+  #sim-v2 .sv-dec-area { padding:1.5rem; }
+  #sim-v2 .sv-phase-hdr { padding:1.5rem; }
+  #sim-v2 .sv-fb-vars { grid-template-columns:1fr; }
+  #sim-v2 .sv-end-vars { grid-template-columns:repeat(2,1fr); }
+}
 </style>
 </head>
 <body>
 <div id="app"></div>
+
+<!-- ══ SIMULADOR V2 OVERLAY ══ -->
+<div id="sim-v2">
+  <!-- INTRO -->
+  <div id="sv-intro" class="sv-screen sv-intro active">
+    <div class="sv-grid"></div>
+    <div class="sv-intro-content">
+      <div class="sv-eyebrow">Simulador Geopolític · Versió Didàctica Estratègica</div>
+      <h1 class="sv-title">Ucraïna i<br><span>l'Estret d'Ormuz</span></h1>
+      <p class="sv-subtitle">Dues crisis. Tres actors. Decisions sense resposta correcta.</p>
+      <p class="sv-desc">El món del segle XXI no el governen emperadors ni exèrcits solitaris. El governen decisions preses en sales de reunions, en seus d'organismes internacionals, en trucades diplomàtiques a les tres de la matinada.<br><br>Pren el lloc d'un dels tres actors més influents del sistema internacional. Viuràs dues crisis reals en primera persona. Les teves decisions tindran conseqüències.</p>
+      <div class="sv-roles-preview">
+        <div class="sv-role-chip">🇫🇷 França</div>
+        <div class="sv-role-chip">🇨🇳 Xina</div>
+        <div class="sv-role-chip">🇪🇺 Unió Europea</div>
+      </div>
+      <button class="sv-btn-primary" onclick="svShowScreen('role')">Comença la simulació</button>
+    </div>
+  </div>
+
+  <!-- SELECCIÓ DE ROL -->
+  <div id="sv-role" class="sv-screen sv-role-screen">
+    <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:4rem 2rem;">
+      <div class="sv-role-title">Tria el teu rol</div>
+      <div class="sv-role-sub">Cadascun comença amb valors i reptes diferents</div>
+      <div class="sv-roles-grid">
+        <div class="sv-role-card fr" onclick="svSelectRole('FR')">
+          <div class="sv-role-flag">🇫🇷</div>
+          <div class="sv-role-name">França</div>
+          <div class="sv-role-pos">Membre permanent P5 · Consell de Seguretat ONU</div>
+          <div class="sv-role-desc">Dret de veto, aliada d'Ucraïna, però amb una tradició d'autonomia estratègica (gaul·lisme) que busca sempre un espai propi entre els blocs. Macron mantenia canals directes amb Putin fins a l'últim moment.</div>
+        </div>
+        <div class="sv-role-card cn" onclick="svSelectRole('CN')">
+          <div class="sv-role-flag">🇨🇳</div>
+          <div class="sv-role-name">Xina</div>
+          <div class="sv-role-pos">Membre permanent P5 · Consell de Seguretat ONU</div>
+          <div class="sv-role-desc">"Amistat sense límits" amb Rússia, però enormes interessos econòmics amb Occident. La gran potència de l'ambigüitat calculada: mai posicionar-se del tot, sempre maximitzar la flexibilitat.</div>
+        </div>
+        <div class="sv-role-card eu" onclick="svSelectRole('EU')">
+          <div class="sv-role-flag">🇪🇺</div>
+          <div class="sv-role-name">Unió Europea</div>
+          <div class="sv-role-pos">Alta Representant per a Afers Exteriors</div>
+          <div class="sv-role-desc">Fora del Consell de Seguretat, però amb les sancions econòmiques més potents del món i 450 milions de ciutadans. El repte: mantenir la unitat de 27 estats amb interessos molt diversos.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- JOC -->
+  <div id="sv-game" class="sv-screen sv-game">
+    <aside class="sv-sidebar">
+      <div class="sv-sb-logo">Simulador Geopolític</div>
+      <div class="sv-sb-role">
+        <div class="sv-sb-flag" id="sv-sb-flag"></div>
+        <div>
+          <div class="sv-sb-name" id="sv-sb-name"></div>
+          <div class="sv-sb-sub" id="sv-sb-pos"></div>
+        </div>
+      </div>
+      <div class="sv-phase-ind" id="sv-phase-ind">Fase 1 · Ucraïna 2022</div>
+      <div class="sv-vars">
+        <div class="sv-vars-title">Variables del sistema</div>
+        <div class="sv-var">
+          <div class="sv-var-label"><span>🔴 Credibilitat</span><span class="sv-var-val" id="sv-val-cred">3</span></div>
+          <div class="sv-var-bar"><div class="sv-var-fill red" id="sv-bar-cred" style="width:43%"></div></div>
+        </div>
+        <div class="sv-var">
+          <div class="sv-var-label"><span>🟡 Autonomia</span><span class="sv-var-val" id="sv-val-aut">4</span></div>
+          <div class="sv-var-bar"><div class="sv-var-fill yellow" id="sv-bar-aut" style="width:57%"></div></div>
+        </div>
+        <div class="sv-var">
+          <div class="sv-var-label"><span>🔵 Pressió int.</span><span class="sv-var-val" id="sv-val-pre">2</span></div>
+          <div class="sv-var-bar"><div class="sv-var-fill blue" id="sv-val-pre-bar" style="width:29%"></div></div>
+        </div>
+        <div class="sv-var">
+          <div class="sv-var-label"><span>⚫ Influència</span><span class="sv-var-val" id="sv-val-inf">3</span></div>
+          <div class="sv-var-bar"><div class="sv-var-fill dk" id="sv-bar-inf" style="width:43%"></div></div>
+        </div>
+        <div class="sv-interp" id="sv-interp"></div>
+      </div>
+      <div>
+        <div class="sv-log-title">Decisions preses</div>
+        <div id="sv-log"></div>
+      </div>
+    </aside>
+    <main class="sv-main">
+      <div class="sv-phase-hdr">
+        <div class="sv-phase-lbl" id="sv-ph-lbl"></div>
+        <div class="sv-phase-ttl" id="sv-ph-ttl"></div>
+        <div class="sv-phase-ctx" id="sv-ph-ctx"></div>
+      </div>
+      <div class="sv-dec-area">
+        <div class="sv-dec-date" id="sv-dec-date"></div>
+        <div class="sv-dec-title" id="sv-dec-title"></div>
+        <div class="sv-dec-ctx" id="sv-dec-ctx"></div>
+        <div class="sv-cond-msg" id="sv-cond-msg" style="display:none"></div>
+        <div class="sv-opts" id="sv-opts"></div>
+      </div>
+    </main>
+  </div>
+
+  <!-- TRANSICIÓ -->
+  <div id="sv-transition" class="sv-screen sv-transition">
+    <div class="sv-tr-content">
+      <div class="sv-tr-years">2022–2026</div>
+      <div class="sv-tr-lbl">Quatre anys han passat</div>
+      <div class="sv-tr-profile" id="sv-tr-profile"></div>
+      <div class="sv-tr-text" id="sv-tr-text"></div>
+      <button class="sv-btn-primary" onclick="svStartPhase2()">Continua a la Fase 2 →</button>
+    </div>
+  </div>
+
+  <!-- ENDING -->
+  <div id="sv-ending" class="sv-screen sv-ending">
+    <div class="sv-end-content">
+      <div class="sv-end-eyebrow">Simulació completada</div>
+      <div class="sv-end-title" id="sv-end-title"></div>
+      <div class="sv-end-vars" id="sv-end-vars"></div>
+      <div class="sv-end-text" id="sv-end-text"></div>
+      <div class="sv-end-pedagogy" id="sv-end-pedagogy"></div>
+      <button class="sv-btn-primary" onclick="svShowScreen('reflection')">Reflexió final →</button>
+    </div>
+  </div>
+
+  <!-- REFLEXIÓ -->
+  <div id="sv-reflection" class="sv-screen sv-reflection">
+    <div class="sv-ref-content">
+      <div class="sv-ref-title">Reflexió Metacognitiva</div>
+      <div class="sv-ref-sub">Tres preguntes · Mínim 80 caràcters per resposta</div>
+      <div class="sv-ref-q">
+        <div class="sv-ref-qnum">Pregunta 1 — Els teus criteris</div>
+        <div class="sv-ref-qtext">"Mira les decisions que has pres. Quin criteri ha dominat: protegir els interessos propis, mantenir la credibilitat amb els aliats, actuar de forma independent, o una altra cosa? Has sigut coherent amb aquest criteri al llarg de les dues fases?"</div>
+        <textarea class="sv-ref-ta" id="sv-ref1" placeholder="Escriu la teva reflexió..." oninput="svCheckChars('sv-ref1','sv-cc1')"></textarea>
+        <div class="sv-char-count" id="sv-cc1">0 caràcters</div>
+      </div>
+      <div class="sv-ref-q">
+        <div class="sv-ref-qnum">Pregunta 2 — El cost</div>
+        <div class="sv-ref-qtext">"Quina ha sigut la decisió que t'ha costat més assumir? Quin era el cost i per qué has triat assumir-lo?"</div>
+        <textarea class="sv-ref-ta" id="sv-ref2" placeholder="Escriu la teva reflexió..." oninput="svCheckChars('sv-ref2','sv-cc2')"></textarea>
+        <div class="sv-char-count" id="sv-cc2">0 caràcters</div>
+      </div>
+      <div class="sv-ref-q">
+        <div class="sv-ref-qnum">Pregunta 3 — La comparació amb la realitat</div>
+        <div class="sv-ref-qtext">"Compara les decisions que has pres amb el que va passar a la realitat el 2022. En que coincideix? En que divergeix? Si el teu actor hagués fet el que tu has decidit, creus que el resultat hauria estat millor o pitjor?"</div>
+        <textarea class="sv-ref-ta" id="sv-ref3" placeholder="Escriu la teva reflexió..." oninput="svCheckChars('sv-ref3','sv-cc3')"></textarea>
+        <div class="sv-char-count" id="sv-cc3">0 caràcters</div>
+      </div>
+      <div class="sv-ref-err" id="sv-ref-err">Cal escriure almenys 80 caràcters a cadascuna de les reflexions.</div>
+      <button class="sv-btn-primary" style="margin-top:2rem;width:100%" onclick="svFinishReflection()">Finalitza la simulació</button>
+    </div>
+  </div>
+
+  <!-- FEEDBACK OVERLAY -->
+  <div class="sv-fb-overlay" id="sv-fb-overlay">
+    <div class="sv-fb-box">
+      <div class="sv-fb-lbl">Conseqüències de la teva decisió</div>
+      <div class="sv-fb-ttl" id="sv-fb-ttl"></div>
+      <div class="sv-fb-text" id="sv-fb-text"></div>
+      <div class="sv-fb-vars" id="sv-fb-vars"></div>
+      <div class="sv-fb-warn" id="sv-fb-warn" style="display:none"></div>
+      <button class="sv-btn-secondary" onclick="svCloseFeedback()">Continua →</button>
+    </div>
+  </div>
+</div>
+
 <script>
 // ═══════════════════════════════════════════════════════
 // ▸ CONFIGURACIÓ
