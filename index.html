@@ -871,263 +871,717 @@ const REPESCA = {
 };
 
 // ═══════════════════════════════════════════════════════
-// ▸ SIMULADOR — ROLS, DADES I PERFILS
+// ▸ SIMULADOR V2 — DADES
 // ═══════════════════════════════════════════════════════
-const SIM_ROLS = {
-  FR:{ id:'FR', bandera:'🇫🇷', pais:'França', rol:'Representant permanent al CS de l\'ONU',
-    resum:'Membre permanent amb dret a veto. Aliada d\'Ucraïna, però amb tradició d\'autonomia estratègica (gaullisme). Macron mantenia canals directes amb Putin fins a l\'últim moment.' },
-  CN:{ id:'CN', bandera:'🇨🇳', pais:'Xina', rol:'Representant permanent al CS de l\'ONU',
-    resum:'Membre permanent amb dret a veto. "Amistat sense límits" declarada amb Rússia el febrer 2022, però enormes interessos econòmics amb Occident. La gran potència de l\'ambigüitat calculada.' },
-  EU:{ id:'EU', bandera:'🇪🇺', pais:'Unió Europea', rol:'Alt/a Representant per a Afers Exteriors',
-    resum:'No és membre del CS, però controla les sancions econòmiques més potents del món. 27 estats amb interessos molt diversos. Actor civil que ha de decidir si vol ser actor de seguretat.' },
-};
-
-const SIM_PERFILS = {
-  assertiu:{ etiqueta:'Línia Assertiva', desc:'Has prioritzat la fermesa i la pressió sobre el diàleg. Les teves decisions han marcat una postura clara i creïble, però amb costos diplomàtics elevats.' },
-  dialoguista:{ etiqueta:'Línia Dialoguista', desc:'Has prioritzat el diàleg i la preservació de canals sobre la pressió directa. Una postura que manté opcions obertes, però que alguns actors han percebut com a manca de determinació.' },
-  equilibrat:{ etiqueta:'Postura Pragmàtica', desc:'Has barrejat pressió i diàleg en funció del context. Una postura realista que preserva relacions, però sense el lideratge inequívoc que alguns esperaven.' },
-};
-
-const SIM_DATA = {
-  p1:{
-    titol:'Ucraïna, febrer de 2022',
-    contextGlobal:'El 24 de febrer de 2022, Rússia inicia una invasió a gran escala d\'Ucraïna. Tropes russes avancen cap a Kíev. El Consell de Seguretat es reuneix d\'emergència. Les decisions dels propers dies marcaran el curs de la guerra i redefiniran l\'ordre internacional.',
-    rondes:{
-      FR:[
-        { titol:'La votació d\'emergència al CS', data:'24 febrer 2022 · Nit',
-          context:'El CS es reuneix d\'urgència. Com a membre permanent, tens tres vies: presentar una resolució de condemna (Rússia la vetarà, però mobilitzarà la comunitat internacional), abstenir-te per mantenir els canals diplomàtics oberts amb el Kremlin, o proposar una via mixta que combini condemna i mediació.',
-          opcions:[
-            { text:'Presentar i votar una resolució de condemna exigint la retirada immediata de les tropes russes', eixos:{mU:1,hD:1},
-              consequencia:'Rússia la veta en minuts, com era previsible. Però la iniciativa mobilitza l\'Assemblea General: 141 països condemnaran la invasió en una votació histórica. França ha marcat una línia clara i la relació directa Macron-Putin es trenca durant setmanes.' },
-            { text:'Abstenir-se per mantenir canals diplomàtics oberts amb Moscou i preservar la capacitat mediadora', eixos:{mU:-1,hD:-1},
-              consequencia:'La decisió provoca crítiques internes a la UE i l\'OTAN. Però París conserva la línia directa amb el Kremlin i en les setmanes següents és l\'únic canal occidental amb Moscou. Ucraïna ho viu com una traïció parcial, però França manté la seva autonomia estratègica.' },
-            { text:'Votar a favor de la condemna i proposar paral·lelament una missió mediadora de l\'OSCE', eixos:{mU:1,hD:-1},
-              consequencia:'França vota la condemna però obre simultàniament una via diplomàtica. Els aliats ho interpreten com ambigüitat; Rússia, com debilitat. L\'OSCE mai desplegarà la missió, però França manté totes les relacions obertes sense alienar cap actor del tot.' },
-          ]
-        },
-        { titol:'El debat sobre les sancions econòmiques', data:'Març 2022',
-          context:'El CS ha quedat paralitzat pel veto rus. L\'atenció es desplaça a les sancions. Europa rep el 40% del seu gas de Rússia. Tallar les relacions energètiques protegiria Ucraïna, però podria enfonsar les economies europees. Cal decidir fins on arribar.',
-          opcions:[
-            { text:'Defensar les sancions màximes: exclusió del SWIFT bancari i embargament energètic total immediat', eixos:{mU:1,hD:1},
-              consequencia:'França lidera el bloc dur de la UE. Les sancions impacten durament l\'economia russa, però l\'hivern de 2022-23 porta una crisi energètica severa a Europa amb preus disparats i racionament. La credibilitat europea davant Ucraïna és màxima, però el cost polític intern és enorme.' },
-            { text:'Sancions financeres i tecnològiques dures, però excloure el sector energètic per protegir les economies europees', eixos:{mU:0,hD:0},
-              consequencia:'França opta per la postura de consens europeu: dura però no suïcida. Rússia perd accés als mercats financers occidentals però continua venent gas. Polònia i els Bàltics ho critiquen com a hipocresia, però és, essencialment, el que passa a la realitat.' },
-            { text:'Proposar sancions graduals i condicionals, que s\'enduriran si no hi ha negociació en 30 dies', eixos:{mU:-1,hD:-1},
-              consequencia:'La proposta és rebuda amb escepticisme pels aliats. Putin ho interpreta com manca de determinació. Les sancions s\'acaben imposant de totes maneres, però França ha perdut la iniciativa dins la coalició occidental i és percebuda com a actor que prioritza interessos propis.' },
-          ]
-        },
-        { titol:'L\'armament a Ucraïna', data:'Juny 2022',
-          context:'Ucraïna resisteix contra tot pronòstic però necessita artilleria pesada de llarg abast al Donbàs. Zelenski demana armament ofensiu. Hi ha debat intens a l\'OTAN: les armes ofensives poden ser decisives per a Ucraïna, però Rússia les pot interpretar com una escalada directa d\'Occident.',
-          opcions:[
-            { text:'Enviar els canons d\'artilleria Caesar i comprometre\'s amb enviaments regulars d\'armament pesat', eixos:{mU:0,hD:2},
-              consequencia:'França trenca el tabú europeu. L\'impacte sobre el terreny és immediat: Ucraïna recupera capacitat ofensiva al Donbàs. Rússia eleva l\'amenaça nuclear retòrica i altres aliats segueixen l\'exemple francès. Kíev ho recorda com a punt d\'inflexió, però genera mesos de tensió diplomàtica extrema.' },
-            { text:'Armament defensiu coordinat amb tots els aliats de l\'OTAN, sense sistemes ofensius de llarg abast', eixos:{mU:1,hD:1},
-              consequencia:'França envia armes defensives mantenint la coordinació OTAN. No és tot el que Ucraïna vol, però és un compromís sostingut que evita la percepció d\'escalada unilateral i manté la unitat de l\'aliança.' },
-            { text:'Proposar un alto el foc negociat i suspendre enviaments d\'armes mentre hi ha possibilitat de diàleg', eixos:{mU:-1,hD:-2},
-              consequencia:'"Demanar-nos que negociem mentre morim és una traïció", reacciona Zelenski amb fúria. La proposta fracassa en 48 hores i França és percebuda com el "fluix" de l\'aliança occidental. El dany reputacional durarà mesos.' },
-          ]
-        }
-      ],
-      CN:[
-        { titol:'La votació d\'emergència al CS', data:'24 febrer 2022 · Nit',
-          context:'El CS es reuneix d\'urgència. Fa tres setmanes, Xi i Putin van declarar una "amistat sense límits". Però la invasió ha sorprès Pequín, que no va ser avisada. Vetar protegiria Rússia però deterioraria la relació amb Occident. Votar en contra trencaria l\'aliança estratègica amb Moscou. Abstenir-se és l\'opció de màxima ambigüitat.',
-          opcions:[
-            { text:'Vetar la resolució per protegir l\'aliança estratègica amb Rússia i enviar un missatge inequívoc a Moscou', eixos:{mU:-2,hD:1},
-              consequencia:'La Xina veta conjuntament amb Rússia. Occident reacciona amb amenaces de sancions secundàries i les relacions amb la UE es deterioren bruscament. Però Pequín ha enviat un missatge inequívoc a Moscou: l\'amistat té un preu real, i la Xina està disposada a pagar-lo.' },
-            { text:'Abstenir-se: no condemnar la invasió però tampoc avalar-la formalment', eixos:{mU:0,hD:0},
-              consequencia:'La Xina s\'absté, com va fer a la realitat. Màxima ambigüitat calculada: no trenca amb Rússia, però no avala formalment la invasió. Occident critica però no pot imposar sancions. Pequín queda posicionada com a possible mediador futur. La postura maximitza la flexibilitat a costa de generar desconfiança a tots els flancs.' },
-            { text:'Votar a favor de la resolució, distanciant-se públicament de Rússia per protegir les relacions amb Occident', eixos:{mU:2,hD:-1},
-              consequencia:'La decisió sacseja la política internacional: Xi trenca amb Putin en el pitjor moment per a Moscou. Occident respon positivament relaxant alguns aranzels. Però dins la Xina la decisió és percebuda com a capitulació. Un canvi estratègic de primera magnitud amb beneficis a llarg termini però costos immediats enormes.' },
-          ]
-        },
-        { titol:'El comerç i les sancions occidentals', data:'Març 2022',
-          context:'Occident imposa sancions sense precedents. Les empreses occidentals marxen de Rússia. La Xina pot substituir importacions, comprar petroli rus a preus de derrota i convertir-se en el salvavides econòmic de Moscou. Però arrisca sancions secundàries dels EUA i la UE que podrien danyar la seva pròpia economia.',
-          opcions:[
-            { text:'Incrementar el comerç amb Rússia i comprar petroli rus amb descompte, acceptant el risc de sancions secundàries', eixos:{mU:-1,hD:1},
-              consequencia:'La Xina compra petroli rus amb un 30% de descompte i exporta components tecnològics vitals. Els EUA amenacen sancions secundàries i la UE obre investigacions. Però Pequín guanya influència enorme sobre una Rússia cada cop més dependent, i l\'economia xinesa es beneficia a curt termini.' },
-            { text:'Mantenir el comerç normal sense ajudar activament Rússia a eludir les sancions occidentals', eixos:{mU:0,hD:0},
-              consequencia:'La Xina manté l\'equilibri: ni trenca amb Rússia ni li ofereix un rescat actiu. El comerç creix lleugerament però sense el salt que Moscou esperava. Frustra tant Rússia com Occident, però manté totes les portes obertes maximitzant la flexibilitat futura.' },
-            { text:'Reduir el comerç amb Rússia per evitar sancions secundàries i protegir les relacions econòmiques amb la UE i els EUA', eixos:{mU:1,hD:-1},
-              consequencia:'La Xina protegeix la seva relació amb Occident. Moscou ho viu com una traïció. La UE i els EUA responen positivament relaxant alguns aranzels i reactivant negociacions comercials. La Xina guanya credibilitat internacional però perd influència sobre Rússia.' },
-          ]
-        },
-        { titol:'La narrativa diplomàtica global', data:'Tardor 2022',
-          context:'La guerra s\'allarga. El Sud Global es divideix. La Xina té una oportunitat única: presentar-se com a mediador neutral o líder d\'un tercer bloc. Però la mediació real requereix pressionar Rússia, cosa que deterioraria la relació bilateral. L\'ambigüitat ha funcionat fins ara — però, fins quan?',
-          opcions:[
-            { text:'Proposar un pla de pau xinès de 12 punts i exercir pressió real sobre Rússia perquè negociï', eixos:{mU:1,hD:-1},
-              consequencia:'La Xina presenta un pla de pau que inclou un alto el foc. Ucraïna el rebutja (no preveu retirada russa), però la iniciativa posiciona Pequín com a actor diplomàtic global. Per primera vegada representants xinesos parlen directament amb Zelenski. La relació amb Rússia es refreda però la Xina guanya prestigi internacional.' },
-            { text:'Mantenir la neutralitat pública sense pressionar cap de les parts, preservant l\'ambigüitat estratègica', eixos:{mU:0,hD:0},
-              consequencia:'La Xina continua amb l\'ambigüitat calculada. Els mercats financers ho celebren. Però Pequín perd l\'oportunitat de liderar diplomàticament en un moment decisiu. La guerra continua i la Xina queda com a espectadora influent però passiva d\'un conflicte que remodela el món.' },
-            { text:'Donar suport discret a Rússia: components de doble ús i cobertura diplomàtica davant les investigacions occidentals', eixos:{mU:-1,hD:2},
-              consequencia:'La Xina proporciona components que Rússia necessita. Els serveis d\'intel·ligència occidentals ho detecten parcialment. Si Rússia guanya, Pequín en sortirà enormement reforçada; si perd, haurà perdut credibilitat internacional i relacions amb Occident. L\'aposta estratègica de major risc i major recompensa potencial.' },
-          ]
-        }
-      ],
-      EU:[
-        { titol:'La resposta immediata de la UE', data:'24 febrer 2022 · Primeres hores',
-          context:'La UE no és membre del CS, però és la major potència econòmica al costat d\'Ucraïna. Les primeres 24 hores son crítiques. Hi ha divisió interna severa: Polònia i els Bàltics exigeixen la postura més dura possible; Hongria pot bloquejar per unanimitat; Alemanya i França volen preservar opcions diplomàtiques.',
-          opcions:[
-            { text:'Declaració conjunta de màxima condemna i activació immediata del mecanisme europeu de sancions', eixos:{mU:1,hD:1},
-              consequencia:'La UE parla amb una sola veu en una crisi de seguretat per primera vegada. Hongria intenta bloquejar però és aïllada. Rússia amenaça el subministrament de gas. La decisió dona credibilitat enorme a la UE com a actor global, però inicia una crisi energètica que s\'allarga mesos.' },
-            { text:'Condemna moderada i oferta de diàleg: sancions preparades però no activades, donant temps a la diplomàcia', eixos:{mU:0,hD:-1},
-              consequencia:'La UE opta per la moderació calculada. Polònia i els Bàltics amenacen d\'actuar bilateralment. Ucraïna ho interpreta com inacció. Però la finestra diplomàtica mantinguda permet explorar vies d\'alto el foc que d\'altra manera no serien possibles.' },
-            { text:'Activar el Fons Europeu de Pau per finançar directament l\'enviament d\'armament ucraïnès', eixos:{mU:-1,hD:2},
-              consequencia:'La UE trenca el tabú de ser actor exclusivament civil. Rússia ho qualifica de "declaració de guerra per proxy". Quatre estats membres s\'abstenen internament. Però l\'impacte sobre la capacitat defensiva ucraïnesa és immediat i crea un precedent que transformarà la política europea de seguretat.' },
-          ]
-        },
-        { titol:'La dependència energètica de Rússia', data:'Primavera 2022',
-          context:'El 40% del gas europeu ve de Rússia. Tallar aquest flux perjudicaria enormement l\'economia europea però mantenir-lo finança la guerra russa. Aquesta decisió és el cor de la credibilitat de les sancions europees i definirà si la UE és un actor creïble o si els seus interessos econòmics superen els seus valors.',
-          opcions:[
-            { text:'Embargo energètic total: tallar el gas rus immediatament acceptant els costos econòmics i socials', eixos:{mU:1,hD:2},
-              consequencia:'L\'hivern de 2022-23 és dur: racionament, preus disparats, recessió a Alemanya i Itàlia. Però l\'economia russa s\'enfonsa sense els ingressos del gas. La decisió accelera la transició energètica europea. A llarg termini, Europa emergeix molt menys vulnerable, però a un cost immediat altíssim.' },
-            { text:'Reducció progressiva en dos anys: embargar el petroli immediatament i substituir el gas gradualment', eixos:{mU:1,hD:1},
-              consequencia:'La UE adopta la resposta de consens: dura però gradual. El petroli s\'embarga immediatament, el gas es substituirà en 24 mesos. Europa té temps per construir infraestructura alternativa. Menys heroic però més sostenible — i, essencialment, el que passa a la realitat.' },
-            { text:'Mantenir el gas rus: les sancions europees no afectaran el sector energètic', eixos:{mU:-1,hD:-1},
-              consequencia:'Polònia i els Bàltics viuen la decisió com una humiliació. Ucraïna parla de "sancions de paper". L\'economia europea evita la recessió però la UE finança involuntàriament prop d\'un terç de la guerra russa durant mesos. El dany reputacional és durador.' },
-          ]
-        },
-        { titol:'La candidatura d\'Ucraïna a la UE', data:'Juny 2022',
-          context:'Zelenski demana l\'adhesió accelerada a la UE com a gest de suport polític. La UE mai ha acceptat un país en guerra. Concedir l\'estatus de candidat seria el gest polític més fort possible, però obre un debat intern complex: com integrar un país en guerra amb enormes costos estructurals potencials?',
-          opcions:[
-            { text:'Concedir l\'estatus de candidat oficial en una cimera extraordinària: gest polític contundent i ancoratge estratègic', eixos:{mU:1,hD:1},
-              consequencia:'En una cimera extraordinària, els 27 acorden unànimement l\'estatus de candidat oficial, sota pressió intensa sobre Hongria. Putin qualifica la decisió d\'"ampliació de l\'OTAN per la porta del darrere", però el missatge per als ucraïnesos és inequívoc: el seu futur és europeu.' },
-            { text:'Reconèixer la "perspectiva europea" d\'Ucraïna sense concedir l\'estatus formal de candidat', eixos:{mU:0,hD:0},
-              consequencia:'La UE opta per un gest simbòlic però no vinculant. Ucraïna ho accepta com un primer pas. La UE evita el debat constitucional intern sobre com acceptar un país en guerra. Una solució que no contenta ningú del tot però tampoc provoca cap crisi interna.' },
-            { text:'Rebutjar la candidatura: no és el moment, cal concentrar-se en el suport militar i econòmic immediat', eixos:{mU:-1,hD:-1},
-              consequencia:'La decisió és rebuda amb amargura a Kíev. Alguns membres de la UE ho celebren en privat: l\'adhesió seria la major expansió en 20 anys amb costos estructurals enormes. Però el missatge polític és desastrós en el pitjor moment per a la moral ucraïnesa.' },
-          ]
-        }
-      ]
-    }
+const SIM_ROLES = {
+  FR: {
+    flag: '🇫🇷', name: 'França', pos: 'Membre P5 · CS de l\'ONU',
+    init: { cred: 3, aut: 4, pre: 2, inf: 3 }
   },
-  p2:{
-    titol:'Crisi de l\'Estret d\'Ormuz, abril de 2026',
-    contextGlobal:'El 28 de febrer de 2026, els EUA i Israel van llançar l\'Operació Epic Fury contra Iran: atacs coordinats que van assassinar el líder suprem Khamenei i destruir instal·lacions nuclears i militars. Iran va respondre tancant l\'Estret d\'Ormuz — per on passa el 20% del petroli mundial — i llançant drons i míssils contra bases americanes i aliats al Golf Pèrsic. Ahir, 13 d\'abril de 2026, els EUA van activar un bloqueig naval d\'Iran. Les negociacions a Pakistan han fracassat. Més de 150 vaixells estan paralitzats. El petroli supera els 110 dòlars el barril.',
-    intros:{
-      FR:{
-        assertiu:'Les teves decisions fermes el 2022 van reforçar la credibilitat de França i la UE, i van accelerar la independència energètica europea. Però ara el tancament d\'Ormuz ha tornat a exposar Europa: el GNL de Qatar i els Emirats que havia substituït el gas rus deixa d\'arribar. I els EUA han llançat una guerra al Pròxim Orient sense consultar els aliats europeus. La tradició gaul·lista d\'autonomia estratègica et posa en una posició d\'enorme responsabilitat.',
-        dialoguista:'La teva aposta pel diàleg el 2022 va ser criticada, però avui té un valor inesperat: París manté canals de comunicació oberts amb molts actors, inclosos alguns que ara ningú pot contactar. Però la guerra EUA-Israel-Iran posa França davant una pregunta incòmoda: els EUA no van demanar permís europeu per atacar Iran. L\'autonomia estratègica francesa és ara més necessària que mai — però actuarà França?',
-        equilibrat:'La postura equilibrada francesa de 2022 ha preservat relacions amb tots els actors, però sense un lideratge clar. Ara, amb l\'estret tancat i el bloqueig americà actiu des d\'ahir, França ha de decidir si finalment pren una postura clara. Europa no té capacitat militar per protegir les seves rutes comercials. França — l\'única potència nuclear europea — sí.',
-      },
-      CN:{
-        assertiu:'Les decisions pragmàtiques de 2022 van convertir la Xina en l\'ancla econòmica de Rússia. Quatre anys després, Moscou deu enormes favors a Pequín. Però l\'estret tancat ha provocat escassetat energètica severa a l\'Àsia oriental — la Xina és el major comprador de petroli iranià. Trump amenaça qualsevol país que ajudi Iran amb aranzels del 50%. I el bloqueig americà ha entrat en vigor ahir.',
-        dialoguista:'L\'ambigüitat calculada xinesa de 2022 et va donar flexibilitat estratègica. Avui, aquella postura moderada és un actiu: Pequín és percebuda com un actor que pot parlar amb tothom. Però la crisi d\'Ormuz és el pitjor escenari per a la Xina: depèn d\'Iran per a l\'energia, necessita els EUA per al comerç, i vol liderar globalment sense semblar vassall de cap potència. La decisió no pot ajornar-se.',
-        equilibrat:'Les decisions equilibrades de 2022 han preservat totes les relacions, però ara la crisi d\'Ormuz força una elecció impossible d\'ajornar: l\'estret tancat paralitza el petroli que necessita l\'Àsia, Trump amenaça amb aranzels massius, i Iran espera saber si pot comptar amb Pequín. L\'hora de l\'ambigüitat ha acabat.',
-      },
-      EU:{
-        assertiu:'Les sancions dures de 2022 van accelerar la independència energètica europea, però a un cost enorme. Quatre anys de diversificació han reduït la vulnerabilitat respecte a Rússia. Però ara el tancament d\'Ormuz ha tornat a exposar Europa: el GNL de Qatar i dels Emirats que havia substituït el gas rus ja no arriba. I els EUA han decidit actuar sense consultar els aliats europeus.',
-        dialoguista:'La via dialoguista de la UE el 2022 va evitar una crisi energètica aguda. Quatre anys després, aquella moderació té un valor inesperat: la UE manté relacions diplomàtiques obertes amb Iran, un actiu únic ara que gairebé ningú hi pot parlar. Però la guerra EUA-Israel-Iran planteja una pregunta existencial: la UE segueix els EUA o manté autonomia estratègica real?',
-        equilibrat:'La postura europea equilibrada de 2022 va ser sostenible en una crisi que creixia gradualment. Però la crisi d\'Ormuz és sobtada i severa. L\'estret tancat, el bloqueig americà d\'ahir i la crisi energètica que s\'accelera exigeixen decisions urgents. 27 estats membres han de posar-se d\'acord en qüestió de dies.',
-      }
+  CN: {
+    flag: '🇨🇳', name: 'Xina', pos: 'Membre P5 · CS de l\'ONU',
+    init: { cred: 2, aut: 5, pre: 2, inf: 4 }
+  },
+  EU: {
+    flag: '🇪🇺', name: 'Unió Europea', pos: 'Alta Representant Afers Exteriors',
+    init: { cred: 3, aut: 2, pre: 3, inf: 3 }
+  }
+};
+
+const SIM_INTERPS = {
+  high_cred_low_aut: "Ets fiable per als aliats, però has perdut marge d'acció independent.",
+  high_aut_low_cred: "Pots actuar sol, però els aliats no et seguiran fàcilment.",
+  high_pre: "La inestabilitat interna limita les teves opcions. Has de gestionar el front domèstic.",
+  high_inf: "Tens capacitat real d'incidir en les decisions d'altres actors.",
+  low_inf: "La teva veu arriba menys lluny del que voldries.",
+  balanced: "Les teves variables estan equilibrades. Cap prioritat dominant."
+};
+
+const SIM_DECISIONS = {
+  FR: [
+    // FASE 1
+    {
+      id: 'FR1', phase: 1,
+      phaseLabel: 'Fase 1 · Ucraïna, febrer 2022',
+      phaseTitle: 'La invasió russa d\'Ucraïna',
+      phaseContext: 'El 24 de febrer de 2022, a les 5:00 del matí hora de Moscou, Vladimir Putin anuncia l\'inici d\'una "operació militar especial" a Ucraïna. Columnes de tancs avancen des de Bielorússia cap a Kíev. El Consell de Seguretat de l\'ONU es convoca d\'urgència. Zelenski demana armes, sancions i solidaritat.',
+      date: '25 de febrer de 2022',
+      title: 'La votació al Consell de Seguretat',
+      context: 'El Consell de Seguretat vota una resolució que condemna la invasió i exigeix la retirada immediata de les tropes russes. Tothom sap que Rússia farà ús del veto. La pregunta és com votarà França — i per quins motius.',
+      options: [
+        {
+          letter: 'A', text: 'Votar a favor de la resolució amb declaració ferma. França vota la condemna i publica una declaració en la qual qualifica la invasió d\'agressió il·legal i anuncia que treballarà per activar l\'Assemblea General.',
+          delta: { cred: 1, aut: -1, pre: 0, inf: 1 },
+          feedback: 'Rússia veta la resolució en minuts, com era previsible. Però la iniciativa francesa d\'activar l\'Assemblea General té un efecte sorprenent: 141 països condemnaran la invasió en una votació històrica. França ha marcat una línia clara. El cost és la relació directa Macron-Putin, que es trenca durant setmanes i elimina el canal europeu de comunicació directa amb Moscou.',
+          warning: null
+        },
+        {
+          letter: 'B', text: 'Votar a favor però mantenir obert el canal diplomàtic. França vota la condemna, però Macron truca a Putin la mateixa nit i anuncia que París mantindrà la comunicació directa com a servei a la pau.',
+          delta: { cred: 0, aut: 1, pre: 1, inf: 1 },
+          feedback: 'La decisió és criticada per Polònia i els països bàltics, que la perceben com ambigüitat en el pitjor moment. Però París conserva la línia directa amb el Kremlin, i en les setmanes següents és l\'únic govern occidental que pot parlar directament amb Moscou. Ucraïna ho viu com una traïció parcial. França, però, argumenta que la diplomàcia no pot sobreviure si es cremen tots els ponts el primer dia.',
+          warning: null
+        },
+        {
+          letter: 'C', text: 'Proposar una resolució alternativa d\'alto el foc. En lloc de la resolució de condemna, França proposa una resolució centrada en un alto el foc immediat i l\'obertura de negociacions.',
+          delta: { cred: -2, aut: 2, pre: 1, inf: -1 },
+          feedback: 'La proposta francesa és rebuda amb incredulitat pels aliats. Ucraïna rebutja qualsevol alto el foc que no inclogui la retirada russa prèvia. El Regne Unit i els EUA la qualifiquen de "premi a l\'agressor". La resolució no prospera, però França ha deixat clar que el seu primer instint és el diàleg, no la confrontació. El cost en credibilitat atlàntica és elevat i durarà mesos.',
+          warning: '⚠ Si la credibilitat cau a 1 o menys: a la propera decisió, l\'opció de liderar sancions europees no estarà disponible.'
+        }
+      ]
     },
-    rondes:{
-      FR:[
-        { titol:'Posició al CS sobre el bloqueig americà', data:'14 abril 2026',
-          context:'El bloqueig naval americà ha entrat en vigor fa hores. Iran el qualifica d\'"acte de guerra." El CS es reuneix d\'emergència. Com a membre P5, tens veu i vot. Els EUA vetaran qualsevol resolució que els condemni. Tu pots presentar una resolució alternativa que demani negociació immediata, recolzar la postura americana, o abstenir-te.',
-          opcions:[
-            { text:'Presentar una resolució al CS demanant una treva de 72 hores i negociació immediata EUA-Iran', eixos:{mU:1,hD:-1},
-              consequencia:'França exerceix el seu paper mediador tradicional. Els EUA veten la resolució però la iniciativa diplomàtica europea queda al centre. Washington reacciona amb irritació. Però Teheran envia un missatge discret a París: estaria disposada a escoltar si un país europeu actua de garant.' },
-            { text:'Abstenir-se: respectar la decisió sobirana americana sense avalar explícitament el bloqueig', eixos:{mU:0,hD:0},
-              consequencia:'França absté, senyalant desacord sense trencament. Alguns aliats europeus fan el mateix. Washington ho interpreta com "falta de suport en moment crític". La postura manté obertes les opcions diplomàtiques però França perd influència en les decisions americanes sobre com resoldre la crisi.' },
-            { text:'Recolzar explícitament el bloqueig americà: l\'estret ha d\'estar obert per a tots, i Iran el va tancar primer', eixos:{mU:-1,hD:1},
-              consequencia:'França s\'alinea amb els EUA i enforteix la unitat atlàntica. Washington valora el suport europeu. Però a casa, el govern és criticat per "subordinació estratègica" davant una acció de legalitat dubtosa. La decisió tanca la porta a qualsevol rol mediador de França en els propers dies.' },
-          ]
+    {
+      id: 'FR2', phase: 1,
+      phaseLabel: 'Fase 1 · Ucraïna, febrer 2022',
+      phaseTitle: 'La invasió russa d\'Ucraïna',
+      phaseContext: 'El Consell de Seguretat ha quedat paralitzat pel veto rus. L\'atenció es desplaça a les sancions. Europa rep el 40% del seu gas de Rússia. Tallar les relacions energètiques protegiria Ucraïna però podria enfonsar les economies europees durant l\'hivern.',
+      date: 'Març de 2022',
+      title: 'La resposta a les sancions econòmiques',
+      context: 'Cal decidir fins on arribar amb les sancions. Les opcions van des del bloc màxim fins a prioritzar la seguretat energètica. L\'elecció definirà la postura de França dins de la coalició occidental i el seu impacte en els ciutadans.',
+      conditional: { check: (v) => v.cred <= 1, msg: 'Els aliats no confien prou en França per liderar una iniciativa conjunta en aquest moment.', lockOption: 'A' },
+      options: [
+        {
+          letter: 'A', text: 'Liderar el bloc dur de sancions a la UE. França abandona el rol de "pont" i lidera el paquet de sancions més dur possible: desconnexió del SWIFT, embargament d\'hidrocarburs progressiu, bloqueig d\'actius.',
+          delta: { cred: 2, aut: -1, pre: 2, inf: 1 },
+          feedback: 'Les sancions impacten durament l\'economia russa, però l\'hivern de 2022-23 porta preus energètics disparats i racionament en alguns països europeus. La credibilitat de França davant Ucraïna i els aliats de l\'Est és màxima. Però la factura política interna és enorme: el govern ha d\'explicar per qué els ciutadans paguen el preu d\'una guerra que no han causat.',
+          warning: null
         },
-        { titol:'La crisi energètica europea', data:'Abril 2026',
-          context:'L\'estret tancat dispara els preus del gas a Europa un 180% en sis setmanes. El GNL de Qatar i els Emirats ha deixat d\'arribar. Alguns membres de la UE pressionen per buscar alternatives d\'urgència, inclosa la possibilitat de relaxar parcialment les sancions a Rússia, que s\'ha ofert a subministrar més gas.',
-          opcions:[
-            { text:'Negociar directament un corredor energètic amb Iran, fora del marc del bloqueig americà', eixos:{mU:1,hD:-1},
-              consequencia:'França fa la proposta més atrevida: parlar directament amb Teheran per garantir un corredor d\'energia. Washington reacciona amb duresa: "França no pot negociar amb un país en guerra contra els nostres interessos." Però alguns vaixells tornen a circular. La tensió atlàntica arriba al punt màxim des de l\'Iraq de 2003.' },
-            { text:'Liderar una resposta energètica europea d\'emergència: reserves estratègiques, racionament coordinat i acceleració de renovables', eixos:{mU:1,hD:1},
-              consequencia:'França proposa una resposta europea unificada que eviti dependre d\'Iran o de Rússia. Les reserves s\'activen i el racionament és dur però redistribuït equitativament entre els 27. La decisió reforça la credibilitat europea d\'autonomia energètica, però els preus seguiran alts durant mesos.' },
-            { text:'Defensar la relaxació parcial de sancions a Rússia per garantir el subministrament energètic europeu durant la crisi', eixos:{mU:-1,hD:-1},
-              consequencia:'La proposta és políticament explosiva. Polònia i els Bàltics amenacen de veto. Ucraïna parla de "traïció total". La mesura no prosperarà, però el sol fet d\'haver-la plantejat ha danyat greument la credibilitat de França davant els seus aliats orientals.' },
-          ]
+        {
+          letter: 'B', text: 'Sancions de consens europeu: dures però graduals. França s\'alinea amb la postura de consens de la UE: sancions financeres fortes, però sense tallar el gas de cop. Un embargament progressiu condicionat al comportament rus.',
+          delta: { cred: 1, aut: 0, pre: 1, inf: 0 },
+          feedback: 'França opta per la postura de consens europeu: dura però no suïcida. Rússia perd accés als mercats financers occidentals però continua venent gas. Polònia i els Bàltics ho critiquen com a hipocresia. Però és, essencialment, el que passa a la realitat: les sancions existeixen, el gas segueix fluint durant mesos, i Europa sobreviu l\'hivern amb dificultats però sense col·lapse.',
+          warning: null
         },
-        { titol:'El futur de l\'arquitectura de seguretat europea', data:'Abril 2026',
-          context:'La doble crisi — Ucraïna 2022 i Ormuz 2026 — ha demostrat que Europa és vulnerable quan depèn d\'actors externs. La UE no té capacitat militar pròpia per protegir les seves rutes comercials crítiques. Cal decidir quin camí prendre per construir una Europa estratègicament autònoma.',
-          opcions:[
-            { text:'Proposar la creació d\'una flota naval europea independent per protegir les rutes comercials crítiques de la UE', eixos:{mU:1,hD:1},
-              consequencia:'França, amb la seva Marina, proposa crear una capacitat naval europea autònoma. La crisi d\'Ormuz ha creat la voluntat política que faltava. Alemanya i Polònia s\'hi sumen. És el primer pas cap a una defensa europea real, però necessitarà una dècada per materialitzar-se i requerirà redefinir la relació amb l\'OTAN.' },
-            { text:'Liderar una gran coalició multilateral sota mandat ONU per garantir la llibertat de navegació global', eixos:{mU:2,hD:0},
-              consequencia:'França aposta pel multilateralisme: una coalició naval sota mandat del CS de l\'ONU que inclogui Europa, Àsia i el Sud Global. La proposta és elegant però xoca amb la postura unilateral americana. Xina i Índia s\'hi mostren interessades. Podria ser la base d\'un nou ordre marítim, però arribarà tard per a la crisi actual.' },
-            { text:'Negociar un nou pacte atlàntic que doni a Europa major autonomia de decisió dins l\'OTAN', eixos:{mU:0,hD:0},
-              consequencia:'França aposta per reformar, no trencar. Un nou pacte atlàntic on Europa pot vetar intervencions que no afecten directament la seva seguretat. La negociació serà llarga i Trump la complicarà, però és la via que menys trenca i que té més possibilitats de prosperar gradualment.' },
-          ]
+        {
+          letter: 'C', text: 'Prioritzar la seguretat energètica sobre les sancions màximes. França argumenta que Europa no pot posar-se en risc d\'apagada energètica. Proposa sancions financeres fortes però descarta l\'embargament energètic per ara.',
+          delta: { cred: -1, aut: 1, pre: -1, inf: -1 },
+          feedback: 'La proposta és rebuda amb escepticisme pels aliats. Putin ho interpreta com manca de determinació. Les sancions s\'acaben imposant de totes maneres pel consens europeu, però França ha perdut la iniciativa i és percebuda com un actor que prioritza els seus interessos energètics per damunt de la solidaritat. El dany a la credibilitat és real, però la factura energètica francesa serà la més baixa d\'Europa aquell hivern.',
+          warning: null
         }
-      ],
-      CN:[
-        { titol:'Posició al CS sobre el bloqueig americà', data:'14 abril 2026',
-          context:'El bloqueig naval americà ha entrat en vigor fa hores. Cap resolució pot avançar al CS si els EUA o la Xina veten. La Xina ha de decidir si presenta una resolució pròpia demanant el cessament del bloqueig, s\'absté en tot, o vota a favor de la llibertat de navegació — cosa que podria ser interpretada com avalar la postura americana.',
-          opcions:[
-            { text:'Presentar una resolució pròpia demanant el cessament simultani del bloqueig americà i del tancament iranià', eixos:{mU:1,hD:0},
-              consequencia:'La Xina proposa una resolució de "doble cessament" que els EUA veten. Però Pequín ha demostrat que és un actor que busca solucions. El Sud Global aplaudeix la iniciativa. La Xina guanya posicionament diplomàtic global i es posiciona com a líder d\'un ordre mundial alternatiu.' },
-            { text:'Abstenir-se en totes les resolucions: màxima ambigüitat estratègica, sense avalar cap de les dues parts', eixos:{mU:0,hD:0},
-              consequencia:'La Xina s\'absté sistemàticament. La postura maximitza la flexibilitat: no trenca amb Iran, no trenca amb els EUA. Però a mesura que la crisi s\'allarga, l\'abstenció comença a ser percebuda no com a neutralitat sinó com a inacció que beneficia el statu quo del tancament.' },
-            { text:'Votar a favor d\'una resolució que demani llibertat de navegació per a tots, posant-se de facto al costat dels EUA', eixos:{mU:-1,hD:1},
-              consequencia:'La Xina sorprèn el món votant a favor de la llibertat de navegació. Trump celebra el gest però immediatament intenta aprofitar-lo per demanar concessions comercials. Iran ho interpreta com una traïció de Pequín, el seu proveïdor energètic i aliat tàcit.' },
-          ]
+      ]
+    },
+    {
+      id: 'FR3', phase: 1,
+      phaseLabel: 'Fase 1 · Ucraïna, juny 2022',
+      phaseTitle: 'La invasió russa d\'Ucraïna',
+      phaseContext: 'Ucraïna resisteix contra tot pronòstic però necessita artilleria pesada de llarg abast al Donbàs. Zelenski demana armament ofensiu. Hi ha debat intens a l\'OTAN: les armes ofensives poden ser decisives per a Ucraïna, però Rússia les pot interpretar com una escalada directa d\'Occident.',
+      date: 'Juny de 2022',
+      title: 'L\'armament a Ucraïna',
+      context: 'Hi ha debat intens a l\'OTAN: les armes ofensives poden ser decisives per a Ucraïna, però Rússia les pot interpretar com una escalada directa d\'Occident.',
+      conditional: { check: (v) => v.aut >= 5, unlockOption: 'D', unlockMsg: '🔓 La teva autonomia alta ha desbloquejat una opció exclusiva de mediació independent.' },
+      options: [
+        {
+          letter: 'A', text: 'Enviar armament ofensiu de llarg abast. França trenca el tabú europeu i envia obuses Caesar i míssils de llarg abast. Un gest unilateral que obliga els aliats a prendre posició.',
+          delta: { cred: 2, aut: -1, pre: 1, inf: 1 },
+          feedback: 'França trenca el tabú europeu. L\'impacte sobre el terreny és immediat: Ucraïna recupera capacitat ofensiva al Donbàs. Rússia eleva l\'amenaça nuclear retòrica i altres aliats segueixen l\'exemple francès. Kíev ho recorda com a punt d\'inflexió. Però genera mesos de tensió diplomàtica extrema.',
+          warning: null
         },
-        { titol:'La dependència energètica i les amenaces de Trump', data:'Abril 2026',
-          context:'Trump amenaça qualsevol país que ajudi Iran amb aranzels del 50%. La Xina és el major comprador de petroli iranià. Ha de decidir si trenca temporalment amb Iran per protegir la relació comercial amb els EUA, o manté l\'accés energètic acceptant les conseqüències. L\'estret tancat ja ha provocat escassetat energètica a l\'Àsia oriental.',
-          opcions:[
-            { text:'Continuar comprant petroli iranià i desafiar les amenaces de Trump, acceptant possibles aranzels massius', eixos:{mU:-1,hD:1},
-              consequencia:'La Xina desafia Trump. Washington imposa aranzels selectius del 50%. La guerra comercial s\'intensifica. Però la Xina manté el seu accés energètic i Iran la recompensa amb preus favorables. Internament, el govern presenta la decisió com a defensa de la sobirania econòmica davant l\'imperialisme americà.' },
-            { text:'Suspendre temporalment les importacions iranianes per negociar amb Trump la reducció dels aranzels existents', eixos:{mU:1,hD:-1},
-              consequencia:'La Xina fa una concessió estratègica. Trump ho interpreta inicialment com una victòria. Iran reacciona amb fúria. La Xina obté certes concessions arancelàries, però ha mostrat que els seus compromisos amb els aliats son condicionals als seus interessos propis.' },
-            { text:'Proposar un mecanisme multilateral de compra d\'energia amb Índia, Brasil i altres importadors per diluir la pressió americana', eixos:{mU:2,hD:0},
-              consequencia:'La Xina proposa distribuir la pressió americana entre molts actors. La iniciativa guanya suport del Sud Global. Trump no pot imposar aranzels del 50% a mitja humanitat. Però l\'organització pren temps que la crisi energètica immediata no permet fàcilment.' },
-          ]
+        {
+          letter: 'B', text: 'Armament defensiu coordinat amb l\'OTAN. França envia sistemes antiaèris i armament defensiu, en coordinació amb els aliats. No és tot el que Ucraïna vol, però és sostingut i evita la percepció d\'escalada unilateral.',
+          delta: { cred: 1, aut: 0, pre: 0, inf: 0 },
+          feedback: 'França envia armament defensiu mantenint la coordinació OTAN. No és tot el que Ucraïna vol, però és un compromís sostingut que evita la percepció d\'escalada unilateral i manté la unitat de l\'aliança. Una decisió sòlida però sense brillantor.',
+          warning: null
         },
-        { titol:'El lideratge del Sud Global en la crisi', data:'Abril 2026',
-          context:'Índia, Brasil, Àfrica del Sud i desenes de països del Sud Global pateixen enormement per la crisi energètica però no tienen veu al CS. La Xina pot liderar una proposta del "tercer bloc" que exigeixi una solució negociada — però requereix un posicionament clar que fins ara Pequín ha evitat sistemàticament.',
-          opcions:[
-            { text:'Convocar una cimera d\'urgència dels BRICS+ per presentar una postura conjunta i pressionar per una sortida negociada', eixos:{mU:1,hD:0},
-              consequencia:'30 països recolzen la declaració final que demana cessament del bloqueig, obertura de l\'estret i negociació immediata. Occident la critica com a "cobertura diplomàtica per a Iran", però la pressió multilateral comença a tenir efecte. Pequín es posiciona com a líder d\'un ordre mundial alternatiu, el gran salt geopolític que Xi ha buscat.' },
-            { text:'Negociar bilateralment amb els EUA: oferir canvis en la postura d\'Ormuz a canvi de concessions en la guerra comercial', eixos:{mU:-1,hD:-1},
-              consequencia:'La Xina opta per la realpolitik bilateral: negocia directament amb Trump. A canvi de suport tàcit al bloqueig, obté reducció d\'aranzels i suspensió de noves restriccions tecnològiques. Iran se sent traït. El Sud Global perd la seva veu potencial. La Xina ha protegit la seva economia a curt termini al cost de la seva credibilitat com a líder alternatiu.' },
-            { text:'Facilitar discretament a Iran combustible i components mentre el bloqueig americà duri', eixos:{mU:-2,hD:1},
-              consequencia:'La Xina proporciona a Iran via tercers el que necessita per resistir el bloqueig. Els serveis d\'intel·ligència americans ho detecten parcialment. Trump imposa aranzels massius i truca Xi públicament un "enemic dels EUA". Si el bloqueig americà fracassa, la Xina haurà guanyat enormement. Si els EUA s\'imposen, haurà perdut en tots els fronts.' },
-          ]
+        {
+          letter: 'C', text: 'Proposar un alto el foc negociat en lloc d\'armes. Macron proposa que en lloc d\'escalar l\'armament, França lideri una iniciativa diplomàtica d\'alto el foc.',
+          delta: { cred: -2, aut: 1, pre: 0, inf: -2 },
+          feedback: '"Demanar-nos que negociem mentre morim és una traïció", reacciona Zelenski amb fúria. La proposta fracassa en 48 hores i França és percebuda com el "fluix" de l\'aliança occidental. El dany reputacional durarà mesos.',
+          warning: null
+        },
+        {
+          letter: 'D', text: '[Opció exclusiva] Mediació independent com a condició prèvia. França proposa que enviarà armament si i només si lidera simultàniament una missió de mediació neutral.',
+          delta: { cred: 0, aut: 1, pre: -1, inf: 2 },
+          feedback: 'La proposta és inèdita i genera debat intens. Ucraïna l\'accepta condicionalment: vol les armes de totes maneres. Rússia la rebutja inicialment, però el canal queda obert. França ha aconseguit quelcom difícil: ser percebuda com a actor seriós tant per Kíev com per Moscou.',
+          warning: null,
+          special: true,
+          condition: (v) => v.aut >= 5
         }
-      ],
-      EU:[
-        { titol:'La postura europea davant la guerra EUA-Israel-Iran', data:'Abril 2026',
-          context:'Els EUA van atacar Iran el 28 de febrer sense consultar prèviament els aliats europeus. La UE s\'ha vist abocada a prendre posició sobre un conflicte que no va poder influenciar. Washington demana ara suport explícit als aliats europeus. La decisió definirà si la UE és un actor estratègic autònom o un aliat subordinat.',
-          opcions:[
-            { text:'Donar suport condicionat: avalar les operacions defensives però condemnar els atacs a infraestructura civil iraniana', eixos:{mU:1,hD:0},
-              consequencia:'La UE navega entre el suport atlàntic i els seus compromisos amb el dret internacional. Washington ho accepta a contrecor. Teheran ho interpreta com "suport occidental amb maquillatge legal." La postura manté la relació atlàntica i preserva una certa credibilitat jurídica, però no satisfà ningú completament.' },
-            { text:'Declarar neutralitat activa: ni condemna ni suport, i oferir formalment la UE com a mediadora entre EUA i Iran', eixos:{mU:2,hD:-1},
-              consequencia:'Washington reacciona amb irritació: "En un moment de crisi, els aliats han de sumar, no distreure." Però Teheran envia una resposta positiva discreta i el Sud Global aplaudeix la iniciativa. La UE es posiciona com a actor de pau, però la relació atlàntica arriba al punt de major tensió des de l\'Iraq de 2003.' },
-            { text:'Condemnar parcialment les operacions: els atacs inicials violaven el dret internacional i demanen alto el foc immediat', eixos:{mU:0,hD:-2},
-              consequencia:'La UE fa la declaració més valenta i arriscada: condemna els atacs inicials com a il·legals. Trump amenaça retirar tropes d\'Europa i revisar el compromís OTAN. Alguns estats membres europeus no estan d\'acord internament. Però la UE queda posicionada com a defensora consecuent del dret internacional.' },
-          ]
+      ]
+    },
+    // FASE 2
+    {
+      id: 'FR4', phase: 2,
+      phaseLabel: 'Fase 2 · Crisi de l\'Estret d\'Ormuz, abril 2026',
+      phaseTitle: 'La crisi de l\'Estret d\'Ormuz',
+      phaseContext: 'El 28 de febrer de 2026, els EUA i Israel van llançar l\'Operació Epic Fury. Iran va respondre tancant l\'Estret d\'Ormuz. Avui és 13 d\'abril de 2026. Més de 150 vaixells estan paralitzats. El petroli ha superat els 110 dòlars el barril. El món espera que algú actuï.',
+      date: '13–15 d\'abril de 2026',
+      title: 'La postura davant el bloqueig americà',
+      context: 'Els EUA han actuat sense consultar els aliats europeus. El bloqueig naval és un fet. França ha de decidir si dóna suport a l\'acció americana, en pren distància o actua de forma independent.',
+      conditional: { check: (v) => v.aut >= 5, unlockOption: 'D', unlockMsg: '🔓 La teva autonomia màxima ha desbloquejat l\'opció de declaració d\'autonomia estratègica europea.' },
+      options: [
+        {
+          letter: 'A', text: 'Suport explícit al bloqueig americà. França declara que dóna suport al bloqueig com a "mesura legítima de no-proliferació" i ofereix coordinació naval.',
+          delta: { cred: 1, aut: -2, pre: 1, inf: 0 },
+          feedback: 'França s\'alinea amb els EUA. La OTAN agraeix la solidaritat. Però sectors polítics interns i veus europees recorden que els EUA no van consultar ningú abans de l\'Operació Epic Fury. La tradició gaul·lista d\'autonomia estratègica queda en suspensió.',
+          warning: null
         },
-        { titol:'La crisi energètica i les decisions urgents', data:'Abril 2026',
-          context:'El preu del gas s\'ha multiplicat per tres en sis setmanes. Alguns estats membres amenacen d\'actuar unilateralment si la UE no respon. Cal una decisió urgent. Les opcions passen per activar reserves pròpies, negociar un corredor directe amb Iran, o explorar la possibilitat de relaxar parcialment les sancions a Rússia.',
-          opcions:[
-            { text:'Negociar directament amb Iran un corredor energètic: alguns vaixells amb GNL podrien circular si la UE actua de garant', eixos:{mU:1,hD:-1},
-              consequencia:'La UE proposa a Teheran un corredor per a països neutrals. Iran respon positivament: vol demostrar que el problema és el bloqueig americà, no el seu tancament. Washington reacciona amb fúria. Alguns vaixells tornen a circular. La UE ha forçat un canvi real sobre el terreny, però a costa d\'una greu tensió atlàntica.' },
-            { text:'Activar reserves estratègiques i imposar un pla de racionament d\'emergència coordinat entre tots els estats membres', eixos:{mU:1,hD:1},
-              consequencia:'La UE activa la seva resposta interna: reserves, racionament coordinat i acceleració de renovables. La resposta és ordenada però el cost social és alt i els preus restaran alts durant mesos. La UE demostra capacitat de resposta autònoma però no resol la crisi a curt termini.' },
-            { text:'Relaxar parcialment les sancions a Rússia per garantir el subministrament energètic europeu durant la crisi', eixos:{mU:-1,hD:-2},
-              consequencia:'La proposta és políticament catastròfica. Polònia i els Bàltics amenacen veto. Ucraïna trenca les negociacions d\'adhesió. La mesura no prosperarà, però el sol fet d\'haver-la plantejat ha danyat greument la credibilitat europea davant els seus aliats orientals.' },
-          ]
+        {
+          letter: 'B', text: 'Distanciament crític sense trencament. França declara que "comprèn els objectius" però que el bloqueig naval "planteja qüestions jurídiques i humanitàries que cal abordar" i demana una resolució del CS.',
+          delta: { cred: 0, aut: 1, pre: 0, inf: 1 },
+          feedback: 'França adopta la postura clàssica gaul·lista: ni contra els EUA ni amb els EUA del tot. Els aliats atlàntics ho viuen amb frustració. Però França manté la seva capacitat de ser interlocutora amb actors que els EUA no poden contactar.',
+          warning: null
         },
-        { titol:'El model europeu per al futur', data:'Abril 2026',
-          context:'La doble crisi ha deixat una lliçó clara: Europa és vulnerable si depèn d\'actors externs. Cal decidir quin model vol la UE per als propers deu anys. Les opcions representen visions molt diferentes de qué hauria de ser la Unió Europea en el món del segle XXI.',
-          opcions:[
-            { text:'Proposar una "Autonomia Estratègica Europea": capacitat militar, energètica i tecnològica independent', eixos:{mU:1,hD:1},
-              consequencia:'La UE llança el projecte més ambiciós de la seva història. Requerirà milers de milers de milions i una integració política molt més profunda. Però la crisi ha creat la voluntat política que faltava. Si reïx, serà la transformació més gran de la UE des de la creació de l\'euro.' },
-            { text:'Reformar l\'OTAN per donar a Europa major autonomia de decisió mantenint el paraigua de seguretat americà', eixos:{mU:0,hD:0},
-              consequencia:'La UE aposta per reformar, no trencar. Una nova arquitectura atlàntica on Europa pot vetar intervencions que no involucren directament la seva seguretat. La negociació amb Washington serà dura, però és la via més realista a curt termini.' },
-            { text:'Liderar un nou ordre multilateral global basat en el dret internacional i les institucions de l\'ONU', eixos:{mU:2,hD:-1},
-              consequencia:'La UE proposa reconstruir el sistema multilateral: reformar l\'ONU, crear nous mecanismes de resolució de conflictes i garantir el dret internacional per sobre de les decisions unilaterals. La visió més idealista però també la més coherent amb els valors fundacionals europeus.' },
-          ]
+        {
+          letter: 'C', text: 'Condemna del bloqueig i demanda de negociació immediata. França condemna el bloqueig com a "acció unilateral que viola el dret internacional marítim" i demana l\'obertura de negociacions.',
+          delta: { cred: -1, aut: 2, pre: 1, inf: 2 },
+          feedback: 'La condemna francesa provoca una reacció furiosa de Washington. Però Iran, la Xina i el Sud Global valoren positivament la postura. França ha triat la independència sobre la solidaritat atlàntica. Ara ha de demostrar que la independència pot produir resultats concrets.',
+          warning: null
+        },
+        {
+          letter: 'D', text: '[Opció exclusiva] Declaració d\'autonomia estratègica europea. França convoca els socis europeus i proposa una Declaració d\'Autonomia Estratègica: Europa té la seva pròpia postura sobre la crisi, independent dels EUA.',
+          delta: { cred: 1, aut: 2, pre: -1, inf: 2 },
+          feedback: 'La proposta és ambiciosa i divisiva: Polònia i els Bàltics s\'hi oposen; Alemanya, Espanya i Itàlia hi donen suport. La declaració s\'aprova amb 19 dels 27 estats membres. Per primera vegada, Europa parla amb veu pròpia sobre una crisi al Pròxim Orient sense alinear-se automàticament amb Washington.',
+          warning: null,
+          special: true,
+          condition: (v) => v.aut >= 5
+        }
+      ]
+    },
+    {
+      id: 'FR5', phase: 2,
+      phaseLabel: 'Fase 2 · Crisi de l\'Estret d\'Ormuz, abril 2026',
+      phaseTitle: 'La crisi de l\'Estret d\'Ormuz',
+      phaseContext: 'El tancament de l\'Estret afecta el 25% de les importacions energètiques europees. Els preus del petroli han superat els 110 dòlars. Alguns governs europeus demanen activar reserves estratègiques.',
+      date: 'Abril de 2026',
+      title: 'La resposta energètica i econòmica',
+      context: 'Europa pateix el tancament de l\'Estret. Cal decidir com gestionar l\'impacte energètic i quin rol juga França en la resposta europea.',
+      options: [
+        {
+          letter: 'A', text: 'Activar les reserves estratègiques i negociar amb Qatar i Noruega. França lidera la coordinació europea per activar les reserves estratègiques i accelerar els acords de subministrament alternatius.',
+          delta: { cred: 1, aut: 1, pre: -1, inf: 1 },
+          feedback: 'França coordina una resposta europea sòlida. Les reserves estratègiques donen marge de 60 dies. Els acords amb Qatar i Noruega cobreixen parcialment el déficit. La crisi és gestionable a curt termini. Però la solució real requereix obrir l\'Estret, no substituir el petroli iranià.',
+          warning: null
+        },
+        {
+          letter: 'B', text: 'Negociar directament amb Iran per obtenir un corredor humanitari. França proposa a Iran l\'obertura d\'un "corredor humanitari" a l\'Estret per als vaixells civils europeus, a canvi de no participar en el bloqueig americà.',
+          delta: { cred: -1, aut: 2, pre: 0, inf: 2 },
+          feedback: 'Iran accepta negociar el corredor amb França, interpretant-ho com una escletxa en la coalició occidental. Els EUA reaccionen amb irritació però no poden impedir les negociacions. Si França aconsegueix el corredor, haurà demostrat que la diplomàcia independent funciona.',
+          warning: null
+        },
+        {
+          letter: 'C', text: 'Absorció de l\'impacte energètic i espera de resolució americana. França accepta l\'impacte energètic com a cost temporal i espera que els EUA resolguin la situació militarment.',
+          delta: { cred: 0, aut: -2, pre: 2, inf: -1 },
+          feedback: 'França espera. Els preus de l\'energia segueixen pujant. L\'opinió pública comença a demanar per qué França no actua. La independència estratègica construïda des del 2022 queda en suspensió.',
+          warning: null
+        }
+      ]
+    },
+    {
+      id: 'FR6', phase: 2,
+      phaseLabel: 'Fase 2 · Crisi de l\'Estret d\'Ormuz, maig 2026',
+      phaseTitle: 'La crisi de l\'Estret d\'Ormuz',
+      phaseContext: 'Tres setmanes de crisi. El bloqueig continua. Iran ha enviat senyals ambigues sobre la seva disposició a negociar. La Xina ha indicat en privat que estaria disposada a participar en una iniciativa de mediació.',
+      date: 'Maig de 2026',
+      title: 'La iniciativa diplomàtica final',
+      context: 'França ha de decidir quin paper juga en la resolució de la crisi. L\'ONU ha proposat una conferència d\'emergència. Hi ha diverses opcions estratègiques sobre la taula.',
+      conditional: { check: (v) => v.aut >= 5 && v.inf >= 4, unlockOption: 'D', unlockMsg: '🔓 La teva autonomia i influència altes han desbloquejat l\'opció de coalició UE-Xina.' },
+      options: [
+        {
+          letter: 'A', text: 'Liderar la iniciativa de l\'ONU. França proposa al CS que l\'ONU convoqui una conferència d\'emergència i ofereix París com a seu de les negociacions.',
+          delta: { cred: 1, aut: 0, pre: -1, inf: 1 },
+          feedback: 'França canalitza la seva influència a través de l\'ONU. El CS aconsegueix una resolució per 11 vots a favor. La conferència s\'obre a París. Iran accepta participar condicionalment. No és una victòria clara, però és un procés en marxa.',
+          warning: null
+        },
+        {
+          letter: 'B', text: 'Suport a una mediació turco-qatariana. França dóna suport a la iniciativa de mediació de Turquia i Qatar, que han mantingut relacions amb totes les parts.',
+          delta: { cred: 0, aut: 0, pre: 0, inf: -1 },
+          feedback: 'Turquia i Qatar lideren la mediació. França dóna suport discret. La iniciativa avança lentament però genera confiança entre les parts. França ha triat l\'eficàcia per sobre del protagonisme.',
+          warning: null
+        },
+        {
+          letter: 'C', text: 'Proposta de solució bilateral França-Iran. Macron truca directament al lideratge iranià i proposa un marc de negociació bilateral que exclogui inicialment els EUA.',
+          delta: { cred: -1, aut: 2, pre: 0, inf: 1 },
+          feedback: 'La trucada de Macron a Teheran sorprèn el món. Iran respon positivament: veu França com l\'interlocutor europeu creïble que no és un instrument dels EUA. El gaul·lisme en la seva expressió més pura.',
+          warning: null
+        },
+        {
+          letter: 'D', text: '[Opció exclusiva] Liderar una coalició de mediació independent UE-Xina. França contacta la Xina per construir una coalició de mediació independent dels EUA: Europa i Xina junts com a garants d\'un alto el foc.',
+          delta: { cred: 0, aut: 2, pre: -1, inf: 3 },
+          feedback: 'La proposta és inèdita: Europa i Xina com a garants conjunts d\'un acord al Pròxim Orient, sense els EUA. Washington reacciona amb fúria. Però Iran i Rússia veuen en la coalició una via de sortida que preservi la seva dignitat. La decisió més ambiciosa i arriscada del simulador.',
+          warning: null,
+          special: true,
+          condition: (v) => v.aut >= 5 && v.inf >= 4
         }
       ]
     }
-  }
+  ],
+  CN: [
+    {
+      id: 'CN1', phase: 1,
+      phaseLabel: 'Fase 1 · Ucraïna, febrer 2022',
+      phaseTitle: 'La invasió russa d\'Ucraïna',
+      phaseContext: 'El 24 de febrer de 2022, Rússia inicia la invasió d\'Ucraïna. La Xina va signar una "amistat sense límits" amb Rússia fa tres setmanes. Però la Xina exporta per valor de 700.000 milions de dòlars anuals a Occident.',
+      date: '25 de febrer de 2022',
+      title: 'La votació al Consell de Seguretat',
+      context: 'Rússia és un soci estratègic. Però la Xina també exporta per valor de 700.000 milions de dòlars anuals a Occident. Una votació al CS pot definir la relació de la Xina amb mig món durant anys.',
+      options: [
+        {
+          letter: 'A', text: 'Vetar conjuntament amb Rússia. La Xina usa el seu dret de veto per bloquejar la resolució de condemna, al costat de Rússia.',
+          delta: { cred: -2, aut: 0, pre: 0, inf: -1 },
+          feedback: 'La Xina veta conjuntament amb Rússia. Occident reacciona amb amenaces de sancions secundàries. Però Pequín ha enviat un missatge inequívoc a Moscou: l\'amistat té un preu real. El risc és que la Xina quedi associada a l\'agressor davant el 80% de l\'economia mundial.',
+          warning: null
+        },
+        {
+          letter: 'B', text: 'Abstenció calculada. La Xina s\'absté. No avala formalment la invasió, però tampoc la condemna. Màxima ambigüitat.',
+          delta: { cred: 0, aut: 1, pre: 0, inf: 1 },
+          feedback: 'La Xina s\'absté, com va fer a la realitat. Màxima ambigüitat calculada: no trenca amb Rússia, però no avala formalment la invasió. Occident critica però no pot imposar sancions. Pequín queda posicionada com a possible mediador futur.',
+          warning: null
+        },
+        {
+          letter: 'C', text: 'Condemnar la invasió i trencar amb Rússia. Xi Jinping pren una decisió histórica: la Xina vota a favor de la resolució de condemna.',
+          delta: { cred: 3, aut: -2, pre: 3, inf: 2 },
+          feedback: 'La decisió sacseja la política internacional. Xi trenca amb Putin en el pitjor moment per a Moscou. Occident respon positivament relaxant alguns aranzels. Però dins la Xina la decisió és percebuda com a humiliació nacional.',
+          warning: '⚠ Si la pressió interna supera 4: les opcions de mediació activa quedaran limitades per la inestabilitat política interna.'
+        }
+      ]
+    },
+    {
+      id: 'CN2', phase: 1,
+      phaseLabel: 'Fase 1 · Ucraïna, març 2022',
+      phaseTitle: 'La invasió russa d\'Ucraïna',
+      phaseContext: 'Occident imposa sancions sense precedents a Rússia. La Xina pot substituir importacions, comprar petroli rus a preus de derrota i convertir-se en el salvavides econòmic de Moscou. Però arrisca sancions secundàries.',
+      date: 'Març de 2022',
+      title: 'La resposta a les sancions occidentals',
+      context: 'Occident imposa sancions sense precedents a Rússia. La Xina pot ser el salvavides de Moscou o pot protegir la seva relació amb Occident. Quina via tria?',
+      options: [
+        {
+          letter: 'A', text: 'Convertir-se en el salvavides econòmic de Rússia. La Xina compra petroli rus amb un 30% de descompte i exporta components tecnològics vitals per a la indústria de defensa russa.',
+          delta: { cred: -1, aut: 1, pre: -1, inf: 2 },
+          feedback: 'La Xina compra petroli rus amb un 30% de descompte i exporta components tecnològics vitals. Els EUA amenacen sancions secundàries i la UE obre investigacions. Però Pequín guanya influència enorme sobre una Rússia cada cop més dependent.',
+          warning: null
+        },
+        {
+          letter: 'B', text: 'Mantenir l\'equilibri: ni rescat ni abandonament. La Xina manté el comerç normal amb Rússia però no ofereix un rescat actiu.',
+          delta: { cred: 0, aut: 1, pre: 0, inf: 0 },
+          feedback: 'La Xina manté l\'equilibri: ni trenca amb Rússia ni li ofereix un rescat actiu. Frustra tant Rússia com Occident, però manté totes les portes obertes maximitzant la flexibilitat futura.',
+          warning: null
+        },
+        {
+          letter: 'C', text: 'Protegir la relació amb Occident per damunt de Rússia. La Xina anuncia que no comprarà petroli rus per damunt dels preus de mercat i que complirà les sancions occidentals.',
+          delta: { cred: 2, aut: -1, pre: 1, inf: -1 },
+          feedback: 'La Xina protegeix la seva relació amb Occident. Moscou ho viu com una traïció. La UE i els EUA responen positivament relaxant alguns aranzels. La Xina guanya credibilitat internacional però perd la seva palanca sobre Rússia.',
+          warning: null
+        }
+      ]
+    },
+    {
+      id: 'CN3', phase: 1,
+      phaseLabel: 'Fase 1 · Ucraïna, tardor 2022',
+      phaseTitle: 'La invasió russa d\'Ucraïna',
+      phaseContext: 'La guerra s\'allarga. El Sud Global es divideix. La Xina té una oportunitat única: presentar-se com a mediador neutral o líder d\'un tercer bloc.',
+      date: 'Tardor de 2022',
+      title: 'El paper de la Xina en la diplomàcia de la guerra',
+      context: 'La guerra s\'allarga. La Xina té una oportunitat única: presentar-se com a mediador neutral. Però la mediació real requereix pressionar Rússia.',
+      conditional: { check: (v) => v.pre >= 4, msg: 'La inestabilitat política interna impedeix una iniciativa diplomàtica d\'aquest abast en aquest moment.', lockOption: 'A' },
+      options: [
+        {
+          letter: 'A', text: 'Presentar un pla de pau. La Xina presenta un pla de pau de 12 punts que inclou un alto el foc i una conferència de pau internacional.',
+          delta: { cred: 1, aut: -1, pre: 1, inf: 2 },
+          feedback: 'La Xina presenta un pla de pau. Ucraïna el rebutja perquè no preveu la retirada russa prèvia, però la iniciativa posiciona Pequín com a actor diplomàtic global seriós. Per primera vegada, representants xinesos parlen directament amb Zelenski.',
+          warning: null
+        },
+        {
+          letter: 'B', text: 'Continuar amb l\'ambigüitat calculada. La Xina no pren cap iniciativa diplomàtica clara. Manté contactes discrets amb totes les parts.',
+          delta: { cred: 0, aut: 1, pre: -1, inf: -1 },
+          feedback: 'La Xina continua amb l\'ambigüitat calculada. Els mercats financers ho celebren. Però Pequín perd l\'oportunitat de liderar diplomàticament en un moment decisiu.',
+          warning: null
+        },
+        {
+          letter: 'C', text: 'Suport encobert a Rússia: subministrament de material militar. La Xina proporciona drons i components electrònics que Rússia necessita.',
+          delta: { cred: -2, aut: 1, pre: -1, inf: 1 },
+          feedback: 'La Xina proporciona suport encobert. Occident detecta els subministraments i les amenaces de sancions secundàries es concreten parcialment. Però Rússia pot continuar combatent. La relació bilateral s\'enforteix.',
+          warning: null
+        }
+      ]
+    },
+    {
+      id: 'CN4', phase: 2,
+      phaseLabel: 'Fase 2 · Crisi de l\'Estret d\'Ormuz, abril 2026',
+      phaseTitle: 'La crisi de l\'Estret d\'Ormuz',
+      phaseContext: 'Iran és el tercer proveïdor de petroli de la Xina. El bloqueig americà paralitza el subministrament. Trump ha anunciat aranzels del 50% a qualsevol país que ajudi Iran.',
+      date: '13–15 d\'abril de 2026',
+      title: 'La postura davant el bloqueig americà',
+      context: 'Iran és el tercer proveïdor de petroli de la Xina. Trump amenaça aranzels del 50%. La Xina ha de decidir ràpidament.',
+      options: [
+        {
+          letter: 'A', text: 'Condemnar públicament el bloqueig i exigir la seva fi. La Xina condemna el bloqueig com a "acció unilateral il·legal que viola el dret internacional" i exigeix la retirada immediata de la flota americana.',
+          delta: { cred: 1, aut: 1, pre: -1, inf: 1 },
+          feedback: 'La condemna xinesa provoca la resposta immediata de Trump: anunci d\'aranzels del 50% sobre les exportacions xineses. Els mercats asiàtics s\'esfondren. Però la Xina ha deixat clar que no accepta l\'unilateralisme americà.',
+          warning: null
+        },
+        {
+          letter: 'B', text: 'Abstenir-se públicament i actuar en privat. La Xina no fa declaracions públiques però inicia contactes diplomàtics discrets amb Iran i els EUA.',
+          delta: { cred: 0, aut: 1, pre: 1, inf: 1 },
+          feedback: 'La Xina guarda silenci públic mentre treballa en privat. És la postura clàssica de l\'ambigüitat calculada. El risc és que si la crisi s\'allarga, tots dos la culparan d\'inacció.',
+          warning: null
+        },
+        {
+          letter: 'C', text: 'Alinear-se amb els EUA a canvi de concessions comercials. La Xina anuncia que "no interferirà" en el bloqueig i inicia negociacions comercials amb els EUA per reduir els aranzels.',
+          delta: { cred: -2, aut: -2, pre: 2, inf: -1 },
+          feedback: 'La Xina cedeix davant la pressió americana. A curt termini, els aranzels es redueixen. Però el cost estratègic és enorme: la Xina ha demostrat que la seva "amistat sense límits" és condicional als seus interessos econòmics.',
+          warning: null
+        }
+      ]
+    },
+    {
+      id: 'CN5', phase: 2,
+      phaseLabel: 'Fase 2 · Crisi de l\'Estret d\'Ormuz, abril 2026',
+      phaseTitle: 'La crisi de l\'Estret d\'Ormuz',
+      phaseContext: 'El petroli a 110 dòlars afecta l\'economia xinesa. La Xina té reserves per 90 dies però la incertesa fa pujar l\'energia. Al mateix temps, té una oportunitat única.',
+      date: 'Abril de 2026',
+      title: 'La resposta a la crisi energètica i econòmica',
+      context: 'La Xina pateix la crisi però pot actuar. Quina estratègia tria per gestionar l\'impacte i potencialment resoldre la crisi?',
+      options: [
+        {
+          letter: 'A', text: 'Negociar directament amb Iran l\'obertura de l\'Estret. La Xina obre una negociació directa i urgent: a canvi d\'obrir l\'Estret, la Xina garanteix que no participarà en cap acció militar contra Iran.',
+          delta: { cred: 2, aut: 1, pre: -1, inf: 3 },
+          feedback: 'Iran considera la proposta sèriament: la Xina és el seu principal comprador de petroli. Si la Xina aconsegueix obrir l\'Estret, haurà demostrat que és una superpotència diplomàtica.',
+          warning: null
+        },
+        {
+          letter: 'B', text: 'Activar la Ruta de la Seda com a alternativa energètica. La Xina accelera els oleoductes de la Ruta de la Seda per compensar la reducció del petroli de l\'Estret.',
+          delta: { cred: 1, aut: 2, pre: -1, inf: 1 },
+          feedback: 'La Xina activa la Ruta de la Seda. Kazakhistan, Rússia i els socis centreasiàtics incrementen el subministrament. La crisi immediata es gestiona i la Xina ha demostrat que la seva infraestructura alternativa funciona.',
+          warning: null
+        },
+        {
+          letter: 'C', text: 'Comprar petroli iranià a preus de derrota aprofitant el bloqueig. Amb el petroli iranià bloquejat, la Xina negocia l\'adquisició massiva a preus molt reduïts.',
+          delta: { cred: -1, aut: 1, pre: -2, inf: 0 },
+          feedback: 'La Xina aprofita el bloqueig per fer-se amb el petroli iranià a preus de derrota. Econòmicament, és un moviment brillant. Políticament, és oportunisme que no passa desapercebut.',
+          warning: null
+        }
+      ]
+    },
+    {
+      id: 'CN6', phase: 2,
+      phaseLabel: 'Fase 2 · Crisi de l\'Estret d\'Ormuz, maig 2026',
+      phaseTitle: 'La crisi de l\'Estret d\'Ormuz',
+      phaseContext: 'Les negociacions a l\'ONU avancen lentament. Iran ha dit que acceptaria negociar si la Xina actua com a garant. Els EUA han enviat senyals ambigues. La Xina té una finestra única.',
+      date: 'Maig de 2026',
+      title: 'El paper diplomàtic de la Xina en la resolució',
+      context: 'Iran ha dit que acceptaria negociar si la Xina actua com a garant. La Xina té una finestra única per establir-se com a actor diplomàtic global.',
+      conditional: { check: (v) => v.inf >= 5, unlockOption: 'D', unlockMsg: '🔓 La teva influència màxima ha desbloquejat la proposta d\'un nou ordre de seguretat al Golf Pèrsic.' },
+      options: [
+        {
+          letter: 'A', text: 'Acceptar el rol de garant i liderar la mediació. La Xina accepta formalment ser garant de l\'acord i convoca una conferència de pau a Pequín amb totes les parts.',
+          delta: { cred: 2, aut: 1, pre: -1, inf: 2 },
+          feedback: 'La conferència de Pequín és la primera al Pròxim Orient en la qual els EUA no son l\'actor central. Si l\'acord prospera, la Xina haurà construït un precedent historic.',
+          warning: null
+        },
+        {
+          letter: 'B', text: 'Mediació discreta sense protagonisme públic. La Xina facilita les negociacions entre bambolines però cedeix el protagonisme públic a l\'ONU.',
+          delta: { cred: 1, aut: 1, pre: 0, inf: 1 },
+          feedback: 'La Xina torna a l\'ambigüitat calculada: influència sense exposició. La crisi es resol parcialment gràcies als contactes xinesos, però el crèdit se\'l porta un altre actor.',
+          warning: null
+        },
+        {
+          letter: 'C', text: 'Retirar-se de la mediació i esperar que la crisi s\'esgoti sola. La Xina anuncia que "la crisi ha de resoldre\'s entre les parts directament" i es retira.',
+          delta: { cred: -1, aut: 0, pre: 1, inf: -2 },
+          feedback: 'La Xina es retira. Quan finalment la crisi es resol —per esgotament de les parts— la Xina no ha guanyat res. Ha perdut una oportunitat historic d\'establir-se com a potència mediadora global.',
+          warning: null
+        },
+        {
+          letter: 'D', text: '[Opció exclusiva] Proposta d\'un nou ordre de seguretat al Golf Pèrsic. La Xina proposa la creació d\'un "Marc de Seguretat Col·lectiva del Golf" amb garanties de les potències del CS.',
+          delta: { cred: 2, aut: 2, pre: -2, inf: 3 },
+          feedback: 'La proposta és el moviment diplomàtic més audaç de la crisi. La Xina no proposa resoldre la crisi actual, sinó redissenyar l\'arquitectura de seguretat regional per evitar les properes. Un moviment de major abast des de la creació de les Nacions Unides.',
+          warning: null,
+          special: true,
+          condition: (v) => v.inf >= 5
+        }
+      ]
+    }
+  ],
+  EU: [
+    {
+      id: 'EU1', phase: 1,
+      phaseLabel: 'Fase 1 · Ucraïna, febrer 2022',
+      phaseTitle: 'La invasió russa d\'Ucraïna',
+      phaseContext: 'El 24 de febrer de 2022, Rússia inicia la invasió d\'Ucraïna. La UE no és membre del CS, però és la major potència econòmica al costat d\'Ucraïna. Les primeres 24 hores son crítiques. Hi ha divisió interna severa.',
+      date: '24–25 de febrer de 2022',
+      title: 'La resposta unificada les primeres 24 hores',
+      context: 'Les primeres 24 hores son crítiques. Hi ha divisió interna severa: Polònia i els Bàltics exigeixen la postura més dura possible; Hongria pot bloquejar per unanimitat; Alemanya i França volen preservar opcions diplomàtiques.',
+      options: [
+        {
+          letter: 'A', text: 'Declaració conjunta ferma i sancions immediates. La UE publica en 24 hores una declaració de condemna unànime i anuncia el primer paquet de sancions, superant les reticències d\'Hongria.',
+          delta: { cred: 2, aut: 0, pre: 2, inf: 1 },
+          feedback: 'La UE aconsegueix l\'impossible: una declaració unànime en 24 hores. El preu és una negociació nocturna frenètica en la qual Hongria obté concessions en altres dossiers. La UE ha demostrat que pot actuar com a actor unitari.',
+          warning: null
+        },
+        {
+          letter: 'B', text: 'Declaració moderada per preservar la unitat. La UE opta per una declaració de "preocupació profunda" que tots els estats membres poden signar.',
+          delta: { cred: -1, aut: 1, pre: -1, inf: 0 },
+          feedback: 'La UE opta per la moderació calculada. Polònia i els Bàltics amenacen d\'actuar bilateralment. Ucraïna ho interpreta com inacció. Però la finestra diplomàtica mantinguda permet explorar vies d\'alto el foc.',
+          warning: null
+        },
+        {
+          letter: 'C', text: 'Activar el mecanisme de solidaritat i demanar la reunificació de l\'OTAN. La UE activa formalment el mecanisme de solidaritat col·lectiva i demana una reunió d\'emergència de l\'OTAN.',
+          delta: { cred: 1, aut: -1, pre: 1, inf: 1 },
+          feedback: 'La UE actua com a actor complementari de l\'OTAN, no independent. La coordinació és efectiva, però la UE sacrifica la seva autonomia estratègica en un moment en que hauria pogut construir-la.',
+          warning: null
+        }
+      ]
+    },
+    {
+      id: 'EU2', phase: 1,
+      phaseLabel: 'Fase 1 · Ucraïna, febrer-abril 2022',
+      phaseTitle: 'La invasió russa d\'Ucraïna',
+      phaseContext: 'Les sancions financeres son un fet. El debat ara es centra en l\'energia: tallar el gas rus significaria protegir Ucraïna però posar en risc la indústria europea. Alemanya depèn del 55% del gas rus.',
+      date: 'Febrer–abril 2022',
+      title: 'El paquet de sancions energètiques',
+      context: 'Les sancions financeres son un fet. El debat ara es centra en l\'energia. Alemanya depèn del 55% del gas rus; Hongria s\'oposa a qualsevol embargament energètic.',
+      conditional: { check: (v) => v.pre >= 5, msg: 'La divisió interna entre estats membres fa impossible en aquest moment un consens per a l\'embargament energètic complet.', lockOption: 'A' },
+      options: [
+        {
+          letter: 'A', text: 'Embargament energètic complet i acceleració de les renovables. La UE imposa un embargament progressiu del gas rus en 18 mesos i inverteix 300.000 milions en energia renovable.',
+          delta: { cred: 2, aut: 2, pre: 2, inf: 1 },
+          feedback: 'La decisió és histórica. El 2024, la dependència energètica europea de Rússia ha caigut del 40% al 8%. La UE ha fet en 18 mesos el que els experts deien que tardaria una dècada.',
+          warning: null
+        },
+        {
+          letter: 'B', text: 'Sancions parcials: petroli sí, gas no (de moment). La UE imposa embargament de petroli i productes derivats, però exclou el gas natural per protegir Alemanya i Hongria.',
+          delta: { cred: 0, aut: 0, pre: 0, inf: 0 },
+          feedback: 'Les sancions de petroli son significatives però la UE segueix comprant gas rus. Polònia i els Bàltics ho qualifiquen d\'hipocresia. Una decisió pragmàtica però políticament dèbil.',
+          warning: null
+        },
+        {
+          letter: 'C', text: 'Preservar el diàleg energètic amb Rússia. La UE negocia amb Rússia per mantenir el subministrament de gas a canvi de compromisos de desescalada al Donbàs.',
+          delta: { cred: -2, aut: -1, pre: -1, inf: -2 },
+          feedback: 'Ucraïna parla de "sancions de paper". L\'economia europea evita la recessió però la UE finança involuntàriament prop d\'un terç de la guerra russa durant mesos.',
+          warning: null
+        }
+      ]
+    },
+    {
+      id: 'EU3', phase: 1,
+      phaseLabel: 'Fase 1 · Ucraïna, juny 2022',
+      phaseTitle: 'La invasió russa d\'Ucraïna',
+      phaseContext: 'Zelenski demana formalment l\'adhesió d\'Ucraïna a la UE. Donant l\'estatus de candidat es enviaria un missatge polític potent, però l\'adhesió real trigaria dècades.',
+      date: 'Juny de 2022',
+      title: 'La candidatura d\'Ucraïna a la UE',
+      context: 'Zelenski demana formalment l\'adhesió d\'Ucraïna a la UE. Donant l\'estatus de candidat es enviaria un missatge polític potent, però l\'adhesió real trigaria dècades.',
+      options: [
+        {
+          letter: 'A', text: 'Concedir l\'estatus de candidat oficial. La UE concedeix a Ucraïna l\'estatus de candidat a l\'adhesió, amb el suport explícit de la majoria dels estats membres.',
+          delta: { cred: 2, aut: -1, pre: 1, inf: 2 },
+          feedback: 'La decisió és histórica i rebuda amb eufòria a Kíev. La UE ha demostrat que la "perspectiva europea" no és només retòrica. El repte ara és gestionar les expectatives.',
+          warning: null
+        },
+        {
+          letter: 'B', text: 'Reconèixer la "perspectiva europea" sense estatus formal. La UE ofereix un reconeixement simbòlic però no vinculant.',
+          delta: { cred: 0, aut: 1, pre: -1, inf: 0 },
+          feedback: 'La UE opta per un gest simbòlic però no vinculant. Ucraïna ho accepta com un primer pas. Una solució que no contenta ningú del tot però tampoc provoca cap crisi interna.',
+          warning: null
+        },
+        {
+          letter: 'C', text: 'Rebutjar la candidatura per ara, centrar-se en el suport militar i econòmic. La UE argumenta que la prioritat és guanyar la guerra, no gestionar un procés d\'adhesió.',
+          delta: { cred: -1, aut: 1, pre: -1, inf: -1 },
+          feedback: '"Ens demanen que morim per Europa però no ens volen a Europa", declara un ministre ucraïnès. La UE ha perdut una oportunitat de fer un gest históric sense cost immediat real.',
+          warning: null
+        }
+      ]
+    },
+    {
+      id: 'EU4', phase: 2,
+      phaseLabel: 'Fase 2 · Crisi de l\'Estret d\'Ormuz, abril 2026',
+      phaseTitle: 'La crisi de l\'Estret d\'Ormuz',
+      phaseContext: 'Els EUA van actuar sense consultar els aliats europeus. El bloqueig afecta directament les importacions energètiques europees. Els 27 estats membres estan dividits.',
+      date: '13–15 d\'abril de 2026',
+      title: 'La postura europea davant el bloqueig americà',
+      context: 'Els EUA van actuar sense consultar els aliats europeus. Els 27 estats membres estan dividits: alguns volen seguir els EUA, altres volen una postura autònoma.',
+      conditional: { check: (v) => v.pre >= 5, msg: 'La divisió interna és massa profunda per adoptar una postura comuna contundent en aquest moment.', lockOption: 'A' },
+      options: [
+        {
+          letter: 'A', text: 'Declaració conjunta de distanciament crític. La UE publica una declaració conjunta en la qual expressa "comprensió pels objectius" però demana que qualsevol acció s\'emmarca en el dret internacional.',
+          delta: { cred: 1, aut: 2, pre: 1, inf: 1 },
+          feedback: 'La UE ha aconseguit parlar amb veu pròpia sobre una crisi al Pròxim Orient per primera vegada. El gest té un valor simbòlic enorme: Europa no és un satèl·lit automàtic de la política exterior americana.',
+          warning: null
+        },
+        {
+          letter: 'B', text: 'Seguir els EUA i donar suport al bloqueig. La UE declara que dóna suport als objectius del bloqueig i s\'ofereix per participar en la coalició naval.',
+          delta: { cred: 1, aut: -2, pre: 2, inf: -1 },
+          feedback: '"Tots els esforços d\'autonomia per acabar fent el que Washington diu de totes maneres", és el titular d\'un diari alemany. El cost en legitimitat interna és real.',
+          warning: null
+        },
+        {
+          letter: 'C', text: 'Abstenció activa: ni suport ni condemna, mediació immediata. La UE no pren postura sobre el bloqueig i anuncia immediatament una iniciativa de mediació pròpia.',
+          delta: { cred: 0, aut: 1, pre: -1, inf: 1 },
+          feedback: 'La UE evita el debat sobre el bloqueig i passa directament a l\'acció. L\'abstención activa pot ser intel·ligent o pot ser fugida d\'estudi.',
+          warning: null
+        }
+      ]
+    },
+    {
+      id: 'EU5', phase: 2,
+      phaseLabel: 'Fase 2 · Crisi de l\'Estret d\'Ormuz, abril 2026',
+      phaseTitle: 'La crisi de l\'Estret d\'Ormuz',
+      phaseContext: 'El 25% de les importacions energètiques europees passen per l\'Estret. L\'hivern s\'acosta. Les reserves estratègiques donen marge per a uns 45 dies.',
+      date: 'Abril de 2026',
+      title: 'La resposta energètica i econòmica',
+      context: 'El 25% de les importacions energètiques europees passen per l\'Estret. Cal una resposta ràpida per protegir els ciutadans europeus.',
+      options: [
+        {
+          letter: 'A', text: 'Activar el mecanisme d\'emergència energètica de la UE. La UE activa el mecanisme europeu que coordina reserves, demanda i fonts alternatives.',
+          delta: { cred: 1, aut: 2, pre: -2, inf: 1 },
+          feedback: 'El mecanisme d\'emergència funciona. Les reserves s\'activen, la demanda es coordina i els contractes alternatius s\'acceleren. La UE ha demostrat que les lliçons de 2022 van servir.',
+          warning: null
+        },
+        {
+          letter: 'B', text: 'Negociar directament amb Iran l\'accés energètic a canvi de no participar en el bloqueig. La UE ofereix a Iran un acord d\'accés continuat al petroli iranià.',
+          delta: { cred: -1, aut: 2, pre: -1, inf: 1 },
+          feedback: 'La UE fa un moviment audaç: negocia directament amb Iran sense passar pels EUA. Si l\'acord prospera, la UE haurà demostrat autonomia estratègica real.',
+          warning: null
+        },
+        {
+          letter: 'C', text: 'Demanar als EUA garanties de subministrament alternatiu com a condició del suport. La UE condiciona el seu suport al bloqueig al fet que els EUA garanteixin subministraments alternatius de GNL.',
+          delta: { cred: 0, aut: -1, pre: -1, inf: 0 },
+          feedback: 'La UE negocia la seva postura com si fos una mercaderia. La transacció és racional però políticament lletja.',
+          warning: null
+        }
+      ]
+    },
+    {
+      id: 'EU6', phase: 2,
+      phaseLabel: 'Fase 2 · Crisi de l\'Estret d\'Ormuz, maig 2026',
+      phaseTitle: 'La crisi de l\'Estret d\'Ormuz',
+      phaseContext: 'La UE ha gestionat la crisi energètica. Ara ha de decidir si juga un rol actiu en la resolució política.',
+      date: 'Maig de 2026',
+      title: 'La iniciativa diplomàtica final',
+      context: 'La UE ha gestionat la crisi energètica. Ara ha de decidir si juga un rol actiu en la resolució política de la crisi d\'Ormuz.',
+      conditional: { check: (v) => v.cred >= 5 && v.aut >= 4, unlockOption: 'D', unlockMsg: '🔓 La teva credibilitat i autonomia altes han desbloquejat la convocatòria de la Conferència de Seguretat de Brussel·les.' },
+      options: [
+        {
+          letter: 'A', text: 'Liderar la iniciativa diplomàtica de l\'ONU. La UE proposa al CS una resolució de desescalada i ofereix un pla de mediació europeu amb garanties econòmiques per a Iran.',
+          delta: { cred: 2, aut: 1, pre: -1, inf: 2 },
+          feedback: 'La UE lidera la iniciativa diplomàtica a l\'ONU. La resolució s\'aprova amb suport ampli. La UE ha demostrat que l\'autonomia estratègica no és només retòrica sinó capacitat d\'acció real.',
+          warning: null
+        },
+        {
+          letter: 'B', text: 'Unir-se a la mediació xinesa com a soci menor. La UE participa en la iniciativa de mediació de la Xina com a soci, aportant garanties econòmiques.',
+          delta: { cred: 0, aut: -1, pre: 0, inf: 1 },
+          feedback: 'La UE i la Xina com a socis en una mediació al Pròxim Orient és una novetat histórica. Però la UE ha acceptat un rol subaltern.',
+          warning: null
+        },
+        {
+          letter: 'C', text: 'Tornar a l\'alineament atlantista i suport a la solució americana. La UE decideix que la crisi requereix la força dels EUA.',
+          delta: { cred: -1, aut: -2, pre: 2, inf: -2 },
+          feedback: 'La UE abandona la seva postura autònoma i torna al refugi de l\'aliança atlàntica. L\'opinió pública europea, que havia vist créixer la UE com a actor global, viu la decisió com una regressió.',
+          warning: null
+        },
+        {
+          letter: 'D', text: '[Opció exclusiva] Convocar una Conferència Europea de Seguretat. La UE convoca una Conferència de Seguretat Internacional a Brussel·les que no exclou ningú: EUA, Xina, Iran, Rússia, tots hi son convidats.',
+          delta: { cred: 2, aut: 3, pre: -2, inf: 3 },
+          feedback: 'La proposta és audaç. Els EUA la critiquen inicialment. Però quan Iran, la Xina i el Sud Global confirmen la participació, els EUA no poden permetre\'s quedar-se fora. La Conferència de Brussel·les pot ser el moment fundacional de la política exterior europea autònoma del segle XXI.',
+          warning: null,
+          special: true,
+          condition: (v) => v.cred >= 5 && v.aut >= 4
+        }
+      ]
+    }
+  ]
+};
+
+const SIM_PROFILES = {
+  FR: [
+    { name: 'Assertiu', condition: (v) => v.cred >= 5, text: 'Han passat quatre anys. Les decisions que vas prendre el 2022 van reforçar la credibilitat de França i van accelerar la independència energètica europea. Però ara el tancament de l\'Estret d\'Ormuz ha tornat a exposar Europa: el GNL de Qatar i els Emirats que havia substituït el gas rus deixa d\'arribar. La tradició gaul·lista d\'autonomia estratègica et posa en una posició d\'enorme responsabilitat: ets el líder europeu amb més credibilitat.' },
+    { name: 'Dialoguista', condition: (v) => v.aut >= 5, text: 'Han passat quatre anys. La teva aposta pel diàleg el 2022 va ser criticada, però avui té un valor inesperat: París manté canals de comunicació oberts amb molts actors, inclosos alguns que ara ningú pot contactar. La guerra EUA-Israel-Iran posa França davant una pregunta incòmoda: tens els canals. Tens la credibilitat amb actors no-occidentals. La pregunta és si tens la voluntat d\'usar-los.' },
+    { name: 'Pragmàtic', condition: () => true, text: 'Han passat quatre anys. La postura equilibrada francesa de 2022 ha preservat relacions amb tots els actors, però sense un lideratge clar. Ara, amb l\'estret tancat i el bloqueig americà actiu, França ha de decidir si finalment pren una postura clara. Europa no té capacitat militar per protegir les seves rutes comercials. França, l\'única potència nuclear europea, sí.' }
+  ],
+  CN: [
+    { name: 'Assertiu', condition: (v) => v.cred >= 5, text: 'Han passat quatre anys. Les decisions valentes de 2022 van transformar la percepció de la Xina al món. Pequín és percebuda com un actor responsable. Però l\'Estret d\'Ormuz és un problema existencial per a la Xina: el 40% del seu petroli passa per allà. Trump amenaça qualsevol país que ajudi Iran amb aranzels del 50%.' },
+    { name: 'Dialoguista', condition: (v) => v.aut >= 5, text: 'Han passat quatre anys. L\'ambigüitat calculada xinesa de 2022 et va donar flexibilitat estratègica. Avui, aquella postura moderada és un actiu: Pequín és percebuda com un actor que pot parlar amb tothom. Però la crisi d\'Ormuz és el pitjor escenari per a la Xina: depèn d\'Iran per a l\'energia, necessita els EUA per al comerç, i vol liderar globalment sense semblar vassall de cap potència.' },
+    { name: 'Pragmàtic', condition: () => true, text: 'Han passat quatre anys. Les decisions equilibrades de 2022 han preservat totes les relacions, però ara la crisi d\'Ormuz força una elecció impossible d\'ajornar: l\'estret tancat paralitza el petroli que necessita l\'Àsia, Trump amenaça amb aranzels massius, i Iran espera saber si pot comptar amb Pequín. No pots seguir al mig. Has de triar.' }
+  ],
+  EU: [
+    { name: 'Assertiu', condition: (v) => v.cred >= 5, text: 'Han passat quatre anys. La UE de 2022 va sorprendre el món amb la seva unitat i determinació. Ara és un actor global respectat. Però l\'Estret d\'Ormuz posa a prova tot allò construït: el 25% de les importacions energètiques europees passen per allà, i els EUA han actuat sense consultar els aliats.' },
+    { name: 'Dialoguista', condition: (v) => v.aut >= 3 && v.pre <= 2, text: 'Han passat quatre anys. La UE va prioritzar la unitat interna i la moderació. Ara és un actor estable però sense el lideratge que alguns esperaven. La crisi d\'Ormuz és una nova prova: els estats membres estan dividits entre els que volen seguir els EUA i els que volen una postura europea autònoma.' },
+    { name: 'Pragmàtic', condition: () => true, text: 'Han passat quatre anys. La gestió pragmàtica de 2022 ha deixat la UE en una posició sòlida però sense definició. Ara la crisi d\'Ormuz força una elecció: o la UE té una política exterior pròpia sobre el Pròxim Orient, o la política exterior la fan els EUA per ella.' }
+  ]
+};
+
+const SIM_ENDINGS = {
+  FR: [
+    {
+      title: 'Lideratge europeu assertiu',
+      condition: (v) => v.cred >= 5 && v.inf >= 4,
+      text: 'França ha aconseguit quelcom que molts consideraven impossible: liderar Europa com a actor global independent. Les decisions preses des del 2022 han construït una credibilitat sòlida amb els aliats i una influència real en l\'agenda internacional. La crisi d\'Ormuz ha sigut la prova definitiva: França ha actuat, ha proposat solucions i ha contribuït a la resolució. París torna a ser una capital global de primera línia.',
+      pedagogy: 'El lideratge europeu requereix credibilitat amb els aliats i voluntat d\'actuar de forma independent quan cal. França ha demostrat que les dues coses no son incompatibles. Però el lideratge té un cost: has sacrificat part de l\'autonomia en el camí.'
+    },
+    {
+      title: 'L\'autonomia estratègica sense aliats',
+      condition: (v) => v.aut >= 6 && v.cred <= 2,
+      text: 'França ha preservat una autonomia estratègica extraordinària. Té canals amb tots els actors, pot actuar de forma independent i no deu favors a ningú. Però ha pagat un preu: els aliats no confien plenament en ella. El gaul·lisme pur té el problema que el món necessita coalicions per canviar.',
+      pedagogy: 'L\'autonomia sense credibilitat pot convertir-se en aïllament. Un actor que actua sol pot conservar la independència però perd la capacitat d\'arrossegar altres actors. La influència real requereix una combinació de les dues.'
+    },
+    {
+      title: 'El mediador creïble',
+      condition: (v) => v.aut >= 4 && v.cred >= 3 && v.inf >= 4,
+      text: 'França ha trobat el seu espai únic: ni el bloc atlantista dur ni l\'aïllament sobirà, sinó el mediador creïble que tots necessiten. Té la confiança suficient dels aliats per ser escoltat i l\'autonomia suficient per ser útil com a pont. La crisi d\'Ormuz ha confirmat aquest rol.',
+      pedagogy: 'El rol de mediador requereix ser percebut com a neutral sense ser irrellevant. França ha demostrat que l\'autonomia estratègica pot ser un actiu quan es combina amb compromisos creïbles.'
+    },
+    {
+      title: 'La potència europea sense definició',
+      condition: () => true,
+      text: 'França ha gestionat les dues crisis sense errors greus però sense moments de lideratge clar. Té actius en totes les dimensions però sense excel·lir en cap. En els debriefings diplomàtics, França apareix com "un dels actors", no com "l\'actor que va fer la diferència".',
+      pedagogy: 'L\'equilibri pot ser una estratègia conscient o pot ser la suma de les indecisions. La diferència és si darrere l\'equilibri hi ha un projecte clar o si és el resultat d\'evitar compromisos difícils.'
+    }
+  ],
+  CN: [
+    {
+      title: 'La superpotència diplomàtica emergent',
+      condition: (v) => v.inf >= 6 && v.cred >= 4,
+      text: 'La Xina ha aconseguit el que fa 20 anys semblava impossible: ser percebuda com a superpotència diplomàtica responsable capaç de resoldre crisis globals. Les decisions de 2022 i 2026 han construït una credibilitat que trascendeix l\'esfera econòmica. Pequín ha demostrat que pot liderar sense ser l\'hegemó.',
+      pedagogy: 'L\'ascens d\'una potència global no es mesura només en PIB o armament. La capacitat de construir coalicions, generar confiança i resoldre crisis és el que diferencia una gran economia d\'una gran potència.'
+    },
+    {
+      title: 'La potència de l\'ambigüitat calculada',
+      condition: (v) => v.aut >= 5 && v.inf >= 3 && v.cred >= 2 && v.cred <= 4,
+      text: 'La Xina ha jugat el seu joc clàssic i ha guanyat. L\'ambigüitat calculada ha permès maximitzar els interessos xinesos sense comprometre\'s en excés amb cap camp. La Xina és influent però no s\'ha exposat. Té relacions amb tots però no és responsable de res.',
+      pedagogy: 'L\'ambigüitat calculada maximitza la flexibilitat a curt termini però limita el lideratge a llarg termini. Un actor que mai es compromet no pot construir les coalicions que defineixen els líders globals.'
+    },
+    {
+      title: 'L\'aposta per Rússia i el món no-occidental',
+      condition: (v) => v.cred <= 2 && v.aut >= 4,
+      text: 'La Xina ha triat el bàndol. Ha apostat per un ordre mundial alternatiu a l\'occidental, amb Rússia i el Sud Global com a socis principals. Si l\'ordre alternatiu xinès prospera, la decisió haurà estat visionària. Si no, haurà aïllat la Xina dels principals mercats mundials.',
+      pedagogy: 'En política internacional, les apostes estratègiques grans poden ser transformadores o catastròfiques. La Xina ha triat una visió clara del futur. La pregunta és si el món l\'acompanyarà.'
+    },
+    {
+      title: 'El gegant econòmic amb influència limitada',
+      condition: () => true,
+      text: 'La Xina és immensament poderosa econòmicament però ha demostrat que el poder econòmic no es converteix automàticament en lideratge polític global. En els fòrums internacionals, la Xina és respectada però no seguida.',
+      pedagogy: 'La conversió del poder econòmic en influència política és un dels reptes centrals de l\'ascens xinès. No és automàtica: requereix voluntat de liderar i acceptació de la responsabilitat que el lideratge comporta.'
+    }
+  ],
+  EU: [
+    {
+      title: 'La UE com a actor global autònom',
+      condition: (v) => v.cred >= 5 && v.aut >= 4 && v.inf >= 4,
+      text: 'La UE ha fet el salt que molts creien impossible: s\'ha convertit en un actor global amb política exterior pròpia, capaç d\'actuar de forma autònoma quan els seus interessos ho requereixen. El somni dels pares fundadors d\'una Europa política —no només econòmica— ha avançat una dècada en quatre anys de crisis.',
+      pedagogy: 'L\'autonomia estratègica europea no és un projecte ideològic sinó una necessitat pràctica: quan els interessos europeus divergeixen dels americans, Europa necessita capacitat d\'actuar sola.'
+    },
+    {
+      title: 'La unitat europea a cost intern',
+      condition: (v) => v.cred >= 4 && v.pre >= 4,
+      text: 'La UE ha aconseguit actuar de forma unitària i efectiva en dues crisis majors. El cost ha estat intern: la tensió entre estats membres ha augmentat. La UE és creïble exteriorment però inestable interiorment.',
+      pedagogy: 'La tensió entre l\'efectivitat exterior i la cohesió interna és el dilema central de la UE. Actuar fort cap a fora sovint requereix cedir per dins.'
+    },
+    {
+      title: 'La UE pragmàtica i dependent',
+      condition: (v) => v.aut <= 2 && v.cred <= 3,
+      text: 'La UE ha gestionat les dues crisis sense errors greus, però ha demostrat que la seva autonomia estratègica és molt limitada. Quan ha hagut de triar, ha prioritzat la relació transatlàntica per damunt de la independència.',
+      pedagogy: 'La dependència estratègica pot ser una elecció racional o una incapacitat disfressada de política. La diferència important és si és una elecció conscient amb els seus límits acceptats.'
+    },
+    {
+      title: 'La UE bloquejada per les divisions internes',
+      condition: (v) => v.pre >= 5,
+      text: 'La UE ha estat massa dividida per actuar de forma efectiva. Les divisions internes entre estats membres han paralitzat les decisions en els moments crítics. Un actor paralitzat per la seva pròpia arquitectura institucional.',
+      pedagogy: 'La tensió entre la diversitat interna de la UE i la necessitat d\'actuar amb rapidesa és estructural. Resoldre-la requereix reformes institucionals profundes o una voluntat política que superi les diferències.'
+    },
+    {
+      title: 'La UE: un actor en construcció',
+      condition: () => true,
+      text: 'La UE ha gestionat les dues crisis amb resultats mixts. Alguns moments de lideratge, alguns de debilitat. La suma és una postura moderada que reflecteix la complexitat d\'una unió de 27 estats.',
+      pedagogy: 'La UE és un experiment polític únic. Les crisis revelen tant la seva fortalesa com les seves limitacions estructurals.'
+    }
+  ]
 };
 
 // ═══════════════════════════════════════════════════════
@@ -1364,8 +1818,6 @@ let completats = {};
 let respostesActuals = {};
 let currentView = 'login';
 let currentModulId = null;
-let simEstat = null;
-
 function loadState() {
   try {
     const raw = localStorage.getItem(KEY);
@@ -1506,12 +1958,12 @@ function buildSimCard() {
     </div>`;
   }
   if (done) {
-    const rolData = SIM_ROLS[completats['SIM'].rol];
-    const perfil = completats['SIM'].profile ? SIM_PERFILS[completats['SIM'].profile.tendency].etiqueta : '';
+    const rolData = SIM_ROLES[completats['SIM'].rol];
+    const profileName = completats['SIM'].profile ? completats['SIM'].profile.name : '';
     return `<div class="sim-modul-card completat" onclick="showSimDone()">
       <div class="sim-label">✅ Missió Final Completada</div>
-      <h3 style="font-family:'Playfair Display',serif;color:var(--gold);font-size:1.15rem;margin-bottom:8px;">🎭 Simulador Geopolític · ${rolData.bandera} ${rolData.pais}</h3>
-      <p style="color:var(--cream-dim);font-size:0.84rem;margin-bottom:6px;">Perfil: <strong style="color:var(--cream)">${perfil}</strong></p>
+      <h3 style="font-family:'Playfair Display',serif;color:var(--gold);font-size:1.15rem;margin-bottom:8px;">🎭 Simulador Geopolític · ${rolData.flag} ${rolData.name}</h3>
+      <p style="color:var(--cream-dim);font-size:0.84rem;margin-bottom:6px;">Perfil: <strong style="color:var(--cream)">${profileName}</strong></p>
       <p style="color:var(--cream-dim);font-size:0.82rem;">Toca per veure el resum de les teves decisions.</p>
     </div>`;
   }
@@ -2042,280 +2494,294 @@ function showFinal() {
 }
 
 // ═══════════════════════════════════════════════════════
-// ▸ SIMULADOR — FUNCIONS
+// ▸ SIMULADOR V2 — FUNCIONS
 // ═══════════════════════════════════════════════════════
+let simState = {
+  role: null,
+  vars: { cred: 3, aut: 4, pre: 2, inf: 3 },
+  decisions: [],
+  currentDecisionIdx: 0,
+  log: [],
+  phase1Profile: null
+};
+
 function showSimulator() {
   if (!completats[4]) { showModuls(); return; }
   if (completats['SIM']) { showSimDone(); return; }
-  showSimIntro();
+  const overlay = document.getElementById('sim-v2');
+  overlay.style.display = 'block';
+  document.getElementById('app').style.display = 'none';
+  svShowScreen('intro');
 }
 
-function showSimIntro() {
-  const rolCards = Object.values(SIM_ROLS).map(r => `
-    <div class="sim-rol-card" onclick="startSim('${r.id}')">
-      <span class="rol-bandera">${r.bandera}</span>
-      <div class="rol-nom">${r.pais}</div>
-      <div class="rol-titol">${r.rol}</div>
-      <div class="rol-resum">${r.resum}</div>
-    </div>`).join('');
-
-  app.innerHTML = header() + `
-    <button class="back-btn" onclick="showModuls()">← Tornar als mòduls</button>
-    <div class="sim-fase-badge">🎭 Missió Final — Simulador Geopolític</div>
-    <h2 style="font-size:1.75rem;color:var(--gold);margin-bottom:10px;">Diplomàcia en Crisi</h2>
-    <p style="color:var(--cream-dim);font-size:0.9rem;line-height:1.75;margin-bottom:22px;">Viuràs dues crisis geopolítiques reals des de dins. Prendràs decisions que no tenen respostes correctes — sols conseqüències. Cada opció reflecteix un dilema que actors reals han hagut d'afrontar.</p>
-    <div class="sim-context-card">
-      <p class="sim-data">⚔️ Fase 1 · ${SIM_DATA.p1.titol}</p>
-      <p>${SIM_DATA.p1.contextGlobal}</p>
-    </div>
-    <p style="font-family:'Playfair Display',serif;font-size:0.82rem;color:var(--gold);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:14px;">Escull el teu rol</p>
-    <div class="sim-rol-grid">${rolCards}</div>`;
+function svShowScreen(id) {
+  document.querySelectorAll('#sim-v2 .sv-screen').forEach(s => s.classList.remove('active'));
+  document.getElementById('sv-' + id).classList.add('active');
 }
 
-function startSim(rolId) {
-  simEstat = { rol:rolId, fase:1, ronda:0, decisions:{}, profile:null, reflexions:['',''], done:false };
-  showSimRound();
+function svClamp(v) { return Math.max(0, Math.min(7, v)); }
+
+function svGetInterpretation(v) {
+  if (v.cred >= 4 && v.aut <= 2) return SIM_INTERPS.high_cred_low_aut;
+  if (v.aut >= 4 && v.cred <= 2) return SIM_INTERPS.high_aut_low_cred;
+  if (v.pre >= 4) return SIM_INTERPS.high_pre;
+  if (v.inf >= 4) return SIM_INTERPS.high_inf;
+  if (v.inf <= 1) return SIM_INTERPS.low_inf;
+  return SIM_INTERPS.balanced;
 }
 
-function buildProgressDots() {
-  const dots = [];
-  for (let f = 1; f <= 2; f++) {
-    if (f === 2) dots.push('<div class="sim-dot-sep"></div>');
-    for (let r = 0; r < 3; r++) {
-      const key = 'p'+f+'r'+r;
-      let cls = 'sim-dot' + (f===2?' fase2':'');
-      if (simEstat.decisions[key] !== undefined) cls += ' done';
-      else if (f===simEstat.fase && r===simEstat.ronda) cls += ' current';
-      dots.push('<div class="'+cls+'"></div>');
+function svMakeDeltaTag(key, val) {
+  const labels = { cred: '🔴', aut: '🟡', pre: '🔵', inf: '⚫' };
+  const cls = val > 0 ? 'p' : val < 0 ? 'n' : 'z';
+  const sign = val > 0 ? '+' : '';
+  return `<span class="sv-dtag ${cls}">${labels[key]} ${sign}${val}</span>`;
+}
+
+function svUpdateSidebar() {
+  const v = simState.vars;
+  const maxVal = 7;
+  document.getElementById('sv-val-cred').textContent = v.cred;
+  document.getElementById('sv-val-aut').textContent = v.aut;
+  document.getElementById('sv-val-pre').textContent = v.pre;
+  document.getElementById('sv-val-inf').textContent = v.inf;
+  document.getElementById('sv-bar-cred').style.width = (v.cred / maxVal * 100) + '%';
+  document.getElementById('sv-bar-aut').style.width = (v.aut / maxVal * 100) + '%';
+  document.getElementById('sv-val-pre-bar').style.width = (v.pre / maxVal * 100) + '%';
+  document.getElementById('sv-bar-inf').style.width = (v.inf / maxVal * 100) + '%';
+  document.getElementById('sv-interp').textContent = svGetInterpretation(v);
+}
+
+function svUpdateLog() {
+  const logEl = document.getElementById('sv-log');
+  logEl.innerHTML = simState.log.map(l =>
+    `<div class="sv-log-item">${l}</div>`
+  ).join('');
+}
+
+function svSelectRole(role) {
+  simState.role = role;
+  simState.vars = { ...SIM_ROLES[role].init };
+  simState.decisions = SIM_DECISIONS[role];
+  simState.currentDecisionIdx = 0;
+  simState.log = [];
+
+  const r = SIM_ROLES[role];
+  document.getElementById('sv-sb-flag').textContent = r.flag;
+  document.getElementById('sv-sb-name').textContent = r.name;
+  document.getElementById('sv-sb-pos').textContent = r.pos;
+
+  svUpdateSidebar();
+  svShowScreen('game');
+  svRenderDecision();
+}
+
+function svRenderDecision() {
+  const dec = simState.decisions[simState.currentDecisionIdx];
+  if (!dec) return;
+
+  const v = simState.vars;
+  const phaseLabel = dec.phase === 1 ? 'Fase 1 · Ucraïna 2022' : "Fase 2 · Estret d'Ormuz 2026";
+  document.getElementById('sv-phase-ind').textContent = phaseLabel;
+  document.getElementById('sv-ph-lbl').textContent = dec.phaseLabel;
+  document.getElementById('sv-ph-ttl').textContent = dec.phaseTitle;
+  document.getElementById('sv-ph-ctx').textContent = dec.phaseContext;
+  document.getElementById('sv-dec-date').textContent = dec.date;
+  document.getElementById('sv-dec-title').textContent = dec.title;
+  document.getElementById('sv-dec-ctx').textContent = dec.context;
+
+  const condEl = document.getElementById('sv-cond-msg');
+  condEl.style.display = 'none';
+  let lockedOption = null;
+
+  if (dec.conditional) {
+    const cond = dec.conditional;
+    if (cond.lockOption && cond.check(v)) {
+      condEl.style.display = 'block';
+      condEl.textContent = cond.msg;
+      lockedOption = cond.lockOption;
+    } else if (cond.unlockMsg && cond.check(v)) {
+      condEl.style.display = 'block';
+      condEl.textContent = cond.unlockMsg;
     }
   }
-  return dots.join('');
-}
 
-function showSimRound() {
-  const {fase,ronda,rol} = simEstat;
-  const rd = SIM_DATA['p'+fase].rondes[rol][ronda];
-  const rolData = SIM_ROLS[rol];
-  const lletres = ['A','B','C'];
+  const container = document.getElementById('sv-opts');
+  container.innerHTML = '';
 
-  const faseBadge = fase===1
-    ? `<div class="sim-fase-badge">🇺🇦 Fase 1 · Ucraïna 2022 · Ronda ${ronda+1} de 3</div>`
-    : `<div class="sim-fase-badge" style="border-color:rgba(91,155,213,0.3);color:#7ab4e0;">⚡ Fase 2 · Ormuz 2026 · Ronda ${ronda+1} de 3</div>`;
-
-  const opcions = rd.opcions.map((op,i) => `
-    <button class="sim-opcio-btn" onclick="chooseSimOption(${i})">
-      <span class="sim-opcio-lletra">${lletres[i]}</span>
-      <span>${op.text}</span>
-    </button>`).join('');
-
-  app.innerHTML = header() + `
-    <button class="back-btn" onclick="showSimIntro()">← Canviar de rol</button>
-    <div class="sim-progress-dots">${buildProgressDots()}</div>
-    ${faseBadge}
-    <div style="display:flex;align-items:center;gap:10px;margin-bottom:18px;">
-      <span style="font-size:1.5rem;">${rolData.bandera}</span>
-      <span style="font-family:'Playfair Display',serif;font-size:0.82rem;color:var(--cream-dim);">${rolData.rol}</span>
-    </div>
-    <h2 style="font-size:1.45rem;color:var(--gold);margin-bottom:4px;">${rd.titol}</h2>
-    <p style="color:var(--cream-dim);font-size:0.84rem;font-style:italic;margin-bottom:18px;">${rd.data}</p>
-    <div class="sim-context-card">
-      <p class="sim-data">Context de la situació</p>
-      <p>${rd.context}</p>
-    </div>
-    <p style="font-family:'Playfair Display',serif;font-size:0.78rem;color:var(--gold);text-transform:uppercase;letter-spacing:1.5px;margin-bottom:10px;">La teva decisió</p>
-    <div class="sim-opcions">${opcions}</div>`;
-}
-
-function chooseSimOption(idx) {
-  const {fase,ronda} = simEstat;
-  simEstat.decisions['p'+fase+'r'+ronda] = idx;
-  showSimConsequence(idx);
-}
-
-function showSimConsequence(idx) {
-  const {fase,ronda,rol} = simEstat;
-  const rd = SIM_DATA['p'+fase].rondes[rol][ronda];
-  const opcio = rd.opcions[idx];
-  const lletres = ['A','B','C'];
-
-  const isLastP1 = fase===1 && ronda===2;
-  const isLastP2 = fase===2 && ronda===2;
-  let nextBtn;
-  if (isLastP1)     nextBtn = `<button class="btn-primary" style="max-width:320px;margin:0 auto" onclick="showPhase2Transition()">Avançar al 2026 →</button>`;
-  else if (isLastP2) nextBtn = `<button class="btn-primary" style="max-width:320px;margin:0 auto" onclick="showSimReflection()">Reflexió final →</button>`;
-  else              nextBtn = `<button class="btn-primary" style="max-width:320px;margin:0 auto" onclick="nextSimRound()">Continua →</button>`;
-
-  const faseBadge = fase===1
-    ? `<div class="sim-fase-badge">🇺🇦 Fase 1 · Ronda ${ronda+1} · Decisió ${lletres[idx]}</div>`
-    : `<div class="sim-fase-badge" style="border-color:rgba(91,155,213,0.3);color:#7ab4e0;">⚡ Fase 2 · Ronda ${ronda+1} · Decisió ${lletres[idx]}</div>`;
-
-  app.innerHTML = header() + `
-    <div class="sim-progress-dots">${buildProgressDots()}</div>
-    ${faseBadge}
-    <h3 style="color:var(--gold);font-size:1.3rem;margin-bottom:4px;">${rd.titol}</h3>
-    <p style="color:var(--cream-dim);font-size:0.82rem;font-style:italic;margin-bottom:18px;">${rd.data}</p>
-    <div style="background:rgba(201,168,76,0.06);border:1px solid rgba(201,168,76,0.18);border-radius:9px;padding:13px 16px;margin-bottom:18px;">
-      <p style="font-size:0.78rem;color:var(--cream-dim);margin-bottom:4px;">Has escollit</p>
-      <p style="font-size:0.91rem;color:var(--white);">${lletres[idx]}. ${opcio.text}</p>
-    </div>
-    <div class="sim-consequencia">
-      <h4>📋 Conseqüències de la teva decisió</h4>
-      <p>${opcio.consequencia}</p>
-    </div>
-    <div style="display:flex;flex-direction:column;align-items:center;margin-top:22px;">${nextBtn}</div>`;
-}
-
-function nextSimRound() {
-  if (simEstat.ronda < 2) simEstat.ronda++;
-  else { simEstat.fase = 2; simEstat.ronda = 0; }
-  showSimRound();
-}
-
-function calcSimProfile() {
-  let hD = 0;
-  const rol = simEstat.rol;
-  SIM_DATA.p1.rondes[rol].forEach((rd, i) => {
-    const key = 'p1r'+i;
-    if (simEstat.decisions[key] !== undefined)
-      hD += rd.opcions[simEstat.decisions[key]].eixos.hD;
+  dec.options.forEach(opt => {
+    if (opt.special && opt.condition && !opt.condition(v)) return;
+    const isLocked = lockedOption === opt.letter;
+    const btn = document.createElement('button');
+    btn.className = 'sv-opt' + (opt.special ? ' special' : '') + (isLocked ? ' locked' : '');
+    const specialBadge = opt.special
+      ? ' <span style="font-size:0.6rem;background:var(--sv-yellow);color:#000;padding:0.1rem 0.4rem;margin-left:0.5rem;">EXCLUSIVA</span>'
+      : '';
+    const deltaTags = Object.entries(opt.delta).map(([k, dv]) => svMakeDeltaTag(k, dv)).join('');
+    btn.innerHTML = `
+      <div class="sv-opt-ltr">Opció ${opt.letter}${specialBadge}</div>
+      <div class="sv-opt-text">${opt.text}</div>
+      <div class="sv-deltas">${deltaTags}</div>
+    `;
+    if (!isLocked) btn.onclick = () => svChooseOption(opt);
+    container.appendChild(btn);
   });
-  const tendency = hD >= 2 ? 'assertiu' : hD <= -2 ? 'dialoguista' : 'equilibrat';
-  return { hD, tendency };
+
+  document.querySelector('#sim-v2 .sv-main').scrollTop = 0;
 }
 
-function showPhase2Transition() {
-  simEstat.profile = calcSimProfile();
-  const perfil = SIM_PERFILS[simEstat.profile.tendency];
-  const intro = SIM_DATA.p2.intros[simEstat.rol][simEstat.profile.tendency];
-
-  app.innerHTML = header() + `
-    <div style="text-align:center;padding:20px 0 24px;animation:fadeInUp 0.5s ease;">
-      <span style="font-size:3.2rem;display:block;margin-bottom:14px;">⏩</span>
-      <h2 style="font-size:1.8rem;color:var(--gold);margin-bottom:8px;">Han passat 4 anys</h2>
-      <p style="color:var(--cream-dim);font-size:0.88rem;">Les teves decisions de 2022 han tingut conseqüències.</p>
-    </div>
-    <div class="sim-perfil-card">
-      <p class="sim-perfil-titol">El teu perfil diplomàtic (Fase 1)</p>
-      <p class="sim-perfil-nom">${SIM_ROLS[simEstat.rol].bandera} ${SIM_ROLS[simEstat.rol].pais} · ${perfil.etiqueta}</p>
-      <p class="sim-perfil-desc">${perfil.desc}</p>
-    </div>
-    <div class="fase2-alert">
-      <p class="fa2-tag">⚡ Abril 2026 · Crisi de l'Estret d'Ormuz</p>
-      <p>${SIM_DATA.p2.contextGlobal}</p>
-    </div>
-    <div class="sim-context-card" style="border-left-color:#5b9bd5;">
-      <p class="sim-data" style="color:#5b9bd5;">La teva situació específica com a ${SIM_ROLS[simEstat.rol].pais}</p>
-      <p>${intro}</p>
-    </div>
-    <div style="text-align:center;margin-top:24px;">
-      <button class="btn-primary" style="max-width:320px;margin:0 auto" onclick="startPhase2()">Entrar a la Fase 2 →</button>
-    </div>`;
+function svChooseOption(opt) {
+  const oldVars = { ...simState.vars };
+  Object.entries(opt.delta).forEach(([k, d]) => {
+    simState.vars[k] = svClamp(simState.vars[k] + d);
+  });
+  simState.log.unshift(`Decisió ${simState.currentDecisionIdx + 1}: Opció ${opt.letter}`);
+  svShowFeedback(opt, oldVars);
 }
 
-function startPhase2() {
-  simEstat.fase = 2; simEstat.ronda = 0;
-  showSimRound();
-}
+function svShowFeedback(opt, oldVars) {
+  document.getElementById('sv-fb-ttl').textContent = `Opció ${opt.letter} seleccionada`;
+  document.getElementById('sv-fb-text').textContent = opt.feedback;
 
-function showSimReflection() {
-  app.innerHTML = header() + `
-    <div class="sim-fase-badge">🕊️ Reflexió metacognitiva final</div>
-    <h2 style="font-size:1.65rem;color:var(--gold);margin-bottom:8px;">Reflexiona sobre les teves decisions</h2>
-    <p style="color:var(--cream-dim);font-size:0.87rem;line-height:1.75;margin-bottom:26px;">Has pres 6 decisions crucials en dos moments crítics de la història recent. Ara mira enrere.</p>
-    <div class="reflexio-card">
-      <span class="reflexio-badge">Reflexió 1</span>
-      <p class="pregunta">Mirant totes les teves decisions a les dues fases: quins valors o principis han guiat les teves eleccions? Han estat coherents entre la crisi d'Ucraïna i la d'Ormuz, o han canviat? Per qué?</p>
-      <textarea id="sim-r1" placeholder="Escriu aquí la teva reflexió..." oninput="simCc(1)"></textarea>
-      <p class="char-count" id="sim-cc1">0 caràcters (mínim 80)</p>
-    </div>
-    <div class="reflexio-card">
-      <span class="reflexio-badge">Reflexió 2</span>
-      <p class="pregunta">Compara les teves decisions amb el que ha passat a la realitat. Qué et diu la comparació sobre la complexitat de la presa de decisions en política internacional i sobre els límits dels actors internacionals — fins i tot els més poderosos?</p>
-      <textarea id="sim-r2" placeholder="Escriu aquí la teva reflexió..." oninput="simCc(2)"></textarea>
-      <p class="char-count" id="sim-cc2">0 caràcters (mínim 80)</p>
-    </div>
-    <div class="submit-box">
-      <p>Cal un mínim de 80 caràcters a cada reflexió.</p>
-      <div class="submit-error" id="sim-err"></div>
-      <button class="btn-primary" onclick="submitSim()">Completar el simulador →</button>
-    </div>`;
-}
+  const varsEl = document.getElementById('sv-fb-vars');
+  const keys = ['cred', 'aut', 'pre', 'inf'];
+  const labels = { cred: '🔴 Credibilitat', aut: '🟡 Autonomia', pre: '🔵 Pressió interna', inf: '⚫ Influència' };
 
-function simCc(n) {
-  const ta = document.getElementById('sim-r'+n);
-  const cc = document.getElementById('sim-cc'+n);
-  if (!ta||!cc) return;
-  const len = ta.value.trim().length;
-  cc.textContent = len + ' caràcters (mínim 80)';
-  cc.className = 'char-count' + (len>=80?' ok':'');
-}
+  varsEl.innerHTML = keys.map(k => {
+    const d = opt.delta[k];
+    const newVal = simState.vars[k];
+    const sign = d > 0 ? '+' : '';
+    const cls = d > 0 ? 'p' : d < 0 ? 'n' : 'z';
+    return `<div class="sv-fb-var"><span>${labels[k]}</span><span class="ch ${cls}">${sign}${d} → ${newVal}</span></div>`;
+  }).join('');
 
-function submitSim() {
-  const r1 = document.getElementById('sim-r1').value.trim();
-  const r2 = document.getElementById('sim-r2').value.trim();
-  const errEl = document.getElementById('sim-err');
-  if (r1.length<80 || r2.length<80) {
-    errEl.textContent = 'Cal escriure almenys 80 caràcters a cadascuna de les reflexions.';
-    errEl.classList.add('show'); return;
+  const warnEl = document.getElementById('sv-fb-warn');
+  if (opt.warning) {
+    warnEl.style.display = 'block';
+    warnEl.textContent = opt.warning;
+  } else {
+    warnEl.style.display = 'none';
   }
-  errEl.classList.remove('show');
-  simEstat.reflexions = [r1, r2];
-  simEstat.done = true;
+
+  document.getElementById('sv-fb-overlay').classList.add('active');
+}
+
+function svCloseFeedback() {
+  document.getElementById('sv-fb-overlay').classList.remove('active');
+  svUpdateSidebar();
+  svUpdateLog();
+
+  const dec = simState.decisions[simState.currentDecisionIdx];
+  simState.currentDecisionIdx++;
+
+  const nextDec = simState.decisions[simState.currentDecisionIdx];
+
+  if (!nextDec) {
+    svShowEnding();
+    return;
+  }
+
+  if (dec.phase === 1 && nextDec.phase === 2) {
+    svShowTransition();
+    return;
+  }
+
+  svRenderDecision();
+}
+
+function svShowTransition() {
+  const v = simState.vars;
+  const profiles = SIM_PROFILES[simState.role];
+  const profile = profiles.find(p => p.condition(v));
+  simState.phase1Profile = profile.name;
+
+  document.getElementById('sv-tr-profile').textContent = `Perfil: ${profile.name}`;
+  document.getElementById('sv-tr-text').textContent = profile.text;
+
+  svShowScreen('transition');
+}
+
+function svStartPhase2() {
+  const v = simState.vars;
+  const dom = Object.entries(v).sort(([,a],[,b]) => b-a)[0][0];
+  simState.vars[dom] = svClamp(simState.vars[dom] + 1);
+  svUpdateSidebar();
+  svShowScreen('game');
+  svRenderDecision();
+}
+
+function svShowEnding() {
+  const v = simState.vars;
+  const endings = SIM_ENDINGS[simState.role];
+  const ending = endings.find(e => e.condition(v));
+
+  document.getElementById('sv-end-title').textContent = ending.title;
+  document.getElementById('sv-end-text').textContent = ending.text;
+  document.getElementById('sv-end-pedagogy').textContent = '→ ' + ending.pedagogy;
+
+  document.getElementById('sv-end-vars').innerHTML = `
+    <div class="ending-var"><div class="label">🔴 Credibilitat</div><div class="value" style="color:var(--sv-red)">${v.cred}</div></div>
+    <div class="ending-var"><div class="label">🟡 Autonomia</div><div class="value" style="color:var(--sv-yellow)">${v.aut}</div></div>
+    <div class="ending-var"><div class="label">🔵 Pressió</div><div class="value" style="color:var(--sv-blue)">${v.pre}</div></div>
+    <div class="ending-var"><div class="label">⚫ Influència</div><div class="value" style="color:var(--sv-dark)">${v.inf}</div></div>
+  `;
+
+  svShowScreen('ending');
+}
+
+function svCheckChars(textareaId, countId) {
+  const len = document.getElementById(textareaId).value.length;
+  const el = document.getElementById(countId);
+  el.textContent = len + ' caràcters' + (len < 80 ? ' (mínim 80)' : ' ✓');
+  el.className = 'sv-char-count' + (len >= 80 ? ' valid' : '');
+}
+
+function svFinishReflection() {
+  const r1 = document.getElementById('sv-ref1').value;
+  const r2 = document.getElementById('sv-ref2').value;
+  const r3 = document.getElementById('sv-ref3').value;
+  const errEl = document.getElementById('sv-ref-err');
+
+  if (r1.length < 80 || r2.length < 80 || r3.length < 80) {
+    errEl.style.display = 'block';
+    return;
+  }
+  errEl.style.display = 'none';
+
+  const role = simState.role;
+  const rolData = SIM_ROLES[role];
+  const profile = simState.phase1Profile || '—';
+  const decisionsArr = simState.log.slice().reverse().map((l, i) => `D${i+1}: ${l}`);
 
   completats['SIM'] = {
-    rol: simEstat.rol,
-    decisions: simEstat.decisions,
-    profile: simEstat.profile,
-    reflexions: [r1, r2],
+    rol: role,
+    decisions: simState.log,
+    profile: { name: profile },
+    reflexions: [r1, r2, r3],
     done: true
   };
   saveState();
 
-  // Enviar al GAS
-  const rol = simEstat.rol;
-  const rolData = SIM_ROLS[rol];
-  const lletres = ['A','B','C'];
-  const decisionsArr = [];
-  for (let f=1;f<=2;f++) for (let r=0;r<3;r++) {
-    const key = 'p'+f+'r'+r;
-    const idx = simEstat.decisions[key];
-    if (idx!==undefined) {
-      const rd = SIM_DATA['p'+f].rondes[rol][r];
-      decisionsArr.push('F'+f+'R'+(r+1)+': '+lletres[idx]+') '+rd.opcions[idx].text.substring(0,70));
-    }
-  }
-  const profileLabel = simEstat.profile ? SIM_PERFILS[simEstat.profile.tendency].etiqueta : '—';
   saveResultsGAS({
-    modul_id:'SIM', modul_titol:'Simulador - '+rolData.pais,
-    punts:0, total:0, insignia:true,
-    reflexions:[
-      'Rol: '+rolData.pais+' | Perfil: '+profileLabel,
-      ...decisionsArr, r1, r2
+    modul_id: 'SIM', modul_titol: 'Simulador - ' + rolData.name,
+    punts: 0, total: 0, insignia: true,
+    reflexions: [
+      'Rol: ' + rolData.name + ' | Perfil: ' + profile,
+      ...decisionsArr, r1, r2, r3
     ]
   });
   saveProgressGAS();
+
+  document.getElementById('sim-v2').style.display = 'none';
+  document.getElementById('app').style.display = '';
   showSimDone();
 }
 
 function showSimDone() {
   const data = completats['SIM'];
   if (!data) { showModuls(); return; }
-  const rolData = SIM_ROLS[data.rol];
-  const perfil = data.profile ? SIM_PERFILS[data.profile.tendency] : null;
-  const lletres = ['A','B','C'];
-
-  const decisionsHTML = [1,2].map(f => {
-    const items = [0,1,2].map(r => {
-      const key='p'+f+'r'+r, idx=data.decisions[key];
-      if (idx===undefined) return '';
-      const rd = SIM_DATA['p'+f].rondes[data.rol][r];
-      return `<p style="font-size:0.82rem;color:var(--cream-dim);margin-bottom:7px;line-height:1.55;">
-        <span style="color:var(--gold);font-family:'Playfair Display',serif;font-size:0.78rem;">R${r+1}.</span> ${lletres[idx]}) ${rd.opcions[idx].text.substring(0,75)}…
-      </p>`;
-    }).join('');
-    const label = f===1?'🇺🇦 Fase 1 · Ucraïna 2022':'⚡ Fase 2 · Ormuz 2026';
-    return `<div style="margin-bottom:18px;"><p style="font-size:0.7rem;color:var(--gold);text-transform:uppercase;letter-spacing:1.5px;font-family:'Playfair Display',serif;margin-bottom:8px;">${label}</p>${items}</div>`;
-  }).join('');
+  const rolData = SIM_ROLES[data.rol];
+  const profileName = data.profile ? data.profile.name : '—';
+  const reflexions = data.reflexions || [];
 
   app.innerHTML = header() + `
     <div class="success-screen">
@@ -2327,14 +2793,11 @@ function showSimDone() {
         <h3>Insígnia obtinguda!</h3>
         <p><strong>Diplomàtica del Món</strong><br><em>Missió final completada</em></p>
       </div>
-      ${perfil ? `<div class="sim-perfil-card" style="max-width:480px;margin:20px auto;">
-        <p class="sim-perfil-titol">El teu perfil diplomàtic</p>
-        <p class="sim-perfil-nom">${rolData.bandera} ${rolData.pais} · ${perfil.etiqueta}</p>
-        <p class="sim-perfil-desc">${perfil.desc}</p>
-      </div>` : ''}
       <div style="text-align:left;background:var(--navy-mid);border:var(--border);border-radius:12px;padding:20px 22px;margin:20px auto;max-width:520px;">
-        <p style="font-family:'Playfair Display',serif;font-size:0.75rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold);margin-bottom:16px;">Les teves decisions</p>
-        ${decisionsHTML}
+        <p style="font-family:'Playfair Display',serif;font-size:0.75rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--gold);margin-bottom:8px;">
+          Rol · ${rolData.flag} ${rolData.name} · Perfil: ${profileName}
+        </p>
+        ${reflexions[0] ? `<p style="font-size:0.82rem;color:var(--cream-dim);">${reflexions[0].substring(0, 120)}…</p>` : ''}
       </div>
       <div style="display:flex;flex-direction:column;align-items:center;max-width:340px;margin:20px auto 0;gap:12px;">
         <button class="btn-secondary" onclick="showModuls()">Tornar al tauler</button>
